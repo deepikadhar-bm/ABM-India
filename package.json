@@ -1,0 +1,32 @@
+{
+  "name": "enterprise-playwright-tests",
+  "version": "2.0.0",
+  "license": "MIT",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "csv-parse": "^6.1.0",
+    "exceljs": "^3.4.0",
+    "fs-extra": "^11.3.2",
+    "pdf-parse": "^1.1.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@playwright/test": "^1.56.1",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.19.43",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "allure-playwright": "^3.4.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.57.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^6.0.3"
+  },
+  "type": "commonjs"
+}
