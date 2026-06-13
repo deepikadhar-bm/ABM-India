@@ -170,7 +170,9 @@ test.describe('Purchase Order Module', () => {
 
         // ── Approve PO ────────────────────────────────────────────────────────
         log.step('Approve Purchase Order');
-        await stepGroup_ApproveUntilDone(base, el, 4);
+        await stepGroup_ApproveUntilDone(base, el , 5);
+
+        
         log.pass('PO Approved');
 
         // ── Create GRN ────────────────────────────────────────────────────────

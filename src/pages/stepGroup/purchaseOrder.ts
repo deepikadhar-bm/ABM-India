@@ -17,18 +17,11 @@ export async function stepGroup_HandleSubmitPopups(
 export async function stepGroup_ApproveUntilDone(
     base: BasePage,
     el: PurchaseOrderLocators,
-    maxApprovals = 3
+    maxApprovals = 5
 ) {
 
-    // Already approved
-    const alreadyApproved = await el.approvedStatus
-        .isVisible()
-        .catch(() => false);
-
-    if (alreadyApproved) {
-        console.log('✅ Already Approved - skipping approval');
-        return;
-    }
+    // Give page time after submit
+    await base.pause(5000);
 
     for (let i = 0; i < maxApprovals; i++) {
 
@@ -37,7 +30,7 @@ export async function stepGroup_ApproveUntilDone(
             .catch(() => false);
 
         if (!visible) {
-            console.log('✅ Approval completed');
+            console.log('Approve button not visible - exiting loop');
             break;
         }
 
@@ -49,24 +42,12 @@ export async function stepGroup_ApproveUntilDone(
                 await base.click(el.yesApproveButton);
             },
             undefined,
-            3000
+            5000
         );
 
         await base.waitForLoadState('domcontentloaded');
 
-        // Optional if available in BasePage
-        await base.waitForPageReady();
-
-        // Give UI a chance to refresh
-        await base.pause(1000);
-
-        const stillVisible = await el.approveThisDocumentButton
-            .isVisible()
-            .catch(() => false);
-
-        if (!stillVisible) {
-            console.log('✅ Approve button disappeared');
-            break;
-        }
+        // Let page refresh after approval
+        await base.pause(3000);
     }
 }

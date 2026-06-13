@@ -1,326 +1,316 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="112.61693500000005">
-<testsuite name="simpletestcase.spec.ts" timestamp="2026-06-12T13:01:55.656Z" hostname="chromium" tests="1" failures="0" skipped="0" time="108.711" errors="0">
-<testcase name="Purchase Order Module › REG_TS_PO_TC01 - Create Purchase Order - Full E2E" classname="simpletestcase.spec.ts" time="108.711">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="117.88221899999999">
+<testsuite name="simpletestcase.spec.ts" timestamp="2026-06-13T00:43:49.473Z" hostname="chromium" tests="1" failures="0" skipped="0" time="113.958" errors="0">
+<testcase name="Purchase Order Module › REG_TS_PO_TC01 - Create Purchase Order - Full E2E" classname="simpletestcase.spec.ts" time="113.958">
 <system-out>
-<![CDATA[[96m2026-06-12T13:01:57.435Z [INFO]  REG_TS_PO_TC01 - Create Purchase Order - Full E2E[0m
-[1m[97m2026-06-12T13:01:57.435Z [STEP]  ▶ Step 1 | Login to application | +0.86s[0m
-[96m2026-06-12T13:01:57.436Z [INFO]  Opening Base URL: https://sandbox5101.projectlane.io/spa#/1/home[0m
-[2m[37m2026-06-12T13:01:58.678Z [DEBUG] Wait: URL contains → "sandbox5101.projectlane.io"[0m
-[2m[37m2026-06-12T13:01:58.750Z [DEBUG] URL matched "sandbox5101.projectlane.io" in 71ms[0m
-[96m2026-06-12T13:01:58.751Z [INFO]  Logging in as: user2@gm.com[0m
-[2m[37m2026-06-12T13:01:58.810Z [DEBUG] Fill → type="email"]') | user2@gm.com[0m
-[2m[37m2026-06-12T13:01:59.109Z [DEBUG] Fill → type="password"]') | 12345[0m
-[2m[37m2026-06-12T13:01:59.261Z [DEBUG] Click → LOGIN[0m
-[96m2026-06-12T13:02:10.139Z [INFO]  Login successful[0m
-[96m2026-06-12T13:02:10.182Z [INFO]  ProjectBase 2.0 is displayed[0m
-[1m[92m2026-06-12T13:02:10.183Z [PASS]  Login successful[0m
-[1m[97m2026-06-12T13:02:10.183Z [STEP]  ▶ Step 2 | Open Purchase Order form | +12.75s[0m
-[1m[97m2026-06-12T13:02:10.184Z [STEP]  ▶ Step 3 | Click → Type To Search Field | +0.00s[0m
-[2m[37m2026-06-12T13:02:10.354Z [DEBUG] Click → Type To Search Field[0m
-[1m[92m2026-06-12T13:02:10.882Z [PASS]  Clicked → Type To Search Field[0m
-[1m[97m2026-06-12T13:02:10.882Z [STEP]  ▶ Step 4 | Type → Search Field | "Purchase Order" | +0.70s[0m
-[2m[37m2026-06-12T13:02:10.915Z [DEBUG] Type → Search Field | value="Purchase Order"[0m
-[1m[92m2026-06-12T13:02:12.242Z [PASS]  Typed → Search Field[0m
-[1m[97m2026-06-12T13:02:12.242Z [STEP]  ▶ Step 5 | Click → Purchase Orders Dropdown | +1.36s[0m
-[2m[37m2026-06-12T13:02:12.286Z [DEBUG] Click → Purchase Orders Dropdown[0m
-[1m[92m2026-06-12T13:02:12.634Z [PASS]  Clicked → Purchase Orders Dropdown[0m
-[1m[97m2026-06-12T13:02:12.635Z [STEP]  ▶ Step 6 | Click → Create Purchase Order Button | +0.39s[0m
-[2m[37m2026-06-12T13:02:13.728Z [DEBUG] Click → Create Purchase Order Button[0m
-[1m[92m2026-06-12T13:02:14.001Z [PASS]  Clicked → Create Purchase Order Button[0m
-[1m[92m2026-06-12T13:02:14.001Z [PASS]  Purchase Order form opened[0m
-[1m[97m2026-06-12T13:02:14.001Z [STEP]  ▶ Step 7 | Select Warehouse | +1.37s[0m
-[1m[97m2026-06-12T13:02:14.002Z [STEP]  ▶ Step 8 | Click → For Stock Radio | +0.00s[0m
-[2m[37m2026-06-12T13:02:14.199Z [DEBUG] Click → For Stock Radio[0m
-[1m[92m2026-06-12T13:02:14.572Z [PASS]  Clicked → For Stock Radio[0m
-[1m[97m2026-06-12T13:02:14.573Z [STEP]  ▶ Step 9 | Click → Warehouse Dropdown | +0.57s[0m
-[2m[37m2026-06-12T13:02:14.763Z [DEBUG] Click → Warehouse Dropdown[0m
-[1m[92m2026-06-12T13:02:15.116Z [PASS]  Clicked → Warehouse Dropdown[0m
-[1m[97m2026-06-12T13:02:15.116Z [STEP]  ▶ Step 10 | Click → Warehouse Select | +0.54s[0m
-[2m[37m2026-06-12T13:02:15.428Z [DEBUG] Click → Warehouse Select[0m
-[1m[92m2026-06-12T13:02:15.900Z [PASS]  Clicked → Warehouse Select[0m
-[1m[97m2026-06-12T13:02:15.902Z [STEP]  ▶ Step 11 | Click → Tax Unit | +0.79s[0m
-[2m[37m2026-06-12T13:02:15.964Z [DEBUG] Click → Tax Unit[0m
-[1m[92m2026-06-12T13:02:16.781Z [PASS]  Clicked → Tax Unit[0m
-[1m[97m2026-06-12T13:02:16.782Z [STEP]  ▶ Step 12 | Click → Chennai Branch | +0.88s[0m
-[2m[37m2026-06-12T13:02:16.874Z [DEBUG] Click → Chennai Branch[0m
-[1m[92m2026-06-12T13:02:17.714Z [PASS]  Clicked → Chennai Branch[0m
-[1m[97m2026-06-12T13:02:17.715Z [STEP]  ▶ Step 13 | Click → Done Button | +0.93s[0m
-[2m[37m2026-06-12T13:02:17.783Z [DEBUG] Click → Done Button[0m
-[1m[92m2026-06-12T13:02:19.307Z [PASS]  Clicked → Done Button[0m
-[1m[92m2026-06-12T13:02:19.307Z [PASS]  Warehouse selected[0m
-[1m[97m2026-06-12T13:02:19.307Z [STEP]  ▶ Step 14 | Select Supplier: Mohamed Supplier | +1.59s[0m
-[1m[97m2026-06-12T13:02:19.308Z [STEP]  ▶ Step 15 | Click → Supplier Dropdown | +0.00s[0m
-[2m[37m2026-06-12T13:02:19.354Z [DEBUG] Click → Supplier Dropdown[0m
-[1m[92m2026-06-12T13:02:19.867Z [PASS]  Clicked → Supplier Dropdown[0m
-[1m[97m2026-06-12T13:02:19.869Z [STEP]  ▶ Step 16 | Wait visible → Supplier Dropdown | +0.56s[0m
-[2m[37m2026-06-12T13:02:20.366Z [DEBUG] Wait: visible → first | timeout: 30000ms[0m
-[2m[37m2026-06-12T13:02:20.473Z [DEBUG] Visible in 107ms → first[0m
-[1m[92m2026-06-12T13:02:20.473Z [PASS]  Visible → Supplier Dropdown[0m
-[1m[93m2026-06-12T13:02:20.475Z [WARN]  pause → 300ms[0m
-[1m[97m2026-06-12T13:02:20.864Z [STEP]  ▶ Step 17 | Type → Supplier Dropdown | "Mohamed Supplier" | +0.99s[0m
-[2m[37m2026-06-12T13:02:20.926Z [DEBUG] Type → Supplier Dropdown | value="Mohamed Supplier"[0m
-[1m[92m2026-06-12T13:02:22.632Z [PASS]  Typed → Supplier Dropdown[0m
-[1m[97m2026-06-12T13:02:22.633Z [STEP]  ▶ Step 18 | Press key → "Enter" | +1.77s[0m
-[1m[92m2026-06-12T13:02:22.883Z [PASS]  Key pressed → "Enter"[0m
-[1m[92m2026-06-12T13:02:22.883Z [PASS]  Supplier: Mohamed Supplier[0m
-[1m[97m2026-06-12T13:02:22.884Z [STEP]  ▶ Step 19 | Select Delivery Address: Chennai | +0.25s[0m
-[1m[97m2026-06-12T13:02:22.886Z [STEP]  ▶ Step 20 | Scroll to → Delivery Address Label | +0.00s[0m
-[1m[92m2026-06-12T13:02:23.162Z [PASS]  Scrolled → Delivery Address Label[0m
-[1m[97m2026-06-12T13:02:23.162Z [STEP]  ▶ Step 21 | Click → Delivery Address Dropdown | +0.28s[0m
-[2m[37m2026-06-12T13:02:23.242Z [DEBUG] Click → Delivery Address Dropdown[0m
-[1m[92m2026-06-12T13:02:23.937Z [PASS]  Clicked → Delivery Address Dropdown[0m
-[1m[93m2026-06-12T13:02:23.937Z [WARN]  pause → 300ms[0m
-[1m[97m2026-06-12T13:02:24.275Z [STEP]  ▶ Step 22 | Type → Delivery Address Dropdown | "Chennai" | +1.11s[0m
-[2m[37m2026-06-12T13:02:24.317Z [DEBUG] Type → Delivery Address Dropdown | value="Chennai"[0m
-[1m[92m2026-06-12T13:02:25.194Z [PASS]  Typed → Delivery Address Dropdown[0m
-[1m[97m2026-06-12T13:02:25.195Z [STEP]  ▶ Step 23 | Press key → "Enter" | +0.92s[0m
-[1m[92m2026-06-12T13:02:25.307Z [PASS]  Key pressed → "Enter"[0m
-[1m[92m2026-06-12T13:02:25.307Z [PASS]  Delivery Address: Chennai[0m
-[1m[97m2026-06-12T13:02:25.308Z [STEP]  ▶ Step 24 | Select Purchase Executive: Admin | +0.11s[0m
-[1m[97m2026-06-12T13:02:25.309Z [STEP]  ▶ Step 25 | Click → Purchase Executive Dropdown | +0.00s[0m
-[2m[37m2026-06-12T13:02:25.365Z [DEBUG] Click → Purchase Executive Dropdown[0m
-[1m[92m2026-06-12T13:02:25.796Z [PASS]  Clicked → Purchase Executive Dropdown[0m
-[1m[93m2026-06-12T13:02:25.796Z [WARN]  pause → 300ms[0m
-[1m[97m2026-06-12T13:02:26.153Z [STEP]  ▶ Step 26 | Type → Purchase Executive Dropdown | "Admin" | +0.84s[0m
-[2m[37m2026-06-12T13:02:26.200Z [DEBUG] Type → Purchase Executive Dropdown | value="Admin"[0m
-[1m[92m2026-06-12T13:02:27.382Z [PASS]  Typed → Purchase Executive Dropdown[0m
-[1m[97m2026-06-12T13:02:27.382Z [STEP]  ▶ Step 27 | Press key → "Enter" | +1.23s[0m
-[1m[92m2026-06-12T13:02:27.580Z [PASS]  Key pressed → "Enter"[0m
-[1m[92m2026-06-12T13:02:27.581Z [PASS]  Purchase Executive: Admin[0m
-[1m[97m2026-06-12T13:02:27.581Z [STEP]  ▶ Step 28 | Add Item: Item 1 | +0.20s[0m
-[1m[97m2026-06-12T13:02:27.581Z [STEP]  ▶ Step 29 | Click → Add Items Button | +0.00s[0m
-[2m[37m2026-06-12T13:02:27.697Z [DEBUG] Click → Add Items Button[0m
-[1m[92m2026-06-12T13:02:28.824Z [PASS]  Clicked → Add Items Button[0m
-[1m[97m2026-06-12T13:02:28.825Z [STEP]  ▶ Step 30 | Wait visible → Item Textbox | +1.24s[0m
-[2m[37m2026-06-12T13:02:28.908Z [DEBUG] Wait: visible → first | timeout: 30000ms[0m
-[2m[37m2026-06-12T13:02:28.995Z [DEBUG] Visible in 86ms → first[0m
-[1m[92m2026-06-12T13:02:28.996Z [PASS]  Visible → Item Textbox[0m
-[1m[97m2026-06-12T13:02:28.999Z [STEP]  ▶ Step 31 | Click → Item Textbox | +0.17s[0m
-[2m[37m2026-06-12T13:02:29.205Z [DEBUG] Click → Item Textbox[0m
-[1m[92m2026-06-12T13:02:35.108Z [PASS]  Clicked → Item Textbox[0m
-[1m[93m2026-06-12T13:02:35.108Z [WARN]  pause → 300ms[0m
-[1m[97m2026-06-12T13:02:35.447Z [STEP]  ▶ Step 32 | Type → Item Textbox | "Item 1" | +6.45s[0m
-[2m[37m2026-06-12T13:02:35.507Z [DEBUG] Type → Item Textbox | value="Item 1"[0m
-[1m[92m2026-06-12T13:02:36.533Z [PASS]  Typed → Item Textbox[0m
-[1m[97m2026-06-12T13:02:36.534Z [STEP]  ▶ Step 33 | Click → Item Option (Item 1) | +1.09s[0m
-[2m[37m2026-06-12T13:02:36.867Z [DEBUG] Click → Item Option (Item 1)[0m
-[1m[92m2026-06-12T13:02:37.494Z [PASS]  Clicked → Item Option (Item 1)[0m
-[1m[92m2026-06-12T13:02:37.494Z [PASS]  Item: Item 1[0m
-[1m[97m2026-06-12T13:02:37.494Z [STEP]  ▶ Step 34 | Enter Quantity: 10 | +0.96s[0m
-[1m[97m2026-06-12T13:02:37.495Z [STEP]  ▶ Step 35 | Click → Quantity Textbox | +0.00s[0m
-[2m[37m2026-06-12T13:02:37.579Z [DEBUG] Click → Quantity Textbox[0m
-[1m[92m2026-06-12T13:02:37.927Z [PASS]  Clicked → Quantity Textbox[0m
-[1m[93m2026-06-12T13:02:37.927Z [WARN]  pause → 200ms[0m
-[1m[97m2026-06-12T13:02:38.183Z [STEP]  ▶ Step 36 | Clear → Quantity Textbox | +0.69s[0m
-[2m[37m2026-06-12T13:02:38.185Z [DEBUG] Clear → type=\'number\']')[0m
-[1m[92m2026-06-12T13:02:38.693Z [PASS]  Cleared → Quantity Textbox[0m
-[1m[97m2026-06-12T13:02:38.693Z [STEP]  ▶ Step 37 | Type → Quantity Textbox | "10" | +0.51s[0m
-[2m[37m2026-06-12T13:02:38.735Z [DEBUG] Type → Quantity Textbox | value="10"[0m
-[1m[92m2026-06-12T13:02:39.294Z [PASS]  Typed → Quantity Textbox[0m
-[1m[97m2026-06-12T13:02:39.294Z [STEP]  ▶ Step 38 | Press key → "Tab" | +0.60s[0m
-[1m[92m2026-06-12T13:02:39.413Z [PASS]  Key pressed → "Tab"[0m
-[1m[92m2026-06-12T13:02:39.414Z [PASS]  Quantity: 10[0m
-[1m[97m2026-06-12T13:02:39.414Z [STEP]  ▶ Step 39 | Enter Rate: 100 | +0.12s[0m
-[1m[97m2026-06-12T13:02:39.415Z [STEP]  ▶ Step 40 | Click → Rate Textbox | +0.00s[0m
-[2m[37m2026-06-12T13:02:39.490Z [DEBUG] Click → Rate Textbox[0m
-[1m[92m2026-06-12T13:02:39.806Z [PASS]  Clicked → Rate Textbox[0m
-[1m[93m2026-06-12T13:02:39.806Z [WARN]  pause → 200ms[0m
-[1m[97m2026-06-12T13:02:40.039Z [STEP]  ▶ Step 41 | Clear → Rate Textbox | +0.63s[0m
-[2m[37m2026-06-12T13:02:40.040Z [DEBUG] Clear → type=\'number\']')[0m
-[1m[92m2026-06-12T13:02:40.702Z [PASS]  Cleared → Rate Textbox[0m
-[1m[97m2026-06-12T13:02:40.703Z [STEP]  ▶ Step 42 | Type → Rate Textbox | "100" | +0.66s[0m
-[2m[37m2026-06-12T13:02:40.752Z [DEBUG] Type → Rate Textbox | value="100"[0m
-[1m[92m2026-06-12T13:02:41.548Z [PASS]  Typed → Rate Textbox[0m
-[1m[97m2026-06-12T13:02:41.548Z [STEP]  ▶ Step 43 | Press key → "Tab" | +0.84s[0m
-[1m[92m2026-06-12T13:02:41.739Z [PASS]  Key pressed → "Tab"[0m
-[1m[92m2026-06-12T13:02:41.740Z [PASS]  Rate: 100[0m
-[1m[97m2026-06-12T13:02:41.741Z [STEP]  ▶ Step 44 | Verify Amount: 1000 | +0.19s[0m
-[1m[92m2026-06-12T13:02:42.767Z [PASS]  Amount verified: 1000[0m
-[1m[97m2026-06-12T13:02:42.767Z [STEP]  ▶ Step 45 | Select Order Brand | +1.03s[0m
-[1m[97m2026-06-12T13:02:42.768Z [STEP]  ▶ Step 46 | Click → Order Brand Dropdown | +0.00s[0m
-[2m[37m2026-06-12T13:02:42.817Z [DEBUG] Click → Order Brand Dropdown[0m
-[1m[92m2026-06-12T13:02:43.818Z [PASS]  Clicked → Order Brand Dropdown[0m
-[1m[97m2026-06-12T13:02:43.819Z [STEP]  ▶ Step 47 | Click → Order Brand Option | +1.05s[0m
-[2m[37m2026-06-12T13:02:44.045Z [DEBUG] Click → Order Brand Option[0m
-[1m[92m2026-06-12T13:02:44.808Z [PASS]  Clicked → Order Brand Option[0m
-[1m[97m2026-06-12T13:02:44.810Z [STEP]  ▶ Step 48 | Click → Done Button | +0.99s[0m
-[2m[37m2026-06-12T13:02:44.863Z [DEBUG] Click → Done Button[0m
-[1m[92m2026-06-12T13:02:45.812Z [PASS]  Clicked → Done Button[0m
-[1m[92m2026-06-12T13:02:45.812Z [PASS]  Order Brand selected[0m
-[1m[97m2026-06-12T13:02:45.813Z [STEP]  ▶ Step 49 | Save Order → verify Draft | +1.00s[0m
-[1m[97m2026-06-12T13:02:45.813Z [STEP]  ▶ Step 50 | Click → Actions Button | +0.00s[0m
-[2m[37m2026-06-12T13:02:45.873Z [DEBUG] Click → Actions Button[0m
-[1m[92m2026-06-12T13:02:46.852Z [PASS]  Clicked → Actions Button[0m
-[1m[97m2026-06-12T13:02:46.853Z [STEP]  ▶ Step 51 | Click → Save Option | +1.04s[0m
-[2m[37m2026-06-12T13:02:46.960Z [DEBUG] Click → Save Option[0m
-[1m[92m2026-06-12T13:02:47.665Z [PASS]  Clicked → Save Option[0m
-[2m[37m2026-06-12T13:02:47.746Z [DEBUG] IF visible → Interstate Partner Alert : true[0m
-[1m[97m2026-06-12T13:02:47.747Z [STEP]  ▶ Step 52 | Click → No Continue Local GST | +0.89s[0m
-[2m[37m2026-06-12T13:02:47.808Z [DEBUG] Click → No Continue Local GST[0m
-[1m[92m2026-06-12T13:02:48.212Z [PASS]  Clicked → No Continue Local GST[0m
-[2m[37m2026-06-12T13:02:51.302Z [DEBUG] IF visible → Yes Submit Button : false[0m
+<![CDATA[[96m2026-06-13T00:43:51.217Z [INFO]  REG_TS_PO_TC01 - Create Purchase Order - Full E2E[0m
+[1m[97m2026-06-13T00:43:51.217Z [STEP]  ▶ Step 1 | Login to application | +0.95s[0m
+[96m2026-06-13T00:43:51.218Z [INFO]  Opening Base URL: https://sandbox5101.projectlane.io/spa#/1/home[0m
+[2m[37m2026-06-13T00:43:52.476Z [DEBUG] Wait: URL contains → "sandbox5101.projectlane.io"[0m
+[2m[37m2026-06-13T00:43:52.712Z [DEBUG] URL matched "sandbox5101.projectlane.io" in 235ms[0m
+[96m2026-06-13T00:43:52.714Z [INFO]  Logging in as: user2@gm.com[0m
+[2m[37m2026-06-13T00:43:52.814Z [DEBUG] Fill → type="email"]') | user2@gm.com[0m
+[2m[37m2026-06-13T00:43:53.245Z [DEBUG] Fill → type="password"]') | 12345[0m
+[2m[37m2026-06-13T00:43:53.442Z [DEBUG] Click → LOGIN[0m
+[96m2026-06-13T00:44:01.258Z [INFO]  Login successful[0m
+[96m2026-06-13T00:44:01.317Z [INFO]  ProjectBase 2.0 is displayed[0m
+[1m[92m2026-06-13T00:44:01.318Z [PASS]  Login successful[0m
+[1m[97m2026-06-13T00:44:01.318Z [STEP]  ▶ Step 2 | Open Purchase Order form | +10.10s[0m
+[1m[97m2026-06-13T00:44:01.321Z [STEP]  ▶ Step 3 | Click → Type To Search Field | +0.00s[0m
+[2m[37m2026-06-13T00:44:01.544Z [DEBUG] Click → Type To Search Field[0m
+[1m[92m2026-06-13T00:44:02.021Z [PASS]  Clicked → Type To Search Field[0m
+[1m[97m2026-06-13T00:44:02.023Z [STEP]  ▶ Step 4 | Type → Search Field | "Purchase Order" | +0.70s[0m
+[2m[37m2026-06-13T00:44:02.059Z [DEBUG] Type → Search Field | value="Purchase Order"[0m
+[1m[92m2026-06-13T00:44:03.274Z [PASS]  Typed → Search Field[0m
+[1m[97m2026-06-13T00:44:03.275Z [STEP]  ▶ Step 5 | Click → Purchase Orders Dropdown | +1.25s[0m
+[2m[37m2026-06-13T00:44:03.325Z [DEBUG] Click → Purchase Orders Dropdown[0m
+[1m[92m2026-06-13T00:44:03.693Z [PASS]  Clicked → Purchase Orders Dropdown[0m
+[1m[97m2026-06-13T00:44:03.694Z [STEP]  ▶ Step 6 | Click → Create Purchase Order Button | +0.42s[0m
+[2m[37m2026-06-13T00:44:04.091Z [DEBUG] Click → Create Purchase Order Button[0m
+[1m[92m2026-06-13T00:44:04.605Z [PASS]  Clicked → Create Purchase Order Button[0m
+[1m[92m2026-06-13T00:44:04.605Z [PASS]  Purchase Order form opened[0m
+[1m[97m2026-06-13T00:44:04.606Z [STEP]  ▶ Step 7 | Select Warehouse | +0.91s[0m
+[1m[97m2026-06-13T00:44:04.607Z [STEP]  ▶ Step 8 | Click → For Stock Radio | +0.00s[0m
+[2m[37m2026-06-13T00:44:04.701Z [DEBUG] Click → For Stock Radio[0m
+[1m[92m2026-06-13T00:44:05.026Z [PASS]  Clicked → For Stock Radio[0m
+[1m[97m2026-06-13T00:44:05.026Z [STEP]  ▶ Step 9 | Click → Warehouse Dropdown | +0.42s[0m
+[2m[37m2026-06-13T00:44:05.078Z [DEBUG] Click → Warehouse Dropdown[0m
+[1m[92m2026-06-13T00:44:05.572Z [PASS]  Clicked → Warehouse Dropdown[0m
+[1m[97m2026-06-13T00:44:05.572Z [STEP]  ▶ Step 10 | Click → Warehouse Select | +0.55s[0m
+[2m[37m2026-06-13T00:44:05.700Z [DEBUG] Click → Warehouse Select[0m
+[1m[92m2026-06-13T00:44:05.946Z [PASS]  Clicked → Warehouse Select[0m
+[1m[97m2026-06-13T00:44:05.947Z [STEP]  ▶ Step 11 | Click → Tax Unit | +0.38s[0m
+[2m[37m2026-06-13T00:44:06.011Z [DEBUG] Click → Tax Unit[0m
+[1m[92m2026-06-13T00:44:06.509Z [PASS]  Clicked → Tax Unit[0m
+[1m[97m2026-06-13T00:44:06.509Z [STEP]  ▶ Step 12 | Click → Chennai Branch | +0.56s[0m
+[2m[37m2026-06-13T00:44:06.530Z [DEBUG] Click → Chennai Branch[0m
+[1m[92m2026-06-13T00:44:06.803Z [PASS]  Clicked → Chennai Branch[0m
+[1m[97m2026-06-13T00:44:06.804Z [STEP]  ▶ Step 13 | Click → Done Button | +0.29s[0m
+[2m[37m2026-06-13T00:44:06.844Z [DEBUG] Click → Done Button[0m
+[1m[92m2026-06-13T00:44:07.647Z [PASS]  Clicked → Done Button[0m
+[1m[92m2026-06-13T00:44:07.648Z [PASS]  Warehouse selected[0m
+[1m[97m2026-06-13T00:44:07.648Z [STEP]  ▶ Step 14 | Select Supplier: Mohamed Supplier | +0.84s[0m
+[1m[97m2026-06-13T00:44:07.649Z [STEP]  ▶ Step 15 | Click → Supplier Dropdown | +0.00s[0m
+[2m[37m2026-06-13T00:44:07.693Z [DEBUG] Click → Supplier Dropdown[0m
+[1m[92m2026-06-13T00:44:08.075Z [PASS]  Clicked → Supplier Dropdown[0m
+[1m[97m2026-06-13T00:44:08.076Z [STEP]  ▶ Step 16 | Wait visible → Supplier Dropdown | +0.43s[0m
+[2m[37m2026-06-13T00:44:08.211Z [DEBUG] Wait: visible → first | timeout: 30000ms[0m
+[2m[37m2026-06-13T00:44:08.276Z [DEBUG] Visible in 64ms → first[0m
+[1m[92m2026-06-13T00:44:08.276Z [PASS]  Visible → Supplier Dropdown[0m
+[1m[93m2026-06-13T00:44:08.277Z [WARN]  pause → 300ms[0m
+[1m[97m2026-06-13T00:44:08.614Z [STEP]  ▶ Step 17 | Type → Supplier Dropdown | "Mohamed Supplier" | +0.54s[0m
+[2m[37m2026-06-13T00:44:08.658Z [DEBUG] Type → Supplier Dropdown | value="Mohamed Supplier"[0m
+[1m[92m2026-06-13T00:44:10.115Z [PASS]  Typed → Supplier Dropdown[0m
+[1m[97m2026-06-13T00:44:10.116Z [STEP]  ▶ Step 18 | Press key → "Enter" | +1.50s[0m
+[1m[92m2026-06-13T00:44:10.160Z [PASS]  Key pressed → "Enter"[0m
+[1m[92m2026-06-13T00:44:10.160Z [PASS]  Supplier: Mohamed Supplier[0m
+[1m[97m2026-06-13T00:44:10.161Z [STEP]  ▶ Step 19 | Select Delivery Address: Chennai | +0.04s[0m
+[1m[97m2026-06-13T00:44:10.163Z [STEP]  ▶ Step 20 | Scroll to → Delivery Address Label | +0.00s[0m
+[1m[92m2026-06-13T00:44:10.473Z [PASS]  Scrolled → Delivery Address Label[0m
+[1m[97m2026-06-13T00:44:10.473Z [STEP]  ▶ Step 21 | Click → Delivery Address Dropdown | +0.31s[0m
+[2m[37m2026-06-13T00:44:10.557Z [DEBUG] Click → Delivery Address Dropdown[0m
+[1m[92m2026-06-13T00:44:10.922Z [PASS]  Clicked → Delivery Address Dropdown[0m
+[1m[93m2026-06-13T00:44:10.922Z [WARN]  pause → 300ms[0m
+[1m[97m2026-06-13T00:44:11.261Z [STEP]  ▶ Step 22 | Type → Delivery Address Dropdown | "Chennai" | +0.79s[0m
+[2m[37m2026-06-13T00:44:11.336Z [DEBUG] Type → Delivery Address Dropdown | value="Chennai"[0m
+[1m[92m2026-06-13T00:44:12.131Z [PASS]  Typed → Delivery Address Dropdown[0m
+[1m[97m2026-06-13T00:44:12.131Z [STEP]  ▶ Step 23 | Press key → "Enter" | +0.87s[0m
+[1m[92m2026-06-13T00:44:12.179Z [PASS]  Key pressed → "Enter"[0m
+[1m[92m2026-06-13T00:44:12.181Z [PASS]  Delivery Address: Chennai[0m
+[1m[97m2026-06-13T00:44:12.182Z [STEP]  ▶ Step 24 | Select Purchase Executive: Admin | +0.05s[0m
+[1m[97m2026-06-13T00:44:12.183Z [STEP]  ▶ Step 25 | Click → Purchase Executive Dropdown | +0.00s[0m
+[2m[37m2026-06-13T00:44:12.217Z [DEBUG] Click → Purchase Executive Dropdown[0m
+[1m[92m2026-06-13T00:44:12.572Z [PASS]  Clicked → Purchase Executive Dropdown[0m
+[1m[93m2026-06-13T00:44:12.573Z [WARN]  pause → 300ms[0m
+[1m[97m2026-06-13T00:44:12.936Z [STEP]  ▶ Step 26 | Type → Purchase Executive Dropdown | "Admin" | +0.75s[0m
+[2m[37m2026-06-13T00:44:12.973Z [DEBUG] Type → Purchase Executive Dropdown | value="Admin"[0m
+[1m[92m2026-06-13T00:44:13.498Z [PASS]  Typed → Purchase Executive Dropdown[0m
+[1m[97m2026-06-13T00:44:13.499Z [STEP]  ▶ Step 27 | Press key → "Enter" | +0.56s[0m
+[1m[92m2026-06-13T00:44:13.638Z [PASS]  Key pressed → "Enter"[0m
+[1m[92m2026-06-13T00:44:13.638Z [PASS]  Purchase Executive: Admin[0m
+[1m[97m2026-06-13T00:44:13.638Z [STEP]  ▶ Step 28 | Add Item: Item 1 | +0.14s[0m
+[1m[97m2026-06-13T00:44:13.639Z [STEP]  ▶ Step 29 | Click → Add Items Button | +0.00s[0m
+[2m[37m2026-06-13T00:44:13.684Z [DEBUG] Click → Add Items Button[0m
+[1m[92m2026-06-13T00:44:14.151Z [PASS]  Clicked → Add Items Button[0m
+[1m[97m2026-06-13T00:44:14.151Z [STEP]  ▶ Step 30 | Wait visible → Item Textbox | +0.51s[0m
+[2m[37m2026-06-13T00:44:14.182Z [DEBUG] Wait: visible → first | timeout: 30000ms[0m
+[2m[37m2026-06-13T00:44:14.218Z [DEBUG] Visible in 35ms → first[0m
+[1m[92m2026-06-13T00:44:14.218Z [PASS]  Visible → Item Textbox[0m
+[1m[97m2026-06-13T00:44:14.218Z [STEP]  ▶ Step 31 | Click → Item Textbox | +0.07s[0m
+[2m[37m2026-06-13T00:44:14.298Z [DEBUG] Click → Item Textbox[0m
+[1m[92m2026-06-13T00:44:14.892Z [PASS]  Clicked → Item Textbox[0m
+[1m[93m2026-06-13T00:44:14.892Z [WARN]  pause → 300ms[0m
+[1m[97m2026-06-13T00:44:15.219Z [STEP]  ▶ Step 32 | Type → Item Textbox | "Item 1" | +1.00s[0m
+[2m[37m2026-06-13T00:44:15.281Z [DEBUG] Type → Item Textbox | value="Item 1"[0m
+[1m[92m2026-06-13T00:44:16.173Z [PASS]  Typed → Item Textbox[0m
+[1m[97m2026-06-13T00:44:16.173Z [STEP]  ▶ Step 33 | Click → Item Option (Item 1) | +0.95s[0m
+[2m[37m2026-06-13T00:44:16.593Z [DEBUG] Click → Item Option (Item 1)[0m
+[1m[92m2026-06-13T00:44:17.104Z [PASS]  Clicked → Item Option (Item 1)[0m
+[1m[92m2026-06-13T00:44:17.104Z [PASS]  Item: Item 1[0m
+[1m[97m2026-06-13T00:44:17.104Z [STEP]  ▶ Step 34 | Enter Quantity: 10 | +0.93s[0m
+[1m[97m2026-06-13T00:44:17.104Z [STEP]  ▶ Step 35 | Click → Quantity Textbox | +0.00s[0m
+[2m[37m2026-06-13T00:44:17.130Z [DEBUG] Click → Quantity Textbox[0m
+[1m[92m2026-06-13T00:44:17.480Z [PASS]  Clicked → Quantity Textbox[0m
+[1m[93m2026-06-13T00:44:17.481Z [WARN]  pause → 200ms[0m
+[1m[97m2026-06-13T00:44:17.745Z [STEP]  ▶ Step 36 | Clear → Quantity Textbox | +0.64s[0m
+[2m[37m2026-06-13T00:44:17.748Z [DEBUG] Clear → type=\'number\']')[0m
+[1m[92m2026-06-13T00:44:18.078Z [PASS]  Cleared → Quantity Textbox[0m
+[1m[97m2026-06-13T00:44:18.079Z [STEP]  ▶ Step 37 | Type → Quantity Textbox | "10" | +0.33s[0m
+[2m[37m2026-06-13T00:44:18.101Z [DEBUG] Type → Quantity Textbox | value="10"[0m
+[1m[92m2026-06-13T00:44:18.437Z [PASS]  Typed → Quantity Textbox[0m
+[1m[97m2026-06-13T00:44:18.438Z [STEP]  ▶ Step 38 | Press key → "Tab" | +0.36s[0m
+[1m[92m2026-06-13T00:44:18.509Z [PASS]  Key pressed → "Tab"[0m
+[1m[92m2026-06-13T00:44:18.511Z [PASS]  Quantity: 10[0m
+[1m[97m2026-06-13T00:44:18.511Z [STEP]  ▶ Step 39 | Enter Rate: 100 | +0.07s[0m
+[1m[97m2026-06-13T00:44:18.512Z [STEP]  ▶ Step 40 | Click → Rate Textbox | +0.00s[0m
+[2m[37m2026-06-13T00:44:18.604Z [DEBUG] Click → Rate Textbox[0m
+[1m[92m2026-06-13T00:44:19.057Z [PASS]  Clicked → Rate Textbox[0m
+[1m[93m2026-06-13T00:44:19.057Z [WARN]  pause → 200ms[0m
+[1m[97m2026-06-13T00:44:19.292Z [STEP]  ▶ Step 41 | Clear → Rate Textbox | +0.78s[0m
+[2m[37m2026-06-13T00:44:19.293Z [DEBUG] Clear → type=\'number\']')[0m
+[1m[92m2026-06-13T00:44:19.681Z [PASS]  Cleared → Rate Textbox[0m
+[1m[97m2026-06-13T00:44:19.681Z [STEP]  ▶ Step 42 | Type → Rate Textbox | "100" | +0.39s[0m
+[2m[37m2026-06-13T00:44:19.755Z [DEBUG] Type → Rate Textbox | value="100"[0m
+[1m[92m2026-06-13T00:44:20.339Z [PASS]  Typed → Rate Textbox[0m
+[1m[97m2026-06-13T00:44:20.340Z [STEP]  ▶ Step 43 | Press key → "Tab" | +0.66s[0m
+[1m[92m2026-06-13T00:44:20.441Z [PASS]  Key pressed → "Tab"[0m
+[1m[92m2026-06-13T00:44:20.441Z [PASS]  Rate: 100[0m
+[1m[97m2026-06-13T00:44:20.441Z [STEP]  ▶ Step 44 | Verify Amount: 1000 | +0.10s[0m
+[1m[92m2026-06-13T00:44:21.415Z [PASS]  Amount verified: 1000[0m
+[1m[97m2026-06-13T00:44:21.415Z [STEP]  ▶ Step 45 | Select Order Brand | +0.97s[0m
+[1m[97m2026-06-13T00:44:21.416Z [STEP]  ▶ Step 46 | Click → Order Brand Dropdown | +0.00s[0m
+[2m[37m2026-06-13T00:44:21.533Z [DEBUG] Click → Order Brand Dropdown[0m
+[1m[92m2026-06-13T00:44:22.073Z [PASS]  Clicked → Order Brand Dropdown[0m
+[1m[97m2026-06-13T00:44:22.074Z [STEP]  ▶ Step 47 | Click → Order Brand Option | +0.66s[0m
+[2m[37m2026-06-13T00:44:22.228Z [DEBUG] Click → Order Brand Option[0m
+[1m[92m2026-06-13T00:44:22.738Z [PASS]  Clicked → Order Brand Option[0m
+[1m[97m2026-06-13T00:44:22.740Z [STEP]  ▶ Step 48 | Click → Done Button | +0.67s[0m
+[2m[37m2026-06-13T00:44:22.855Z [DEBUG] Click → Done Button[0m
+[1m[92m2026-06-13T00:44:23.138Z [PASS]  Clicked → Done Button[0m
+[1m[92m2026-06-13T00:44:23.138Z [PASS]  Order Brand selected[0m
+[1m[97m2026-06-13T00:44:23.138Z [STEP]  ▶ Step 49 | Save Order → verify Draft | +0.40s[0m
+[1m[97m2026-06-13T00:44:23.139Z [STEP]  ▶ Step 50 | Click → Actions Button | +0.00s[0m
+[2m[37m2026-06-13T00:44:23.168Z [DEBUG] Click → Actions Button[0m
+[1m[92m2026-06-13T00:44:23.545Z [PASS]  Clicked → Actions Button[0m
+[1m[97m2026-06-13T00:44:23.546Z [STEP]  ▶ Step 51 | Click → Save Option | +0.41s[0m
+[2m[37m2026-06-13T00:44:23.609Z [DEBUG] Click → Save Option[0m
+[1m[92m2026-06-13T00:44:24.073Z [PASS]  Clicked → Save Option[0m
+[2m[37m2026-06-13T00:44:24.116Z [DEBUG] IF visible → Interstate Partner Alert : true[0m
+[1m[97m2026-06-13T00:44:24.117Z [STEP]  ▶ Step 52 | Click → No Continue Local GST | +0.57s[0m
+[2m[37m2026-06-13T00:44:24.147Z [DEBUG] Click → No Continue Local GST[0m
+[1m[92m2026-06-13T00:44:24.486Z [PASS]  Clicked → No Continue Local GST[0m
+[2m[37m2026-06-13T00:44:27.582Z [DEBUG] IF visible → Yes Submit Button : false[0m
 [RUNTIME] STORED → OrderName: 
-[1m[92m2026-06-12T13:02:51.391Z [PASS]  Assert visible → Draft Status[0m
-[1m[92m2026-06-12T13:02:51.392Z [PASS]  Order saved as Draft: [0m
-[1m[97m2026-06-12T13:02:51.392Z [STEP]  ▶ Step 53 | Submit Purchase Order | +3.65s[0m
-[1m[97m2026-06-12T13:02:51.393Z [STEP]  ▶ Step 54 | Click → Actions Button | +0.00s[0m
-[2m[37m2026-06-12T13:02:51.546Z [DEBUG] Click → Actions Button[0m
-[1m[92m2026-06-12T13:02:52.158Z [PASS]  Clicked → Actions Button[0m
-[1m[97m2026-06-12T13:02:52.158Z [STEP]  ▶ Step 55 | Click → Submit Option | +0.77s[0m
-[2m[37m2026-06-12T13:02:52.255Z [DEBUG] Click → Submit Option[0m
-[1m[92m2026-06-12T13:02:52.874Z [PASS]  Clicked → Submit Option[0m
-[2m[37m2026-06-12T13:02:53.302Z [DEBUG] IF visible → Interstate Partner Alert : true[0m
-[1m[97m2026-06-12T13:02:53.303Z [STEP]  ▶ Step 56 | Click → No Continue Local GST | +1.15s[0m
-[2m[37m2026-06-12T13:02:53.461Z [DEBUG] Click → No Continue Local GST[0m
-[1m[92m2026-06-12T13:02:54.394Z [PASS]  Clicked → No Continue Local GST[0m
-[2m[37m2026-06-12T13:02:54.511Z [DEBUG] IF visible → Yes Submit Button : true[0m
-[1m[97m2026-06-12T13:02:54.512Z [STEP]  ▶ Step 57 | Click → Yes Submit Button | +1.21s[0m
-[2m[37m2026-06-12T13:02:54.692Z [DEBUG] Click → Yes Submit Button[0m
-[1m[92m2026-06-12T13:02:55.582Z [PASS]  Clicked → Yes Submit Button[0m
-[1m[92m2026-06-12T13:02:55.584Z [PASS]  Purchase Order submitted[0m
-[1m[97m2026-06-12T13:02:55.584Z [STEP]  ▶ Step 58 | Approve Purchase Order | +1.07s[0m
-[1m[97m2026-06-12T13:02:56.372Z [STEP]  ▶ Step 59 | Click → Approve This Document Button | +0.79s[0m
-[2m[37m2026-06-12T13:02:56.579Z [DEBUG] Click → Approve This Document Button[0m
-[1m[92m2026-06-12T13:02:57.308Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-12T13:02:57.552Z [DEBUG] IF visible → Yes Approve Button : true[0m
-[1m[97m2026-06-12T13:02:57.553Z [STEP]  ▶ Step 60 | Click → Yes Approve Button | +1.18s[0m
-[2m[37m2026-06-12T13:02:57.617Z [DEBUG] Click → Yes Approve Button[0m
-[1m[92m2026-06-12T13:02:57.941Z [PASS]  Clicked → Yes Approve Button[0m
-[2m[37m2026-06-12T13:02:57.943Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-12T13:02:57.962Z [DEBUG] LoadState reached → domcontentloaded[0m
-[2m[37m2026-06-12T13:02:57.963Z [DEBUG] Wait → page ready[0m
-[2m[37m2026-06-12T13:02:58.645Z [DEBUG] Page ready ✅[0m
-[1m[93m2026-06-12T13:02:58.646Z [WARN]  pause → 1000ms[0m
-[1m[97m2026-06-12T13:02:59.799Z [STEP]  ▶ Step 61 | Click → Approve This Document Button | +2.25s[0m
-[2m[37m2026-06-12T13:02:59.854Z [DEBUG] Click → Approve This Document Button[0m
-[1m[92m2026-06-12T13:03:00.276Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-12T13:03:00.540Z [DEBUG] IF visible → Yes Approve Button : true[0m
-[1m[97m2026-06-12T13:03:00.541Z [STEP]  ▶ Step 62 | Click → Yes Approve Button | +0.74s[0m
-[2m[37m2026-06-12T13:03:00.609Z [DEBUG] Click → Yes Approve Button[0m
-[1m[92m2026-06-12T13:03:00.879Z [PASS]  Clicked → Yes Approve Button[0m
-[2m[37m2026-06-12T13:03:00.879Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-12T13:03:00.885Z [DEBUG] LoadState reached → domcontentloaded[0m
-[2m[37m2026-06-12T13:03:00.885Z [DEBUG] Wait → page ready[0m
-[2m[37m2026-06-12T13:03:01.990Z [DEBUG] Page ready ✅[0m
-[1m[93m2026-06-12T13:03:01.990Z [WARN]  pause → 1000ms[0m
-[1m[97m2026-06-12T13:03:03.358Z [STEP]  ▶ Step 63 | Click → Approve This Document Button | +2.82s[0m
-[2m[37m2026-06-12T13:03:03.468Z [DEBUG] Click → Approve This Document Button[0m
-[1m[92m2026-06-12T13:03:03.907Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-12T13:03:04.260Z [DEBUG] IF visible → Yes Approve Button : true[0m
-[1m[97m2026-06-12T13:03:04.260Z [STEP]  ▶ Step 64 | Click → Yes Approve Button | +0.90s[0m
-[2m[37m2026-06-12T13:03:04.486Z [DEBUG] Click → Yes Approve Button[0m
-[1m[92m2026-06-12T13:03:05.279Z [PASS]  Clicked → Yes Approve Button[0m
-[2m[37m2026-06-12T13:03:05.280Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-12T13:03:05.295Z [DEBUG] LoadState reached → domcontentloaded[0m
-[2m[37m2026-06-12T13:03:05.295Z [DEBUG] Wait → page ready[0m
-[2m[37m2026-06-12T13:03:06.360Z [DEBUG] Page ready ✅[0m
-[1m[93m2026-06-12T13:03:06.360Z [WARN]  pause → 1000ms[0m
-✅ Approve button disappeared
-[1m[92m2026-06-12T13:03:07.443Z [PASS]  PO Approved[0m
-[1m[97m2026-06-12T13:03:07.443Z [STEP]  ▶ Step 65 | Create Receipt Note (GRN) | +3.18s[0m
-[1m[97m2026-06-12T13:03:07.444Z [STEP]  ▶ Step 66 | Click → Related Docs | +0.00s[0m
-[2m[37m2026-06-12T13:03:07.580Z [DEBUG] Click → Related Docs[0m
-[1m[92m2026-06-12T13:03:07.874Z [PASS]  Clicked → Related Docs[0m
-[1m[97m2026-06-12T13:03:07.874Z [STEP]  ▶ Step 67 | Click → Receipt Note GRN Button | +0.43s[0m
-[2m[37m2026-06-12T13:03:07.896Z [DEBUG] Click → Receipt Note GRN Button[0m
-[1m[92m2026-06-12T13:03:08.291Z [PASS]  Clicked → Receipt Note GRN Button[0m
-[1m[97m2026-06-12T13:03:08.292Z [STEP]  ▶ Step 68 | Click → Select Items Button GRN | +0.42s[0m
-[2m[37m2026-06-12T13:03:08.851Z [DEBUG] Click → Select Items Button GRN[0m
-[1m[92m2026-06-12T13:03:09.071Z [PASS]  Clicked → Select Items Button GRN[0m
-[1m[97m2026-06-12T13:03:09.071Z [STEP]  ▶ Step 69 | Click → PO Number Checkbox | +0.78s[0m
-[2m[37m2026-06-12T13:03:09.171Z [DEBUG] Click → PO Number Checkbox[0m
-[1m[92m2026-06-12T13:03:09.609Z [PASS]  Clicked → PO Number Checkbox[0m
-[1m[97m2026-06-12T13:03:09.610Z [STEP]  ▶ Step 70 | Click → Done Button GRN | +0.54s[0m
-[2m[37m2026-06-12T13:03:09.675Z [DEBUG] Click → Done Button GRN[0m
-[1m[92m2026-06-12T13:03:09.978Z [PASS]  Clicked → Done Button GRN[0m
-[1m[97m2026-06-12T13:03:09.979Z [STEP]  ▶ Step 71 | Click → Actions Button | +0.37s[0m
-[2m[37m2026-06-12T13:03:10.055Z [DEBUG] Click → Actions Button[0m
-[1m[92m2026-06-12T13:03:10.394Z [PASS]  Clicked → Actions Button[0m
-[1m[97m2026-06-12T13:03:10.395Z [STEP]  ▶ Step 72 | Click → Submit Option | +0.42s[0m
-[2m[37m2026-06-12T13:03:10.514Z [DEBUG] Click → Submit Option[0m
-[1m[92m2026-06-12T13:03:10.825Z [PASS]  Clicked → Submit Option[0m
-[2m[37m2026-06-12T13:03:13.902Z [DEBUG] IF visible → Interstate Partner Alert : false[0m
-[2m[37m2026-06-12T13:03:16.933Z [DEBUG] IF visible → Yes Submit Button : false[0m
-[1m[97m2026-06-12T13:03:17.167Z [STEP]  ▶ Step 73 | Click → Approve This Document Button | +6.77s[0m
-[2m[37m2026-06-12T13:03:17.239Z [DEBUG] Click → Approve This Document Button[0m
-[1m[92m2026-06-12T13:03:17.790Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-12T13:03:20.857Z [DEBUG] IF visible → Yes Approve Button : false[0m
-[2m[37m2026-06-12T13:03:20.857Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-12T13:03:20.863Z [DEBUG] LoadState reached → domcontentloaded[0m
-[2m[37m2026-06-12T13:03:20.863Z [DEBUG] Wait → page ready[0m
-[2m[37m2026-06-12T13:03:21.108Z [DEBUG] Page ready ✅[0m
-[1m[93m2026-06-12T13:03:21.109Z [WARN]  pause → 1000ms[0m
-✅ Approve button disappeared
-[1m[92m2026-06-12T13:03:22.309Z [PASS]  GRN created and approved[0m
-[1m[97m2026-06-12T13:03:22.309Z [STEP]  ▶ Step 74 | Create Purchase Invoice | +5.14s[0m
-[1m[97m2026-06-12T13:03:22.346Z [STEP]  ▶ Step 75 | Click → Related Docs (PI) | +0.04s[0m
-[2m[37m2026-06-12T13:03:22.441Z [DEBUG] Click → Related Docs (PI)[0m
-[1m[92m2026-06-12T13:03:22.787Z [PASS]  Clicked → Related Docs (PI)[0m
-[1m[97m2026-06-12T13:03:22.788Z [STEP]  ▶ Step 76 | Click → Purchase Invoice Button | +0.44s[0m
-[2m[37m2026-06-12T13:03:22.824Z [DEBUG] Click → Purchase Invoice Button[0m
-[1m[92m2026-06-12T13:03:23.082Z [PASS]  Clicked → Purchase Invoice Button[0m
-[2m[37m2026-06-12T13:03:23.815Z [DEBUG] IF visible → Supplier Invoice Date : true[0m
-[1m[97m2026-06-12T13:03:23.815Z [STEP]  ▶ Step 77 | Fill datepicker → Supplier Invoice Date | "12/06/2026" | +1.03s[0m
-[1m[92m2026-06-12T13:03:24.645Z [PASS]  Datepicker (calendar) → Supplier Invoice Date : today selected[0m
-[1m[97m2026-06-12T13:03:24.725Z [STEP]  ▶ Step 78 | Fill datepicker → Document Date | "12/06/2026" | +0.91s[0m
-[1m[92m2026-06-12T13:03:25.240Z [PASS]  Datepicker (calendar) → Document Date : today selected[0m
-[1m[97m2026-06-12T13:03:25.325Z [STEP]  ▶ Step 79 | Fill datepicker → Due Date | "12/06/2026" | +0.60s[0m
-[1m[92m2026-06-12T13:03:25.909Z [PASS]  Datepicker (calendar) → Due Date : today selected[0m
-[1m[97m2026-06-12T13:03:25.961Z [STEP]  ▶ Step 80 | Type → Supplier Invoice No | "8198" | +0.64s[0m
-[2m[37m2026-06-12T13:03:26.022Z [DEBUG] Type → Supplier Invoice No | value="8198"[0m
-[1m[92m2026-06-12T13:03:26.837Z [PASS]  Typed → Supplier Invoice No[0m
-[1m[97m2026-06-12T13:03:26.837Z [STEP]  ▶ Step 81 | Click → Select Items Button PI | +0.88s[0m
-[2m[37m2026-06-12T13:03:26.894Z [DEBUG] Click → Select Items Button PI[0m
-[1m[92m2026-06-12T13:03:27.372Z [PASS]  Clicked → Select Items Button PI[0m
-[1m[97m2026-06-12T13:03:27.374Z [STEP]  ▶ Step 82 | Click → Receipt No Checkbox | +0.54s[0m
-[2m[37m2026-06-12T13:03:27.625Z [DEBUG] Click → Receipt No Checkbox[0m
-[1m[92m2026-06-12T13:03:27.881Z [PASS]  Clicked → Receipt No Checkbox[0m
-[1m[97m2026-06-12T13:03:27.882Z [STEP]  ▶ Step 83 | Click → Done Button PI | +0.51s[0m
-[2m[37m2026-06-12T13:03:27.918Z [DEBUG] Click → Done Button PI[0m
-[1m[92m2026-06-12T13:03:28.535Z [PASS]  Clicked → Done Button PI[0m
-[1m[97m2026-06-12T13:03:28.536Z [STEP]  ▶ Step 84 | Click → Actions Button | +0.65s[0m
-[2m[37m2026-06-12T13:03:28.587Z [DEBUG] Click → Actions Button[0m
-[1m[92m2026-06-12T13:03:28.864Z [PASS]  Clicked → Actions Button[0m
-[1m[97m2026-06-12T13:03:28.864Z [STEP]  ▶ Step 85 | Click → Submit Option | +0.33s[0m
-[2m[37m2026-06-12T13:03:28.900Z [DEBUG] Click → Submit Option[0m
-[1m[92m2026-06-12T13:03:29.486Z [PASS]  Clicked → Submit Option[0m
-[2m[37m2026-06-12T13:03:29.541Z [DEBUG] IF visible → Interstate Partner Alert : true[0m
-[1m[97m2026-06-12T13:03:29.541Z [STEP]  ▶ Step 86 | Click → No Continue Local GST | +0.68s[0m
-[2m[37m2026-06-12T13:03:29.588Z [DEBUG] Click → No Continue Local GST[0m
-[1m[92m2026-06-12T13:03:29.957Z [PASS]  Clicked → No Continue Local GST[0m
-[2m[37m2026-06-12T13:03:33.042Z [DEBUG] IF visible → Yes Submit Button : false[0m
-[1m[97m2026-06-12T13:03:33.319Z [STEP]  ▶ Step 87 | Click → Approve This Document Button | +3.78s[0m
-[2m[37m2026-06-12T13:03:33.345Z [DEBUG] Click → Approve This Document Button[0m
-[1m[92m2026-06-12T13:03:33.702Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-12T13:03:36.755Z [DEBUG] IF visible → Yes Approve Button : false[0m
-[2m[37m2026-06-12T13:03:36.756Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-12T13:03:36.765Z [DEBUG] LoadState reached → domcontentloaded[0m
-[2m[37m2026-06-12T13:03:36.765Z [DEBUG] Wait → page ready[0m
-[2m[37m2026-06-12T13:03:36.948Z [DEBUG] Page ready ✅[0m
-[1m[93m2026-06-12T13:03:36.948Z [WARN]  pause → 1000ms[0m
-[1m[97m2026-06-12T13:03:38.065Z [STEP]  ▶ Step 88 | Click → Approve This Document Button | +4.75s[0m
-[2m[37m2026-06-12T13:03:38.146Z [DEBUG] Click → Approve This Document Button[0m
-[1m[92m2026-06-12T13:03:38.688Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-12T13:03:41.741Z [DEBUG] IF visible → Yes Approve Button : false[0m
-[2m[37m2026-06-12T13:03:41.741Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-12T13:03:41.750Z [DEBUG] LoadState reached → domcontentloaded[0m
-[2m[37m2026-06-12T13:03:41.750Z [DEBUG] Wait → page ready[0m
-[2m[37m2026-06-12T13:03:42.026Z [DEBUG] Page ready ✅[0m
-[1m[93m2026-06-12T13:03:42.026Z [WARN]  pause → 1000ms[0m
-✅ Approve button disappeared
-[1m[92m2026-06-12T13:03:43.171Z [PASS]  Purchase Invoice created (No: 8198)[0m
-[1m[97m2026-06-12T13:03:43.171Z [STEP]  ▶ Step 89 | Close panels | +5.11s[0m
-[1m[97m2026-06-12T13:03:43.226Z [STEP]  ▶ Step 90 | Click → Close Button | +0.06s[0m
-[2m[37m2026-06-12T13:03:43.303Z [DEBUG] Click → Close Button[0m
-[1m[92m2026-06-12T13:03:43.784Z [PASS]  Clicked → Close Button[0m
-[1m[97m2026-06-12T13:03:44.248Z [STEP]  ▶ Step 91 | Click → Close Button | +1.02s[0m
-[2m[37m2026-06-12T13:03:44.455Z [DEBUG] Click → Close Button[0m
-[1m[92m2026-06-12T13:03:44.840Z [PASS]  Clicked → Close Button[0m
-[1m[97m2026-06-12T13:03:44.840Z [STEP]  ▶ Step 92 | Verify final statuses | +0.59s[0m
-[1m[92m2026-06-12T13:03:45.019Z [PASS]  Assert visible → Approved Status (Final)[0m
-[96m2026-06-12T13:03:45.019Z [INFO]  Approved ✅[0m
-[1m[92m2026-06-12T13:03:45.019Z [PASS]  All final statuses verified[0m
-[96m2026-06-12T13:03:45.020Z [INFO]  PASS[0m
+[1m[92m2026-06-13T00:44:27.663Z [PASS]  Assert visible → Draft Status[0m
+[1m[92m2026-06-13T00:44:27.663Z [PASS]  Order saved as Draft: [0m
+[1m[97m2026-06-13T00:44:27.664Z [STEP]  ▶ Step 53 | Submit Purchase Order | +3.55s[0m
+[1m[97m2026-06-13T00:44:27.664Z [STEP]  ▶ Step 54 | Click → Actions Button | +0.00s[0m
+[2m[37m2026-06-13T00:44:27.737Z [DEBUG] Click → Actions Button[0m
+[1m[92m2026-06-13T00:44:28.110Z [PASS]  Clicked → Actions Button[0m
+[1m[97m2026-06-13T00:44:28.111Z [STEP]  ▶ Step 55 | Click → Submit Option | +0.45s[0m
+[2m[37m2026-06-13T00:44:28.130Z [DEBUG] Click → Submit Option[0m
+[1m[92m2026-06-13T00:44:28.467Z [PASS]  Clicked → Submit Option[0m
+[2m[37m2026-06-13T00:44:28.500Z [DEBUG] IF visible → Interstate Partner Alert : true[0m
+[1m[97m2026-06-13T00:44:28.501Z [STEP]  ▶ Step 56 | Click → No Continue Local GST | +0.39s[0m
+[2m[37m2026-06-13T00:44:28.523Z [DEBUG] Click → No Continue Local GST[0m
+[1m[92m2026-06-13T00:44:28.879Z [PASS]  Clicked → No Continue Local GST[0m
+[2m[37m2026-06-13T00:44:29.073Z [DEBUG] IF visible → Yes Submit Button : true[0m
+[1m[97m2026-06-13T00:44:29.074Z [STEP]  ▶ Step 57 | Click → Yes Submit Button | +0.57s[0m
+[2m[37m2026-06-13T00:44:29.144Z [DEBUG] Click → Yes Submit Button[0m
+[1m[92m2026-06-13T00:44:29.553Z [PASS]  Clicked → Yes Submit Button[0m
+[1m[92m2026-06-13T00:44:29.554Z [PASS]  Purchase Order submitted[0m
+[1m[97m2026-06-13T00:44:29.555Z [STEP]  ▶ Step 58 | Approve Purchase Order | +0.48s[0m
+[1m[93m2026-06-13T00:44:29.556Z [WARN]  pause → 5000ms[0m
+[1m[97m2026-06-13T00:44:34.728Z [STEP]  ▶ Step 59 | Click → Approve This Document Button | +5.17s[0m
+[2m[37m2026-06-13T00:44:34.819Z [DEBUG] Click → Approve This Document Button[0m
+[1m[92m2026-06-13T00:44:35.123Z [PASS]  Clicked → Approve This Document Button[0m
+[2m[37m2026-06-13T00:44:35.318Z [DEBUG] IF visible → Yes Approve Button : true[0m
+[1m[97m2026-06-13T00:44:35.319Z [STEP]  ▶ Step 60 | Click → Yes Approve Button | +0.59s[0m
+[2m[37m2026-06-13T00:44:35.428Z [DEBUG] Click → Yes Approve Button[0m
+[1m[92m2026-06-13T00:44:35.944Z [PASS]  Clicked → Yes Approve Button[0m
+[2m[37m2026-06-13T00:44:35.946Z [DEBUG] Wait loadState → domcontentloaded[0m
+[2m[37m2026-06-13T00:44:35.962Z [DEBUG] LoadState reached → domcontentloaded[0m
+[1m[93m2026-06-13T00:44:35.963Z [WARN]  pause → 3000ms[0m
+[1m[97m2026-06-13T00:44:39.076Z [STEP]  ▶ Step 61 | Click → Approve This Document Button | +3.76s[0m
+[2m[37m2026-06-13T00:44:39.123Z [DEBUG] Click → Approve This Document Button[0m
+[1m[92m2026-06-13T00:44:39.532Z [PASS]  Clicked → Approve This Document Button[0m
+[2m[37m2026-06-13T00:44:39.708Z [DEBUG] IF visible → Yes Approve Button : true[0m
+[1m[97m2026-06-13T00:44:39.708Z [STEP]  ▶ Step 62 | Click → Yes Approve Button | +0.63s[0m
+[2m[37m2026-06-13T00:44:39.790Z [DEBUG] Click → Yes Approve Button[0m
+[1m[92m2026-06-13T00:44:40.337Z [PASS]  Clicked → Yes Approve Button[0m
+[2m[37m2026-06-13T00:44:40.337Z [DEBUG] Wait loadState → domcontentloaded[0m
+[2m[37m2026-06-13T00:44:40.349Z [DEBUG] LoadState reached → domcontentloaded[0m
+[1m[93m2026-06-13T00:44:40.350Z [WARN]  pause → 3000ms[0m
+[1m[97m2026-06-13T00:44:43.528Z [STEP]  ▶ Step 63 | Click → Approve This Document Button | +3.82s[0m
+[2m[37m2026-06-13T00:44:43.601Z [DEBUG] Click → Approve This Document Button[0m
+[1m[92m2026-06-13T00:44:44.030Z [PASS]  Clicked → Approve This Document Button[0m
+[2m[37m2026-06-13T00:44:44.213Z [DEBUG] IF visible → Yes Approve Button : true[0m
+[1m[97m2026-06-13T00:44:44.214Z [STEP]  ▶ Step 64 | Click → Yes Approve Button | +0.69s[0m
+[2m[37m2026-06-13T00:44:44.307Z [DEBUG] Click → Yes Approve Button[0m
+[1m[92m2026-06-13T00:44:44.935Z [PASS]  Clicked → Yes Approve Button[0m
+[2m[37m2026-06-13T00:44:44.936Z [DEBUG] Wait loadState → domcontentloaded[0m
+[2m[37m2026-06-13T00:44:44.947Z [DEBUG] LoadState reached → domcontentloaded[0m
+[1m[93m2026-06-13T00:44:44.948Z [WARN]  pause → 3000ms[0m
+Approve button not visible - exiting loop
+[1m[92m2026-06-13T00:44:48.063Z [PASS]  PO Approved[0m
+[1m[97m2026-06-13T00:44:48.063Z [STEP]  ▶ Step 65 | Create Receipt Note (GRN) | +3.85s[0m
+[1m[97m2026-06-13T00:44:48.064Z [STEP]  ▶ Step 66 | Click → Related Docs | +0.00s[0m
+[2m[37m2026-06-13T00:44:48.099Z [DEBUG] Click → Related Docs[0m
+[1m[92m2026-06-13T00:44:48.358Z [PASS]  Clicked → Related Docs[0m
+[1m[97m2026-06-13T00:44:48.359Z [STEP]  ▶ Step 67 | Click → Receipt Note GRN Button | +0.29s[0m
+[2m[37m2026-06-13T00:44:48.437Z [DEBUG] Click → Receipt Note GRN Button[0m
+[1m[92m2026-06-13T00:44:48.859Z [PASS]  Clicked → Receipt Note GRN Button[0m
+[1m[97m2026-06-13T00:44:48.860Z [STEP]  ▶ Step 68 | Click → Select Items Button GRN | +0.50s[0m
+[2m[37m2026-06-13T00:44:49.183Z [DEBUG] Click → Select Items Button GRN[0m
+[1m[92m2026-06-13T00:44:49.596Z [PASS]  Clicked → Select Items Button GRN[0m
+[1m[97m2026-06-13T00:44:49.598Z [STEP]  ▶ Step 69 | Click → PO Number Checkbox | +0.74s[0m
+[2m[37m2026-06-13T00:44:49.667Z [DEBUG] Click → PO Number Checkbox[0m
+[1m[92m2026-06-13T00:44:50.036Z [PASS]  Clicked → PO Number Checkbox[0m
+[1m[97m2026-06-13T00:44:50.037Z [STEP]  ▶ Step 70 | Click → Done Button GRN | +0.44s[0m
+[2m[37m2026-06-13T00:44:50.065Z [DEBUG] Click → Done Button GRN[0m
+[1m[92m2026-06-13T00:44:50.262Z [PASS]  Clicked → Done Button GRN[0m
+[1m[97m2026-06-13T00:44:50.266Z [STEP]  ▶ Step 71 | Click → Actions Button | +0.23s[0m
+[2m[37m2026-06-13T00:44:50.323Z [DEBUG] Click → Actions Button[0m
+[1m[92m2026-06-13T00:44:50.729Z [PASS]  Clicked → Actions Button[0m
+[1m[97m2026-06-13T00:44:50.730Z [STEP]  ▶ Step 72 | Click → Submit Option | +0.46s[0m
+[2m[37m2026-06-13T00:44:50.796Z [DEBUG] Click → Submit Option[0m
+[1m[92m2026-06-13T00:44:51.119Z [PASS]  Clicked → Submit Option[0m
+[2m[37m2026-06-13T00:44:54.150Z [DEBUG] IF visible → Interstate Partner Alert : false[0m
+[2m[37m2026-06-13T00:44:57.176Z [DEBUG] IF visible → Yes Submit Button : false[0m
+[1m[93m2026-06-13T00:44:57.176Z [WARN]  pause → 5000ms[0m
+[1m[97m2026-06-13T00:45:02.311Z [STEP]  ▶ Step 73 | Click → Approve This Document Button | +11.58s[0m
+[2m[37m2026-06-13T00:45:02.421Z [DEBUG] Click → Approve This Document Button[0m
+[1m[92m2026-06-13T00:45:02.893Z [PASS]  Clicked → Approve This Document Button[0m
+[2m[37m2026-06-13T00:45:07.962Z [DEBUG] IF visible → Yes Approve Button : false[0m
+[2m[37m2026-06-13T00:45:07.968Z [DEBUG] Wait loadState → domcontentloaded[0m
+[2m[37m2026-06-13T00:45:07.972Z [DEBUG] LoadState reached → domcontentloaded[0m
+[1m[93m2026-06-13T00:45:07.972Z [WARN]  pause → 3000ms[0m
+Approve button not visible - exiting loop
+[1m[92m2026-06-13T00:45:11.048Z [PASS]  GRN created and approved[0m
+[1m[97m2026-06-13T00:45:11.048Z [STEP]  ▶ Step 74 | Create Purchase Invoice | +8.74s[0m
+[1m[97m2026-06-13T00:45:11.097Z [STEP]  ▶ Step 75 | Click → Related Docs (PI) | +0.05s[0m
+[2m[37m2026-06-13T00:45:11.128Z [DEBUG] Click → Related Docs (PI)[0m
+[1m[92m2026-06-13T00:45:11.382Z [PASS]  Clicked → Related Docs (PI)[0m
+[1m[97m2026-06-13T00:45:11.384Z [STEP]  ▶ Step 76 | Click → Purchase Invoice Button | +0.29s[0m
+[2m[37m2026-06-13T00:45:11.457Z [DEBUG] Click → Purchase Invoice Button[0m
+[1m[92m2026-06-13T00:45:11.868Z [PASS]  Clicked → Purchase Invoice Button[0m
+[2m[37m2026-06-13T00:45:12.300Z [DEBUG] IF visible → Supplier Invoice Date : true[0m
+[1m[97m2026-06-13T00:45:12.301Z [STEP]  ▶ Step 77 | Fill datepicker → Supplier Invoice Date | "13/06/2026" | +0.92s[0m
+[1m[92m2026-06-13T00:45:13.064Z [PASS]  Datepicker (calendar) → Supplier Invoice Date : today selected[0m
+[1m[97m2026-06-13T00:45:13.118Z [STEP]  ▶ Step 78 | Fill datepicker → Document Date | "13/06/2026" | +0.82s[0m
+[1m[92m2026-06-13T00:45:13.719Z [PASS]  Datepicker (calendar) → Document Date : today selected[0m
+[1m[97m2026-06-13T00:45:13.788Z [STEP]  ▶ Step 79 | Fill datepicker → Due Date | "13/06/2026" | +0.67s[0m
+[1m[92m2026-06-13T00:45:14.298Z [PASS]  Datepicker (calendar) → Due Date : today selected[0m
+[1m[97m2026-06-13T00:45:14.374Z [STEP]  ▶ Step 80 | Type → Supplier Invoice No | "3575" | +0.59s[0m
+[2m[37m2026-06-13T00:45:14.436Z [DEBUG] Type → Supplier Invoice No | value="3575"[0m
+[1m[92m2026-06-13T00:45:15.067Z [PASS]  Typed → Supplier Invoice No[0m
+[1m[97m2026-06-13T00:45:15.067Z [STEP]  ▶ Step 81 | Click → Select Items Button PI | +0.69s[0m
+[2m[37m2026-06-13T00:45:15.088Z [DEBUG] Click → Select Items Button PI[0m
+[1m[92m2026-06-13T00:45:15.389Z [PASS]  Clicked → Select Items Button PI[0m
+[1m[97m2026-06-13T00:45:15.390Z [STEP]  ▶ Step 82 | Click → Receipt No Checkbox | +0.32s[0m
+[2m[37m2026-06-13T00:45:15.570Z [DEBUG] Click → Receipt No Checkbox[0m
+[1m[92m2026-06-13T00:45:15.993Z [PASS]  Clicked → Receipt No Checkbox[0m
+[1m[97m2026-06-13T00:45:15.994Z [STEP]  ▶ Step 83 | Click → Done Button PI | +0.60s[0m
+[2m[37m2026-06-13T00:45:16.026Z [DEBUG] Click → Done Button PI[0m
+[1m[92m2026-06-13T00:45:16.284Z [PASS]  Clicked → Done Button PI[0m
+[1m[97m2026-06-13T00:45:16.285Z [STEP]  ▶ Step 84 | Click → Actions Button | +0.29s[0m
+[2m[37m2026-06-13T00:45:16.368Z [DEBUG] Click → Actions Button[0m
+[1m[92m2026-06-13T00:45:16.780Z [PASS]  Clicked → Actions Button[0m
+[1m[97m2026-06-13T00:45:16.781Z [STEP]  ▶ Step 85 | Click → Submit Option | +0.50s[0m
+[2m[37m2026-06-13T00:45:16.838Z [DEBUG] Click → Submit Option[0m
+[1m[92m2026-06-13T00:45:17.126Z [PASS]  Clicked → Submit Option[0m
+[2m[37m2026-06-13T00:45:17.166Z [DEBUG] IF visible → Interstate Partner Alert : true[0m
+[1m[97m2026-06-13T00:45:17.166Z [STEP]  ▶ Step 86 | Click → No Continue Local GST | +0.39s[0m
+[2m[37m2026-06-13T00:45:17.193Z [DEBUG] Click → No Continue Local GST[0m
+[1m[92m2026-06-13T00:45:17.569Z [PASS]  Clicked → No Continue Local GST[0m
+[2m[37m2026-06-13T00:45:20.653Z [DEBUG] IF visible → Yes Submit Button : false[0m
+[1m[93m2026-06-13T00:45:20.654Z [WARN]  pause → 5000ms[0m
+[1m[97m2026-06-13T00:45:25.754Z [STEP]  ▶ Step 87 | Click → Approve This Document Button | +8.59s[0m
+[2m[37m2026-06-13T00:45:25.824Z [DEBUG] Click → Approve This Document Button[0m
+[1m[92m2026-06-13T00:45:26.137Z [PASS]  Clicked → Approve This Document Button[0m
+[2m[37m2026-06-13T00:45:31.182Z [DEBUG] IF visible → Yes Approve Button : false[0m
+[2m[37m2026-06-13T00:45:31.182Z [DEBUG] Wait loadState → domcontentloaded[0m
+[2m[37m2026-06-13T00:45:31.185Z [DEBUG] LoadState reached → domcontentloaded[0m
+[1m[93m2026-06-13T00:45:31.185Z [WARN]  pause → 3000ms[0m
+[1m[97m2026-06-13T00:45:34.284Z [STEP]  ▶ Step 88 | Click → Approve This Document Button | +8.53s[0m
+[2m[37m2026-06-13T00:45:34.344Z [DEBUG] Click → Approve This Document Button[0m
+[1m[92m2026-06-13T00:45:34.675Z [PASS]  Clicked → Approve This Document Button[0m
+[2m[37m2026-06-13T00:45:39.732Z [DEBUG] IF visible → Yes Approve Button : false[0m
+[2m[37m2026-06-13T00:45:39.732Z [DEBUG] Wait loadState → domcontentloaded[0m
+[2m[37m2026-06-13T00:45:39.736Z [DEBUG] LoadState reached → domcontentloaded[0m
+[1m[93m2026-06-13T00:45:39.736Z [WARN]  pause → 3000ms[0m
+[1m[92m2026-06-13T00:45:42.788Z [PASS]  Purchase Invoice created (No: 3575)[0m
+[1m[97m2026-06-13T00:45:42.788Z [STEP]  ▶ Step 89 | Close panels | +8.50s[0m
+[1m[97m2026-06-13T00:45:42.845Z [STEP]  ▶ Step 90 | Click → Close Button | +0.06s[0m
+[2m[37m2026-06-13T00:45:42.920Z [DEBUG] Click → Close Button[0m
+[1m[92m2026-06-13T00:45:43.166Z [PASS]  Clicked → Close Button[0m
+[1m[97m2026-06-13T00:45:43.395Z [STEP]  ▶ Step 91 | Click → Close Button | +0.55s[0m
+[2m[37m2026-06-13T00:45:43.534Z [DEBUG] Click → Close Button[0m
+[1m[92m2026-06-13T00:45:44.014Z [PASS]  Clicked → Close Button[0m
+[1m[97m2026-06-13T00:45:44.015Z [STEP]  ▶ Step 92 | Verify final statuses | +0.62s[0m
+[1m[92m2026-06-13T00:45:44.093Z [PASS]  Assert visible → Approved Status (Final)[0m
+[96m2026-06-13T00:45:44.094Z [INFO]  Approved ✅[0m
+[1m[92m2026-06-13T00:45:44.094Z [PASS]  All final statuses verified[0m
+[96m2026-06-13T00:45:44.094Z [INFO]  PASS[0m
 ]]>
 </system-out>
 </testcase>
