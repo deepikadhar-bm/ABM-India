@@ -28,7 +28,7 @@ import ExcelJS    from "exceljs";
 import { parse }  from "csv-parse/sync";
 import * as fse   from "fs-extra";
 import { Locator } from "@playwright/test";
-import { logger }  from "../utils/logger";
+import { logger }  from "./logger";
 
 export type ColumnType = "string" | "number" | "date" | "email" | "boolean";
 export interface ColumnSchema  { name: string; type: ColumnType; required?: boolean; }

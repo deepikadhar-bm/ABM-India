@@ -47,7 +47,7 @@
 import { Locator } from "@playwright/test";
 import { RetryUtils, RetryOptions } from "./retryUtils";
 import { Global_Timeout } from "../config/globalTimeout";
-import { logger } from "./logger";
+import { logger } from "../helpers/logger";
 import { autoHeal } from "./autoHeal";
 
 export class ElementUtils {

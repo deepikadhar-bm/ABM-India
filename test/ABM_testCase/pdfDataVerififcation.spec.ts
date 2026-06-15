@@ -2,10 +2,12 @@
 //  TEST — testotomasyonu.com — Download PDF + Verify P12_Test text
 // ============================================================================
 
-import { test, expect }          from '@playwright/test';
-import { FileUtils }    from "../src/helpers/fileUtils";
+import { test, expect}          from '@playwright/test';
+import { FileUtils } from '@helpers/fileUtils';
 
-test("Download bill PDF and verify Pdf content",
+test("Download bill PDF and verify Pdf content ", {
+    tag: ['@smoke']
+  },
   async ({ page }, testInfo) => {
 
    

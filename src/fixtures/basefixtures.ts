@@ -4,7 +4,7 @@
 // ============================================================================
 
 import { test as base, TestInfo } from "@playwright/test";
-import { logger }                  from "../utils/logger";
+import { logger }                  from "../helpers/logger";
 import * as path                   from "path";
 
 type BaseFixtures = {

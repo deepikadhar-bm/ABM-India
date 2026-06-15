@@ -22,7 +22,7 @@
 // ============================================================================
 
 import { Locator } from "@playwright/test";
-import { logger } from "../utils/logger";
+import { logger } from "./logger";
 
 export class ValidationUtils {
 

@@ -1,6 +1,12 @@
-// Global timeout constants used across pages and utilities
+// src/config/globalTimeout.ts
+// ✅ Now reads from configManager instead of hardcoded values
+// ✅ Kept for backward compatibility — but basePage.ts should use
+//    configManager.getTimeout("action") directly
+
+import { configManager } from "./env.index";
+
 export const Global_Timeout = {
-  action: 30000,
-  wait: 30000,
-  navigation: 60000,
+  get action()     { return configManager.getTimeout("action"); },
+  get wait()       { return configManager.getTimeout("wait"); },
+  get navigation() { return configManager.getTimeout("navigation"); },
 };

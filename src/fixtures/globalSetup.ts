@@ -3,7 +3,7 @@
 //  GLOBAL SETUP — Runs once before entire test suite
 // ============================================================================
 
-import { logger }         from "../utils/logger";
+import { logger }         from "../helpers/logger";
 import { configManager }  from "../config/env.index";
 import { PreReqRegistry } from "../fixtures/PreReqRegistry";
 import * as fs            from "fs";

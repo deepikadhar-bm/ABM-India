@@ -22,7 +22,7 @@
 //   - Database polling
 // ============================================================================
 
-import { logger } from "./logger";
+import { logger } from "../helpers/logger";
 
 export interface RetryOptions {
   retries?: number;             // Number of retry attempts (default: 2)

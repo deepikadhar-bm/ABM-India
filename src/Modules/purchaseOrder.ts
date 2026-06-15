@@ -1,5 +1,5 @@
 import { BasePage } from '@pages/basePage';
-import { PurchaseOrderLocators } from '@pages/Element/Purchaseorderlocators';
+import { PurchaseOrderLocators } from '../pages/Element/purchaseOrderLocators';
 
 export async function stepGroup_HandleSubmitPopups(
     base: BasePage,

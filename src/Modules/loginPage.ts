@@ -1,11 +1,11 @@
 import { Page, Locator, expect } from '@playwright/test';
-import { BasePage } from '../basePage';
-import { ElementUtils } from '../../utils/elementUtils';
-import { WaitUtils } from '../../utils/waitUtils';
-import { ErrorHandler } from '../../utils/errorHandler';
-import { logger } from '../../utils/logger';
-import { configManager } from '../../config/env.index';
-import { Global_Timeout } from '../../config/globalTimeout';
+import { BasePage } from '../pages/basePage';
+import { ElementUtils } from '../utils/elementUtils';
+import { WaitUtils } from '../utils/waitUtils';
+import { ErrorHandler } from '../utils/errorHandler';
+import { logger } from '../helpers/logger';
+import { configManager } from '../config/env.index';
+import { Global_Timeout } from '../config/globalTimeout';
 
 export class LoginPage extends BasePage {
   private usernameInput: Locator;
@@ -17,7 +17,7 @@ export class LoginPage extends BasePage {
     super(page);
 
     this.usernameInput      = page.locator('//input[@type="email"]');
-    this.passwordInput      = page.locator('//input[@type="password"]');
+    this.passwordInput      = page.locator('//input[@type="password4"]');
     this.loginButton        = page.locator('//button[normalize-space()="LOGIN"]');
     this.projectBaseHeader  = page.locator('//span[normalize-space()="ProjectBase 2.0"]');
   }
@@ -68,7 +68,7 @@ export class LoginPage extends BasePage {
         { timeout: Global_Timeout.action }
       );
 
-      // ✅ If projectBaseHeader not visible after login → reload and retry once
+      //  If projectBaseHeader not visible after login → reload and retry once
       const isVisible = await this.projectBaseHeader
         .waitFor({ state: 'visible', timeout: Global_Timeout.wait })
         .then(() => true)

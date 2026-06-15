@@ -27,7 +27,7 @@
 // ============================================================================
 
 import { Locator, Page, expect } from "@playwright/test";
-import { logger } from "./logger";
+import { logger } from "../helpers/logger";
 import { Global_Timeout } from "../config/globalTimeout";
 
 export class WaitUtils {

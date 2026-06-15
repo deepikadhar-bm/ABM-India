@@ -9,7 +9,7 @@
 // ============================================================================
 
 import { Locator, Page } from "@playwright/test";
-import { logger }        from "./logger";
+import { logger }        from "../helpers/logger";
 
 type PlaywrightRole = Parameters<Page["getByRole"]>[0];
 

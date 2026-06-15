@@ -28,7 +28,7 @@
 // ✔ Validator instance shared globally (singleton)  
 // ============================================================================
 
-import { logger } from "./logger";
+import { logger } from "../helpers/logger";
 
 export class SchemaValidator {
   private static instance: SchemaValidator;

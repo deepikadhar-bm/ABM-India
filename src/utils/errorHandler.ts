@@ -36,7 +36,7 @@
 // ============================================================================
 
 import { Page } from "@playwright/test";
-import { logger } from "./logger";
+import { logger } from "../helpers/logger";
 
 export class ErrorHandler {
 
