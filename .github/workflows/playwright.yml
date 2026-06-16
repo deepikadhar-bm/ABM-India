@@ -2,7 +2,6 @@ name: Playwright Tests
 
 on:
 
-  # ── Manual run ────────────────────────────────────────────────────────────
   workflow_dispatch:
     inputs:
 
@@ -67,7 +66,6 @@ on:
           - "2"
         default: "1"
 
-  # ── Nightly schedule — @regression on qa at midnight UTC ──────────────────
   schedule:
     - cron: "0 0 * * *"
 
@@ -99,7 +97,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      # ── Browser cache — keyed by Playwright version ───────────────────────
       - name: Get Playwright version
         run: |
           echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./node_modules/@playwright/test/package.json').version)")" >> $GITHUB_ENV
@@ -122,7 +119,6 @@ jobs:
       - name: Type Check
         run: npm run typecheck
 
-      # ── Resolve what to run — priority: TestCase > SpecFile > Module > Tag ─
       - name: Resolve execution mode
         run: |
           if [ -n "$RUN_TESTCASE" ]; then
@@ -151,7 +147,6 @@ jobs:
           echo "  Actor       : ${{ github.actor }}"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-      # ── Run by TestCase ───────────────────────────────────────────────────
       - name: Run TestCase
         id: run_testcase
         if: env.RUN_MODE == 'TestCase'
@@ -168,7 +163,6 @@ jobs:
           LOG_LEVEL:      DEBUG
           FORCE_COLOR:    1
 
-      # ── Run by SpecFile ───────────────────────────────────────────────────
       - name: Run SpecFile
         id: run_spec
         if: env.RUN_MODE == 'SpecFile'
@@ -184,7 +178,6 @@ jobs:
           LOG_LEVEL:      DEBUG
           FORCE_COLOR:    1
 
-      # ── Run by Module ─────────────────────────────────────────────────────
       - name: Run Module
         id: run_module
         if: env.RUN_MODE == 'Module'
@@ -200,7 +193,6 @@ jobs:
           LOG_LEVEL:      DEBUG
           FORCE_COLOR:    1
 
-      # ── Run by Tag ────────────────────────────────────────────────────────
       - name: Run Tag
         id: run_tag
         if: env.RUN_MODE == 'Tag'
@@ -217,7 +209,6 @@ jobs:
           LOG_LEVEL:      DEBUG
           FORCE_COLOR:    1
 
-      # ── Resolve outcome from whichever step ran ───────────────────────────
       - name: Resolve run outcome
         if: always()
         run: |
@@ -230,15 +221,17 @@ jobs:
             echo "RUN_OUTCOME=skipped" >> $GITHUB_ENV
           fi
 
-      # ── Parse JUnit XML for test counts ──────────────────────────────────
+      # ── Parse JUnit XML — sum across all test suites ──────────────────────
+      # ✅ Fixed: awk sums all values instead of head -1 (first value only)
+      # This correctly aggregates counts when multiple workers produce results
       - name: Parse test results
         if: always()
         run: |
           JUNIT_FILE="reports/results.xml"
           if [ -f "$JUNIT_FILE" ]; then
-            TOTAL=$(grep -oP 'tests="\K[0-9]+' "$JUNIT_FILE" | head -1 || echo "0")
-            FAILED=$(grep -oP 'errors="\K[0-9]+' "$JUNIT_FILE" | head -1 || echo "0")
-            SKIPPED=$(grep -oP 'skipped="\K[0-9]+' "$JUNIT_FILE" | head -1 || echo "0")
+            TOTAL=$(grep -oP   'tests="\K[0-9]+'   "$JUNIT_FILE" | awk '{s+=$1} END {print s+0}')
+            FAILED=$(grep -oP  'errors="\K[0-9]+'  "$JUNIT_FILE" | awk '{s+=$1} END {print s+0}')
+            SKIPPED=$(grep -oP 'skipped="\K[0-9]+' "$JUNIT_FILE" | awk '{s+=$1} END {print s+0}')
             PASSED=$(( TOTAL - FAILED - SKIPPED ))
           else
             TOTAL=0; PASSED=0; FAILED=0; SKIPPED=0
@@ -248,7 +241,6 @@ jobs:
           echo "TC_FAILED=$FAILED"   >> $GITHUB_ENV
           echo "TC_SKIPPED=$SKIPPED" >> $GITHUB_ENV
 
-      # ── Upload artifacts ──────────────────────────────────────────────────
       - name: Upload Reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -262,7 +254,6 @@ jobs:
             logs/
           retention-days: 30
 
-      # ── Job summary ───────────────────────────────────────────────────────
       - name: Write job summary
         if: always()
         run: |
@@ -299,13 +290,11 @@ jobs:
             echo "🔗 [View full run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
           } >> "$GITHUB_STEP_SUMMARY"
 
-      # ── Email on pass ─────────────────────────────────────────────────────
       - name: Notify pass
         if: env.RUN_OUTCOME == 'success'
         run: |
           echo "::notice title=✅ Playwright PASSED on $RUN_ENVIRONMENT::Run #${{ github.run_number }} | Mode: $RUN_MODE | Target: $RUN_TARGET | Total: $TC_TOTAL | Passed: $TC_PASSED | Failed: $TC_FAILED | Actor: ${{ github.actor }} | https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-      # ── Email on failure ──────────────────────────────────────────────────
       - name: Notify failure
         if: env.RUN_OUTCOME == 'failure'
         run: |
