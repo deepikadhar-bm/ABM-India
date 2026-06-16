@@ -151,6 +151,7 @@ test.describe('Purchase Order Module ', () => {
         // ── Select Order Brand ────────────────────────────────────────────────
         log.step('Select Order Brand');
         await base.click(el.orderBrandDropdown);
+        await base.pause(200);
         await base.click(el.orderBrandOption);
         await base.click(el.doneButton);
         log.pass('Order Brand selected');
@@ -164,15 +165,13 @@ test.describe('Purchase Order Module ', () => {
     
         // ── Submit PO ─────────────────────────────────────────────────────────
         log.step('Submit Purchase Order');
-        // ✅ Wait for page to settle after save — needed in headless/CI mode
-await base.waitForLoadState("domcontentloaded");
+        await base.waitForLoadState("domcontentloaded");
 await base.pause(1000);
 
-          // ── Submit ────────────────────────────────────────────────────────────────
-          await base.click(el.actionsButton, { force: true });
-          await base.waitForElementIsVisible(el.submitOption);
-          await base.click(el.submitOption);
-        
+// ── Submit ────────────────────────────────────────────────────────────────
+await base.click(el.actionsButton, { force: true });
+await base.waitForElementIsVisible(el.submitOption);
+await base.click(el.submitOption);
         await stepGroup_HandleSubmitPopups(base, el);
         log.pass('Purchase Order submitted');
 
