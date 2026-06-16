@@ -13,7 +13,7 @@ export async function stepGroup_HandleSubmitPopups(
         await base.click(el.yesSubmitButton);
     }, undefined, 3000);
 
-    await base.waitForElementToDisappear(el.model)
+    //await base.waitForElementToDisappear(el.model)
 }
 
 export async function stepGroup_ApproveUntilDone(

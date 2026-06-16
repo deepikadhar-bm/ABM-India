@@ -164,7 +164,14 @@ test.describe('Purchase Order Module ', () => {
     
         // ── Submit PO ─────────────────────────────────────────────────────────
         log.step('Submit Purchase Order');
-        await base.click(el.actionsButton);
+        // ✅ Wait for page to settle after save — needed in headless/CI mode
+await base.waitForLoadState("domcontentloaded");
+await base.pause(1000);
+
+// ── Submit ────────────────────────────────────────────────────────────────
+await base.click(el.actionsButton, { force: true });
+await base.waitForElementIsVisible(el.submitOption);
+await base.click(el.submitOption);
         await base.waitForElementIsVisible(el.submitOption);
         await base.click(el.submitOption);
         await stepGroup_HandleSubmitPopups(base, el);
