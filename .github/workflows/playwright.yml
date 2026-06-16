@@ -44,10 +44,10 @@ jobs:
     timeout-minutes: 360
 
     env:
-      RUN_ENVIRONMENT: ${{ github.event_name == 'schedule' && 'qa'         || inputs.environment }}
-      RUN_TAG:         ${{ github.event_name == 'schedule' && '@regression' || inputs.tag         }}
-      RUN_WORKERS:     ${{ github.event_name == 'schedule' && '2'           || inputs.workers      }}
-      RUN_RETRIES:     ${{ github.event_name == 'schedule' && '1'           || inputs.retries      }}
+      RUN_ENVIRONMENT: ${{ github.event_name == 'schedule' && 'qa'          || inputs.environment }}
+      RUN_TAG:         ${{ github.event_name == 'schedule' && '@regression'  || inputs.tag         }}
+      RUN_WORKERS:     ${{ github.event_name == 'schedule' && '2'            || inputs.workers      }}
+      RUN_RETRIES:     ${{ github.event_name == 'schedule' && '1'            || inputs.retries      }}
 
     steps:
 
@@ -60,7 +60,25 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run pw:install
+      # ── Cache Playwright browsers ─────────────────────────────────────────
+      # Key = hash of package-lock.json
+      # Only re-downloads browsers when Playwright version changes
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-browsers-${{ hashFiles('package-lock.json') }}
+
+      # Only runs when cache is missing (first run or Playwright version changed)
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npm run pw:install
+
+      # Always install system deps (fast — already installed on runner)
+      - name: Install system dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps
 
       - run: npm run typecheck
 
