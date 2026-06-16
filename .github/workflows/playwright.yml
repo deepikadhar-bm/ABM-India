@@ -2,6 +2,7 @@ name: Playwright Tests
 
 on:
 
+  # ── Manual run ────────────────────────────────────────────────────────────
   workflow_dispatch:
     inputs:
 
@@ -15,36 +16,26 @@ on:
           - staging
           - prod
 
-      runBy:
-        description: Execute By
-        required: true
-        type: choice
-        options:
-          - Module
-          - SpecFile
-          - TestCase
-          - Tag
-
-      module:
-        description: "Module Name (Example: growSmart)"
+      testCase:
+        description: "Test Case ID  (e.g. REG_TS_PO_TC01) — highest priority"
         required: false
         type: string
         default: ""
 
       specFile:
-        description: "Spec File Path (Example: test/growSmart/simpletestcase.spec.ts)"
+        description: "Spec File  (e.g. test/growSmart/simpletestcase.spec.ts)"
         required: false
         type: string
         default: ""
 
-      testCase:
-        description: "Test Case Name (Example: REG_TS_PO_TC01)"
+      module:
+        description: "Module folder  (e.g. growSmart)"
         required: false
         type: string
         default: ""
 
       tag:
-        description: Tag
+        description: "Tag — used when nothing else is filled"
         required: false
         type: choice
         options:
@@ -76,6 +67,7 @@ on:
           - "2"
         default: "1"
 
+  # ── Nightly schedule — @regression on qa at midnight UTC ──────────────────
   schedule:
     - cron: "0 0 * * *"
 
@@ -86,7 +78,6 @@ jobs:
 
     env:
       RUN_ENVIRONMENT: ${{ github.event_name == 'schedule' && 'qa'          || inputs.environment }}
-      RUN_BY:          ${{ github.event_name == 'schedule' && 'Tag'         || inputs.runBy       }}
       RUN_TAG:         ${{ github.event_name == 'schedule' && '@regression' || inputs.tag         }}
       RUN_MODULE:      ${{ github.event_name == 'schedule' && ''            || inputs.module      }}
       RUN_SPEC:        ${{ github.event_name == 'schedule' && ''            || inputs.specFile    }}
@@ -108,41 +99,97 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      # ── Browser cache — keyed by Playwright version ───────────────────────
+      - name: Get Playwright version
+        run: |
+          echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./node_modules/@playwright/test/package.json').version)")" >> $GITHUB_ENV
+
       - name: Cache Playwright browsers
         id: playwright-cache
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-browsers-${{ hashFiles('package-lock.json') }}
+          key: playwright-${{ env.PLAYWRIGHT_VERSION }}-chromium
 
-      - name: Install Playwright browsers
+      - name: Install Playwright Chromium + system deps
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npm run pw:install
+        run: npx playwright install chromium --with-deps
 
-      - name: Install system dependencies
+      - name: Install system deps only (browsers from cache)
         if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps
+        run: npx playwright install-deps chromium
 
       - name: Type Check
         run: npm run typecheck
 
+      # ── Resolve what to run — priority: TestCase > SpecFile > Module > Tag ─
+      - name: Resolve execution mode
+        run: |
+          if [ -n "$RUN_TESTCASE" ]; then
+            echo "RUN_MODE=TestCase" >> $GITHUB_ENV
+            echo "RUN_TARGET=$RUN_TESTCASE" >> $GITHUB_ENV
+          elif [ -n "$RUN_SPEC" ]; then
+            echo "RUN_MODE=SpecFile" >> $GITHUB_ENV
+            echo "RUN_TARGET=$RUN_SPEC" >> $GITHUB_ENV
+          elif [ -n "$RUN_MODULE" ]; then
+            echo "RUN_MODE=Module" >> $GITHUB_ENV
+            echo "RUN_TARGET=$RUN_MODULE" >> $GITHUB_ENV
+          else
+            echo "RUN_MODE=Tag" >> $GITHUB_ENV
+            echo "RUN_TARGET=$RUN_TAG" >> $GITHUB_ENV
+          fi
+
       - name: Show Execution Details
         run: |
-          echo "Trigger     : ${{ github.event_name }}"
-          echo "Environment : $RUN_ENVIRONMENT"
-          echo "Run By      : $RUN_BY"
-          echo "Module      : $RUN_MODULE"
-          echo "Spec File   : $RUN_SPEC"
-          echo "Test Case   : $RUN_TESTCASE"
-          echo "Tag         : $RUN_TAG"
-          echo "Workers     : $RUN_WORKERS"
-          echo "Retries     : $RUN_RETRIES"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "  Trigger     : ${{ github.event_name }}"
+          echo "  Environment : $RUN_ENVIRONMENT"
+          echo "  Mode        : $RUN_MODE"
+          echo "  Target      : $RUN_TARGET"
+          echo "  Workers     : $RUN_WORKERS"
+          echo "  Retries     : $RUN_RETRIES"
+          echo "  Actor       : ${{ github.actor }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
+      # ── Run by TestCase ───────────────────────────────────────────────────
+      - name: Run TestCase
+        id: run_testcase
+        if: env.RUN_MODE == 'TestCase'
+        run: |
+          npx playwright test \
+            --grep "$RUN_TARGET" \
+            --workers=$RUN_WORKERS \
+            --retries=$RUN_RETRIES \
+            --reporter=list,html,junit
+        env:
+          CI:             true
+          ENVIRONMENT:    ${{ env.RUN_ENVIRONMENT }}
+          TIMEOUT_ACTION: 30000
+          LOG_LEVEL:      DEBUG
+          FORCE_COLOR:    1
+
+      # ── Run by SpecFile ───────────────────────────────────────────────────
+      - name: Run SpecFile
+        id: run_spec
+        if: env.RUN_MODE == 'SpecFile'
+        run: |
+          npx playwright test "$RUN_TARGET" \
+            --workers=$RUN_WORKERS \
+            --retries=$RUN_RETRIES \
+            --reporter=list,html,junit
+        env:
+          CI:             true
+          ENVIRONMENT:    ${{ env.RUN_ENVIRONMENT }}
+          TIMEOUT_ACTION: 30000
+          LOG_LEVEL:      DEBUG
+          FORCE_COLOR:    1
+
+      # ── Run by Module ─────────────────────────────────────────────────────
       - name: Run Module
         id: run_module
-        if: env.RUN_BY == 'Module'
+        if: env.RUN_MODE == 'Module'
         run: |
-          npx playwright test "test/$RUN_MODULE" \
+          npx playwright test "test/$RUN_TARGET" \
             --workers=$RUN_WORKERS \
             --retries=$RUN_RETRIES \
             --reporter=list,html,junit
@@ -153,43 +200,13 @@ jobs:
           LOG_LEVEL:      DEBUG
           FORCE_COLOR:    1
 
-      - name: Run Spec File
-        id: run_spec
-        if: env.RUN_BY == 'SpecFile'
-        run: |
-          npx playwright test "$RUN_SPEC" \
-            --workers=$RUN_WORKERS \
-            --retries=$RUN_RETRIES \
-            --reporter=list,html,junit
-        env:
-          CI:             true
-          ENVIRONMENT:    ${{ env.RUN_ENVIRONMENT }}
-          TIMEOUT_ACTION: 30000
-          LOG_LEVEL:      DEBUG
-          FORCE_COLOR:    1
-
-      - name: Run Test Case
-        id: run_testcase
-        if: env.RUN_BY == 'TestCase'
-        run: |
-          npx playwright test \
-            --grep "$RUN_TESTCASE" \
-            --workers=$RUN_WORKERS \
-            --retries=$RUN_RETRIES \
-            --reporter=list,html,junit
-        env:
-          CI:             true
-          ENVIRONMENT:    ${{ env.RUN_ENVIRONMENT }}
-          TIMEOUT_ACTION: 30000
-          LOG_LEVEL:      DEBUG
-          FORCE_COLOR:    1
-
+      # ── Run by Tag ────────────────────────────────────────────────────────
       - name: Run Tag
         id: run_tag
-        if: env.RUN_BY == 'Tag'
+        if: env.RUN_MODE == 'Tag'
         run: |
           npx playwright test \
-            --grep "$RUN_TAG" \
+            --grep "$RUN_TARGET" \
             --workers=$RUN_WORKERS \
             --retries=$RUN_RETRIES \
             --reporter=list,html,junit
@@ -200,10 +217,11 @@ jobs:
           LOG_LEVEL:      DEBUG
           FORCE_COLOR:    1
 
+      # ── Resolve outcome from whichever step ran ───────────────────────────
       - name: Resolve run outcome
         if: always()
         run: |
-          OUTCOME="${{ steps.run_module.outcome }}${{ steps.run_spec.outcome }}${{ steps.run_testcase.outcome }}${{ steps.run_tag.outcome }}"
+          OUTCOME="${{ steps.run_testcase.outcome }}${{ steps.run_spec.outcome }}${{ steps.run_module.outcome }}${{ steps.run_tag.outcome }}"
           if echo "$OUTCOME" | grep -q "failure"; then
             echo "RUN_OUTCOME=failure" >> $GITHUB_ENV
           elif echo "$OUTCOME" | grep -q "success"; then
@@ -212,6 +230,7 @@ jobs:
             echo "RUN_OUTCOME=skipped" >> $GITHUB_ENV
           fi
 
+      # ── Parse JUnit XML for test counts ──────────────────────────────────
       - name: Parse test results
         if: always()
         run: |
@@ -229,11 +248,12 @@ jobs:
           echo "TC_FAILED=$FAILED"   >> $GITHUB_ENV
           echo "TC_SKIPPED=$SKIPPED" >> $GITHUB_ENV
 
+      # ── Upload artifacts ──────────────────────────────────────────────────
       - name: Upload Reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report-${{ env.RUN_ENVIRONMENT }}-run${{ github.run_number }}
+          name: playwright-${{ env.RUN_ENVIRONMENT }}-run${{ github.run_number }}
           path: |
             playwright-report/
             test-results/
@@ -242,6 +262,7 @@ jobs:
             logs/
           retention-days: 30
 
+      # ── Job summary ───────────────────────────────────────────────────────
       - name: Write job summary
         if: always()
         run: |
@@ -250,13 +271,6 @@ jobs:
           else
             STATUS="❌ Failed"
           fi
-          case "$RUN_BY" in
-            Module)   TARGET="Module: $RUN_MODULE" ;;
-            SpecFile) TARGET="File: $RUN_SPEC" ;;
-            TestCase) TARGET="Test: $RUN_TESTCASE" ;;
-            Tag)      TARGET="Tag: $RUN_TAG" ;;
-            *)        TARGET="-" ;;
-          esac
           {
             echo "## $STATUS — Playwright Tests"
             echo ""
@@ -265,8 +279,8 @@ jobs:
             echo "| Trigger | ${{ github.event_name }} |"
             echo "| Status | $STATUS |"
             echo "| Environment | $RUN_ENVIRONMENT |"
-            echo "| Execute By | $RUN_BY |"
-            echo "| Target | $TARGET |"
+            echo "| Mode | $RUN_MODE |"
+            echo "| Target | $RUN_TARGET |"
             echo "| Workers | $RUN_WORKERS |"
             echo "| Retries | $RUN_RETRIES |"
             echo "| Run Number | ${{ github.run_number }} |"
@@ -285,12 +299,14 @@ jobs:
             echo "🔗 [View full run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # ── Email on pass ─────────────────────────────────────────────────────
       - name: Notify pass
         if: env.RUN_OUTCOME == 'success'
         run: |
-          echo "::notice title=✅ Playwright PASSED on $RUN_ENVIRONMENT::Run #${{ github.run_number }} | $RUN_BY | Total: $TC_TOTAL | Passed: $TC_PASSED | Failed: $TC_FAILED | Actor: ${{ github.actor }} | https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          echo "::notice title=✅ Playwright PASSED on $RUN_ENVIRONMENT::Run #${{ github.run_number }} | Mode: $RUN_MODE | Target: $RUN_TARGET | Total: $TC_TOTAL | Passed: $TC_PASSED | Failed: $TC_FAILED | Actor: ${{ github.actor }} | https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
+      # ── Email on failure ──────────────────────────────────────────────────
       - name: Notify failure
         if: env.RUN_OUTCOME == 'failure'
         run: |
-          echo "::error title=❌ Playwright FAILED on $RUN_ENVIRONMENT::Run #${{ github.run_number }} | $RUN_BY | Total: $TC_TOTAL | Passed: $TC_PASSED | Failed: $TC_FAILED | Actor: ${{ github.actor }} | https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          echo "::error title=❌ Playwright FAILED on $RUN_ENVIRONMENT::Run #${{ github.run_number }} | Mode: $RUN_MODE | Target: $RUN_TARGET | Total: $TC_TOTAL | Passed: $TC_PASSED | Failed: $TC_FAILED | Actor: ${{ github.actor }} | https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
