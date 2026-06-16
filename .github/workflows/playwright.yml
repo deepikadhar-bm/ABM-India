@@ -1,0 +1,129 @@
+name: Playwright Tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        required: true
+        options:
+          - qa
+          - dev
+          - staging
+          - prod
+      tag:
+        type: choice
+        required: true
+        options:
+          - "@smoke"
+          - "@regression"
+          - "@sanity"
+          - "@p1"
+          - "@p2"
+      workers:
+        type: choice
+        required: true
+        options:
+          - "1"
+          - "2"
+          - "4"
+      retries:
+        type: choice
+        required: true
+        options:
+          - "0"
+          - "1"
+          - "2"
+
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  playwright:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+
+    env:
+      RUN_ENVIRONMENT: ${{ github.event_name == 'schedule' && 'qa'          || inputs.environment }}
+      RUN_TAG:         ${{ github.event_name == 'schedule' && '@regression'  || inputs.tag         }}
+      RUN_WORKERS:     ${{ github.event_name == 'schedule' && '2'            || inputs.workers      }}
+      RUN_RETRIES:     ${{ github.event_name == 'schedule' && '1'            || inputs.retries      }}
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run pw:install
+
+      - run: npm run typecheck
+
+      - name: Run tests
+        id: run_tests
+        run: npx playwright test --grep "$RUN_TAG" --workers="$RUN_WORKERS" --retries="$RUN_RETRIES" --reporter=list,html,junit
+        env:
+          CI:             true
+          ENVIRONMENT:    ${{ env.RUN_ENVIRONMENT }}
+          TIMEOUT_ACTION: 30000
+
+      - name: Strip @ from tag for artifact name
+        if: always()
+        run: echo "CLEAN_TAG=$(echo $RUN_TAG | sed 's/@//')" >> $GITHUB_ENV
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-${{ env.CLEAN_TAG }}-${{ env.RUN_ENVIRONMENT }}-run${{ github.run_number }}
+          path: |
+            playwright-report/
+            test-results/
+            reports/
+            allure-results/
+            logs/
+          retention-days: 30
+
+      - name: Write job summary
+        if: always()
+        run: |
+          STATUS="✅ Passed"
+          if [ "${{ steps.run_tests.outcome }}" != "success" ]; then
+            STATUS="❌ Failed"
+          fi
+          {
+            echo "## $STATUS — Playwright Tests"
+            echo ""
+            echo "| Field | Value |"
+            echo "|---|---|"
+            echo "| Trigger | ${{ github.event_name }} |"
+            echo "| Status | $STATUS |"
+            echo "| Tag | $RUN_TAG |"
+            echo "| Environment | $RUN_ENVIRONMENT |"
+            echo "| Workers | $RUN_WORKERS |"
+            echo "| Retries | $RUN_RETRIES |"
+            echo "| Run Number | ${{ github.run_number }} |"
+            echo "| Commit | ${{ github.sha }} |"
+            echo "| Actor | ${{ github.actor }} |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # ── Email notification on failure ──────────────────────────────────────
+      # GitHub sends automatic email to all watchers when a job fails.
+      # To receive emails:
+      #   GitHub → Settings → Notifications → Actions → enable "Failed workflows"
+      # No extra setup needed — GitHub handles it natively.
+      # Recovery email fires automatically when the next run passes after a failure.
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error title=Playwright $RUN_TAG failed on $RUN_ENVIRONMENT::Run #${{ github.run_number }} failed. Download artifacts for HTML report and traces."
+
+      - name: Notify on recovery
+        if: success() && github.event_name == 'schedule'
+        run: |
+          echo "::notice title=Playwright $RUN_TAG recovered on $RUN_ENVIRONMENT::Run #${{ github.run_number }} passed after previous failure."
