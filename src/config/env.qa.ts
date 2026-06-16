@@ -3,7 +3,7 @@ import type { AppConfig } from "./types";
 export const qaConfig: AppConfig = {
   env: "qa",
   baseURL: "https://sandbox5101.projectlane.io/spa#/1/home",
-  easyURL : "https://sandbox5101.projectlane.io/spa#/1/home",
+  easyURL : "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
 
   credentials: {
     username: "user2@gm.com",

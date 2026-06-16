@@ -55,7 +55,7 @@ class ConfigManager {
 
   getEnvironment(): Environment       { return this.env; }
   getBaseURL(): string                { return this.config.baseURL; }
-  geteasyURL(): string | undefined    { return this.config.easyURL; }
+  getEasyURL(): string | undefined    { return this.config.easyURL; }
   getAPIBaseURL(): string | undefined { return this.config.apiBaseURL; }
   getCredentials()                    { return this.config.credentials; }
   getBrowserConfig()                  { return this.config.browser; }

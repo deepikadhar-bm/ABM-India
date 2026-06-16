@@ -5,7 +5,6 @@
 // ✔ Smart label extraction for clean logs
 // ✔ Advanced retry with backoff (via RetryUtils)
 // ✔ AUTO-HEAL — lightweight runtime DOM recovery on locator failure
-// ✔ Bluecopa Workflow Canvas fallback (boundingBox click)
 // ✔ Scroll-into-view safety
 // ✔ Unified behavior for all PageObject actions
 // ✔ Clean console + file logging
