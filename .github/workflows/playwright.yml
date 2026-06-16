@@ -60,9 +60,6 @@ jobs:
 
       - run: npm ci
 
-      # ── Cache Playwright browsers ─────────────────────────────────────────
-      # Key = hash of package-lock.json
-      # Only re-downloads browsers when Playwright version changes
       - name: Cache Playwright browsers
         id: playwright-cache
         uses: actions/cache@v4
@@ -70,12 +67,10 @@ jobs:
           path: ~/.cache/ms-playwright
           key: playwright-browsers-${{ hashFiles('package-lock.json') }}
 
-      # Only runs when cache is missing (first run or Playwright version changed)
       - name: Install Playwright browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npm run pw:install
 
-      # Always install system deps (fast — already installed on runner)
       - name: Install system dependencies
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps
@@ -131,12 +126,16 @@ jobs:
             echo "| Actor | ${{ github.actor }} |"
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Notify on failure
+      # ── Email on FAILURE ───────────────────────────────────────────────────
+      # GitHub sends this as an annotation + email to all watchers
+      - name: Notify failure
         if: failure()
         run: |
-          echo "::error title=Playwright $RUN_TAG failed on $RUN_ENVIRONMENT::Run #${{ github.run_number }} failed. Download artifacts for HTML report and traces."
+          echo "::error title=❌ Playwright $RUN_TAG FAILED on $RUN_ENVIRONMENT::Run #${{ github.run_number }} failed. Triggered by: ${{ github.actor }}. Download artifacts for HTML report and traces. View run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-      - name: Notify on recovery
-        if: success() && github.event_name == 'schedule'
+      # ── Email on PASS ──────────────────────────────────────────────────────
+      # ::notice also triggers GitHub email notification to watchers
+      - name: Notify pass
+        if: success()
         run: |
-          echo "::notice title=Playwright $RUN_TAG recovered on $RUN_ENVIRONMENT::Run #${{ github.run_number }} passed after previous failure."
+          echo "::notice title=✅ Playwright $RUN_TAG PASSED on $RUN_ENVIRONMENT::Run #${{ github.run_number }} passed. Triggered by: ${{ github.actor }}. View run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"

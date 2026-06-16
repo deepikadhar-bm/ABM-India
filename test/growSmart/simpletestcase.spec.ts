@@ -168,12 +168,11 @@ test.describe('Purchase Order Module ', () => {
 await base.waitForLoadState("domcontentloaded");
 await base.pause(1000);
 
-// ── Submit ────────────────────────────────────────────────────────────────
-await base.click(el.actionsButton, { force: true });
-await base.waitForElementIsVisible(el.submitOption);
-await base.click(el.submitOption);
-        await base.waitForElementIsVisible(el.submitOption);
-        await base.click(el.submitOption);
+          // ── Submit ────────────────────────────────────────────────────────────────
+          await base.click(el.actionsButton, { force: true });
+          await base.waitForElementIsVisible(el.submitOption);
+          await base.click(el.submitOption);
+        
         await stepGroup_HandleSubmitPopups(base, el);
         log.pass('Purchase Order submitted');
 
