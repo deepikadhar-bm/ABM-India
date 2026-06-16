@@ -48,7 +48,7 @@ test.describe('Purchase Order Module ', () => {
 
     
 
-    test(`@regression ${TC_ID} - ${TC_TITLE}`  , async ({ page }) => {
+    test(`@smoke ${TC_ID} - ${TC_TITLE}`  , async ({ page }) => {
 
         log.info(`${TC_ID} - ${TC_TITLE}`);
 
