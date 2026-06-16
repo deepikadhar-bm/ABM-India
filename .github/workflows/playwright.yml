@@ -44,10 +44,10 @@ jobs:
     timeout-minutes: 360
 
     env:
-      RUN_ENVIRONMENT: ${{ github.event_name == 'schedule' && 'qa'          || inputs.environment }}
-      RUN_TAG:         ${{ github.event_name == 'schedule' && '@regression'  || inputs.tag         }}
-      RUN_WORKERS:     ${{ github.event_name == 'schedule' && '2'            || inputs.workers      }}
-      RUN_RETRIES:     ${{ github.event_name == 'schedule' && '1'            || inputs.retries      }}
+      RUN_ENVIRONMENT: ${{ github.event_name == 'schedule' && 'qa'         || inputs.environment }}
+      RUN_TAG:         ${{ github.event_name == 'schedule' && '@regression' || inputs.tag         }}
+      RUN_WORKERS:     ${{ github.event_name == 'schedule' && '2'           || inputs.workers      }}
+      RUN_RETRIES:     ${{ github.event_name == 'schedule' && '1'           || inputs.retries      }}
 
     steps:
 
@@ -55,7 +55,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - run: npm ci
@@ -71,6 +71,8 @@ jobs:
           CI:             true
           ENVIRONMENT:    ${{ env.RUN_ENVIRONMENT }}
           TIMEOUT_ACTION: 30000
+          LOG_LEVEL:      DEBUG
+          FORCE_COLOR:    1
 
       - name: Strip @ from tag for artifact name
         if: always()
@@ -110,13 +112,6 @@ jobs:
             echo "| Commit | ${{ github.sha }} |"
             echo "| Actor | ${{ github.actor }} |"
           } >> "$GITHUB_STEP_SUMMARY"
-
-      # ── Email notification on failure ──────────────────────────────────────
-      # GitHub sends automatic email to all watchers when a job fails.
-      # To receive emails:
-      #   GitHub → Settings → Notifications → Actions → enable "Failed workflows"
-      # No extra setup needed — GitHub handles it natively.
-      # Recovery email fires automatically when the next run passes after a failure.
 
       - name: Notify on failure
         if: failure()
