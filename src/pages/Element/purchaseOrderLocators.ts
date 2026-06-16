@@ -294,6 +294,10 @@ export class PurchaseOrderLocators {
         return this.named("Fully Invoiced Status",
             this.page.locator("//td[text()[normalize-space()='Fully invoiced']]"));
     }
+     get model(){
+       return this.named("model",
+         this.page.locator("//div[contains(@class,'modal_overlay')]"));
+    }
 
     // ── Dynamic locators ─────────────────────────────────────────────────────
 
@@ -328,4 +332,5 @@ export class PurchaseOrderLocators {
                 this.page.locator(`//div[@role='listbox']//*[contains(normalize-space(),'${name}')][1]`)
             );
     }
+   
 }
