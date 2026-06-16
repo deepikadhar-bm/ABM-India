@@ -10,7 +10,7 @@ import { LoginPage }from '@modules/loginPage';
 import { logger as log }from '@helpers/logger';
 import { Runtime }from '@utils/runtimeStore';
 import { PurchaseOrderLocators }
-from '@pages/Elements/purchaseOrderLocators'; 
+from '@pages/Element/purchaseOrderLocators'; 
 
 import {
 
