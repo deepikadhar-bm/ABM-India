@@ -91,6 +91,24 @@ jobs:
         if: always()
         run: echo "CLEAN_TAG=$(echo $RUN_TAG | sed 's/@//')" >> $GITHUB_ENV
 
+      # ── Parse JUnit XML for test counts ──────────────────────────────────
+      - name: Parse test results
+        if: always()
+        run: |
+          JUNIT_FILE="reports/results.xml"
+          if [ -f "$JUNIT_FILE" ]; then
+            TOTAL=$(grep -oP 'tests="\K[0-9]+' "$JUNIT_FILE" | head -1 || echo "0")
+            FAILED=$(grep -oP 'errors="\K[0-9]+' "$JUNIT_FILE" | head -1 || echo "0")
+            SKIPPED=$(grep -oP 'skipped="\K[0-9]+' "$JUNIT_FILE" | head -1 || echo "0")
+            PASSED=$(( TOTAL - FAILED - SKIPPED ))
+          else
+            TOTAL=0; PASSED=0; FAILED=0; SKIPPED=0
+          fi
+          echo "TC_TOTAL=$TOTAL"     >> $GITHUB_ENV
+          echo "TC_PASSED=$PASSED"   >> $GITHUB_ENV
+          echo "TC_FAILED=$FAILED"   >> $GITHUB_ENV
+          echo "TC_SKIPPED=$SKIPPED" >> $GITHUB_ENV
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -103,12 +121,16 @@ jobs:
             logs/
           retention-days: 30
 
+      # ── Job summary — shown in GitHub UI and email ────────────────────────
       - name: Write job summary
         if: always()
         run: |
-          STATUS="✅ Passed"
-          if [ "${{ steps.run_tests.outcome }}" != "success" ]; then
+          if [ "${{ steps.run_tests.outcome }}" == "success" ]; then
+            STATUS="✅ Passed"
+            STATUS_EMOJI="✅"
+          else
             STATUS="❌ Failed"
+            STATUS_EMOJI="❌"
           fi
           {
             echo "## $STATUS — Playwright Tests"
@@ -124,18 +146,27 @@ jobs:
             echo "| Run Number | ${{ github.run_number }} |"
             echo "| Commit | ${{ github.sha }} |"
             echo "| Actor | ${{ github.actor }} |"
+            echo ""
+            echo "## 📊 Test Results"
+            echo ""
+            echo "| Result | Count |"
+            echo "|---|---|"
+            echo "| 🧪 Total | $TC_TOTAL |"
+            echo "| ✅ Passed | $TC_PASSED |"
+            echo "| ❌ Failed | $TC_FAILED |"
+            echo "| ⏭️ Skipped | $TC_SKIPPED |"
+            echo ""
+            echo "🔗 [View full run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})"
           } >> "$GITHUB_STEP_SUMMARY"
 
-      # ── Email on FAILURE ───────────────────────────────────────────────────
-      # GitHub sends this as an annotation + email to all watchers
-      - name: Notify failure
-        if: failure()
-        run: |
-          echo "::error title=❌ Playwright $RUN_TAG FAILED on $RUN_ENVIRONMENT::Run #${{ github.run_number }} failed. Triggered by: ${{ github.actor }}. Download artifacts for HTML report and traces. View run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-
-      # ── Email on PASS ──────────────────────────────────────────────────────
-      # ::notice also triggers GitHub email notification to watchers
+      # ── Email on PASS ─────────────────────────────────────────────────────
       - name: Notify pass
-        if: success()
+        if: steps.run_tests.outcome == 'success'
         run: |
-          echo "::notice title=✅ Playwright $RUN_TAG PASSED on $RUN_ENVIRONMENT::Run #${{ github.run_number }} passed. Triggered by: ${{ github.actor }}. View run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          echo "::notice title=✅ Playwright $RUN_TAG PASSED on $RUN_ENVIRONMENT::Run #${{ github.run_number }} | Total: $TC_TOTAL | Passed: $TC_PASSED | Failed: $TC_FAILED | Skipped: $TC_SKIPPED | Actor: ${{ github.actor }} | https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      # ── Email on FAILURE ──────────────────────────────────────────────────
+      - name: Notify failure
+        if: steps.run_tests.outcome == 'failure'
+        run: |
+          echo "::error title=❌ Playwright $RUN_TAG FAILED on $RUN_ENVIRONMENT::Run #${{ github.run_number }} | Total: $TC_TOTAL | Passed: $TC_PASSED | Failed: $TC_FAILED | Skipped: $TC_SKIPPED | Actor: ${{ github.actor }} | https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
