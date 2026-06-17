@@ -27,7 +27,7 @@ test.describe('Orange HRM - Login Module', () => {
     //  sheet = 'LoginTestData' by name OR 0 for first sheet by index
     // =========================================================================
     test(
-        `@smoke ${TC_ID_1} - Login using row data`,
+        `@@smoke ${TC_ID_1} - Login using row data`,
         async ({ page }) => {
 
         log.info(`${TC_ID_1} - Login using getTestDataByRow`);

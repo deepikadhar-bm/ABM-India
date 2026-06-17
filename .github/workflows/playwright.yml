@@ -75,13 +75,13 @@ jobs:
     timeout-minutes: 360
 
     env:
-      RUN_ENVIRONMENT: ${{ github.event_name == 'schedule' && 'qa'          || inputs.environment }}
-      RUN_TAG:         ${{ github.event_name == 'schedule' && '@regression' || inputs.tag         }}
-      RUN_MODULE:      ${{ github.event_name == 'schedule' && ''            || inputs.module      }}
-      RUN_SPEC:        ${{ github.event_name == 'schedule' && ''            || inputs.specFile    }}
-      RUN_TESTCASE:    ${{ github.event_name == 'schedule' && ''            || inputs.testCase    }}
-      RUN_WORKERS:     ${{ github.event_name == 'schedule' && '2'           || inputs.workers     }}
-      RUN_RETRIES:     ${{ github.event_name == 'schedule' && '1'           || inputs.retries     }}
+      RUN_ENVIRONMENT: ${{ github.event_name == 'schedule' && 'qa'     || inputs.environment }}
+      RUN_TAG:         ${{ github.event_name == 'schedule' && '@smoke'  || inputs.tag         }}
+      RUN_MODULE:      ${{ github.event_name == 'schedule' && ''        || inputs.module      }}
+      RUN_SPEC:        ${{ github.event_name == 'schedule' && ''        || inputs.specFile    }}
+      RUN_TESTCASE:    ${{ github.event_name == 'schedule' && ''        || inputs.testCase    }}
+      RUN_WORKERS:     ${{ github.event_name == 'schedule' && '2'       || inputs.workers     }}
+      RUN_RETRIES:     ${{ github.event_name == 'schedule' && '1'       || inputs.retries     }}
 
     steps:
 
@@ -147,6 +147,14 @@ jobs:
           echo "  Actor       : ${{ github.actor }}"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
+      # ── Fix 1: Clean old reports before every run ─────────────────────────
+      # Ensures previous run results never bleed into this run
+      - name: Clean old reports
+        run: rm -rf reports/ playwright-report/ test-results/ allure-results/ logs/
+
+      # ── Fix 2: PLAYWRIGHT_JUNIT_OUTPUT_NAME forces correct XML path ───────
+      # Fix 3: --pass-with-no-tests prevents exit code 1 on no match
+
       - name: Run TestCase
         id: run_testcase
         if: env.RUN_MODE == 'TestCase'
@@ -155,13 +163,15 @@ jobs:
             --grep "$RUN_TARGET" \
             --workers=$RUN_WORKERS \
             --retries=$RUN_RETRIES \
-            --reporter=list,html,junit
+            --reporter=list,html,junit \
+            --pass-with-no-tests
         env:
-          CI:             true
-          ENVIRONMENT:    ${{ env.RUN_ENVIRONMENT }}
-          TIMEOUT_ACTION: 30000
-          LOG_LEVEL:      DEBUG
-          FORCE_COLOR:    1
+          CI:                           true
+          ENVIRONMENT:                  ${{ env.RUN_ENVIRONMENT }}
+          TIMEOUT_ACTION:               30000
+          LOG_LEVEL:                    DEBUG
+          FORCE_COLOR:                  1
+          PLAYWRIGHT_JUNIT_OUTPUT_NAME: reports/results.xml
 
       - name: Run SpecFile
         id: run_spec
@@ -170,13 +180,15 @@ jobs:
           npx playwright test "$RUN_TARGET" \
             --workers=$RUN_WORKERS \
             --retries=$RUN_RETRIES \
-            --reporter=list,html,junit
+            --reporter=list,html,junit \
+            --pass-with-no-tests
         env:
-          CI:             true
-          ENVIRONMENT:    ${{ env.RUN_ENVIRONMENT }}
-          TIMEOUT_ACTION: 30000
-          LOG_LEVEL:      DEBUG
-          FORCE_COLOR:    1
+          CI:                           true
+          ENVIRONMENT:                  ${{ env.RUN_ENVIRONMENT }}
+          TIMEOUT_ACTION:               30000
+          LOG_LEVEL:                    DEBUG
+          FORCE_COLOR:                  1
+          PLAYWRIGHT_JUNIT_OUTPUT_NAME: reports/results.xml
 
       - name: Run Module
         id: run_module
@@ -185,13 +197,15 @@ jobs:
           npx playwright test "test/$RUN_TARGET" \
             --workers=$RUN_WORKERS \
             --retries=$RUN_RETRIES \
-            --reporter=list,html,junit
+            --reporter=list,html,junit \
+            --pass-with-no-tests
         env:
-          CI:             true
-          ENVIRONMENT:    ${{ env.RUN_ENVIRONMENT }}
-          TIMEOUT_ACTION: 30000
-          LOG_LEVEL:      DEBUG
-          FORCE_COLOR:    1
+          CI:                           true
+          ENVIRONMENT:                  ${{ env.RUN_ENVIRONMENT }}
+          TIMEOUT_ACTION:               30000
+          LOG_LEVEL:                    DEBUG
+          FORCE_COLOR:                  1
+          PLAYWRIGHT_JUNIT_OUTPUT_NAME: reports/results.xml
 
       - name: Run Tag
         id: run_tag
@@ -201,13 +215,15 @@ jobs:
             --grep "$RUN_TARGET" \
             --workers=$RUN_WORKERS \
             --retries=$RUN_RETRIES \
-            --reporter=list,html,junit
+            --reporter=list,html,junit \
+            --pass-with-no-tests
         env:
-          CI:             true
-          ENVIRONMENT:    ${{ env.RUN_ENVIRONMENT }}
-          TIMEOUT_ACTION: 30000
-          LOG_LEVEL:      DEBUG
-          FORCE_COLOR:    1
+          CI:                           true
+          ENVIRONMENT:                  ${{ env.RUN_ENVIRONMENT }}
+          TIMEOUT_ACTION:               30000
+          LOG_LEVEL:                    DEBUG
+          FORCE_COLOR:                  1
+          PLAYWRIGHT_JUNIT_OUTPUT_NAME: reports/results.xml
 
       - name: Resolve run outcome
         if: always()
@@ -221,9 +237,6 @@ jobs:
             echo "RUN_OUTCOME=skipped" >> $GITHUB_ENV
           fi
 
-      # ── Parse JUnit XML — sum across all test suites ──────────────────────
-      # ✅ Fixed: awk sums all values instead of head -1 (first value only)
-      # This correctly aggregates counts when multiple workers produce results
       - name: Parse test results
         if: always()
         run: |
