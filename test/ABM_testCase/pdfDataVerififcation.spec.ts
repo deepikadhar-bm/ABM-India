@@ -6,7 +6,7 @@ import { test, expect}          from '@playwright/test';
 import { FileUtils } from '@helpers/fileUtils';
 
 test("Download bill PDF and verify Pdf content ", {
-    tag: ['@']
+    tag: ['@smoke']
   },
   async ({ page }, testInfo) => {
 

@@ -926,7 +926,7 @@ Change timeout in `env.qa.ts` or `env.dev.ts` — it applies to all methods auto
 | `TIMEOUT_NAVIGATION` | Override navigation timeout (ms) |
 | `HEADLESS` | `true` or `false` |
 | `LOG_LEVEL` | `DEBUG`, `INFO`, `WARN`, `ERROR` |
-| `TEST_SETS` | Select test-data sets |
+| `TEST_DATA_PATH` | Override JSON test-data folder path |
 | `CI` | Enables CI workers and retries |
 
 ```bash
@@ -1084,70 +1084,99 @@ preReqTest(
 
 ## Test Data
 
-### JSON format
+### JSON Profile Format
+
+JSON test data is stored under the configured folder path:
+
+```text
+testdata/JSON Files
+```
+
+The folder path comes from environment config:
+
+```typescript
+testDataPath: "testdata/JSON Files"
+```
+
+Only the folder path belongs in config. JSON file names stay in the test.
+
+Example `excel.json`:
 
 ```json
-{
-    "profile": "Purchase Order",
-    "sets": [
-        {
-            "setName": "Set 1",
-            "enabled": true,
-            "supplier": "Mohamed Supplier",
-            "quantity": 10,
-            "price": 100
-        },
-        {
-            "setName": "Set 2",
-            "enabled": true,
-            "supplier": "ABC Supplier",
-            "quantity": 5,
-            "price": 200
-        }
+[
+  {
+    "id": 1,
+    "testDataName": "Orange_Login_Data",
+    "data": [
+      {
+        "Username": "Admin",
+        "Password": "admin123"
+      }
     ]
+  },
+  {
+    "id": 2,
+    "testDataName": "Purchase_Order_Data",
+    "data": [
+      {
+        "Username": "ABC Vendor",
+        "Password": "1000"
+      }
+    ]
+  }
+]
+```
+
+### JSON Usage In Tests
+
+Use `testDataName` directly, then pass the JSON file name:
+
+```typescript
+import { testDataManager } from "../../testdata/testDataManager";
+
+const data = testDataManager.getJsonData("Orange_Login_Data")("excel.json");
+
+await base.fill(el.username, data.Username);
+await base.fill(el.password, data.Password);
+```
+
+This returns the first object inside the matching profile's `data` array.
+
+No `forEach`, no automatic test generation, and no TestCaseID lookup are needed.
+
+### IntelliSense For JSON Data
+
+VS Code suggestions for `data.` work when the `testDataName` is registered in `JsonProfileDataMap` inside `testdata/testDataManager.ts`.
+
+```typescript
+interface LoginData {
+    Username: string;
+    Password: string;
+}
+
+interface JsonProfileDataMap {
+    Orange_Login_Data: LoginData;
+    Purchase_Order_Data: LoginData;
 }
 ```
 
-### set utility — single set by index or name
+Then this gives suggestions for `Username` and `Password`:
 
 ```typescript
-import { set } from "@utils/set";
+const data = testDataManager.getJsonData("Orange_Login_Data")("excel.json");
 
-const data  = set("purchaseOrderData", 1);      // first set (index 1)
-const data2 = set("purchaseOrderData", "Set 2"); // by setName
-
-await base.type(el.supplierField, data.supplier);
-await base.type(el.quantityField, String(data.quantity));
+data.Username;
+data.Password;
 ```
 
-### loadTestData — filter and loop
+If suggestions do not appear immediately in VS Code, save the file and run `TypeScript: Restart TS Server`.
+
+### Direct JSON File Loading
+
+You can still load a complete JSON file directly:
 
 ```typescript
-import { loadTestData } from "@utils/dataFilter";
-
-const dataSets = loadTestData<{
-    setName:  string;
-    enabled:  boolean;
-    supplier: string;
-    quantity: number;
-}>("purchaseOrderData", {
-    filterType: "setName",
-    comparison: "between",
-    from: "Set 1",
-    to:   "Set 3"
-});
-
-for (const data of dataSets) {
-    test(`Create PO - ${data.setName}`, { tag: ["@regression"] }, async ({ page }) => {
-        await base.type(el.supplierField, data.supplier);
-    });
-}
-```
-
-### Select sets from command line
-
-```bash
-npx cross-env TEST_SETS="Set 1,Set 3" npx playwright test
+const json = testDataManager.getJsonData("excel.json");
 ```
 
 ### TestDataManager — JSON, CSV, Excel
@@ -1155,7 +1184,9 @@ npx cross-env TEST_SETS="Set 1,Set 3" npx playwright test
 ```typescript
 import { testDataManager } from "../../testdata/testDataManager";
 
-const json     = testDataManager.loadJSON("customers.json");
+const login    = testDataManager.getJsonData("Orange_Login_Data")("excel.json");
+const json     = testDataManager.loadJson("excel.json");
+const legacy   = testDataManager.loadJSON("JSON Files/excel.json");
 const workbook = await testDataManager.loadExcel("orders.xlsx");
 const rows     = await testDataManager.getSheetData("orders.xlsx", "Orders");
 ```
@@ -1412,8 +1443,8 @@ The repository is being migrated from an older folder layout.
 
 - `src/Modules/purchaseOrder.ts` references `src/pages/Element/` — should be `src/pages/Elements/`
 - New tests should use `@fixtures/basefixtures` for automatic logging
-- `dataFilter.ts` and `set.ts` expect `test-data/ui/` — existing data is under `testdata/JSON Files/`
-- `TestDataManager` expects `test-data/`
+- Current JSON profile data is read from `testdata/JSON Files/` through `configManager.getTestDataPath()`
+- Legacy helpers such as `dataFilter.ts` and `set.ts` still expect `test-data/ui/`
 - Firefox and WebKit are commented out in `playwright.config.ts`
 - Some package scripts reference `src/tests/ui/` which does not exist yet
 

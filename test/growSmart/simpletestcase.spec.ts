@@ -4,13 +4,13 @@
 //  base  = new BasePage(page)               → all methods
 //  login = new LoginPage(page)              → login methods
 // ============================================================================
-import { test, expect}          from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { BasePage } from '@pages/basePage';
-import { LoginPage }from '@modules/loginPage';
-import { logger as log }from '@helpers/logger';
-import { Runtime }from '@utils/runtimeStore';
+import { LoginPage } from '@modules/loginPage';
+import { logger as log } from '@helpers/logger';
+import { Runtime } from '@utils/runtimeStore';
 import { PurchaseOrderLocators }
-from '@pages/Element/purchaseOrderLocators'; 
+    from '@pages/Element/purchaseOrderLocators';
 
 import {
 
@@ -31,24 +31,24 @@ import {
     CLOSE_MAX_ATTEMPTS
 } from 'src/appConstant.ts/appConstants';
 
-const TC_ID    = 'REG_TS_PO_TC01';
+const TC_ID = 'REG_TS_PO_TC01';
 const TC_TITLE = 'Create Purchase Order - Full E2E';
 
 test.describe('Purchase Order Module ', () => {
 
-    let el:    PurchaseOrderLocators;
-    let base:  BasePage;
+    let el: PurchaseOrderLocators;
+    let base: BasePage;
     let login: LoginPage;
 
     test.beforeEach(async ({ page }) => {
-        el    = new PurchaseOrderLocators(page);
-        base  = new BasePage(page);
+        el = new PurchaseOrderLocators(page);
+        base = new BasePage(page);
         login = new LoginPage(page);
     });
 
-    
 
-    test(`@smoke ${TC_ID} - ${TC_TITLE}`  , async ({ page }) => {
+
+    test(`@smoke ${TC_ID} - ${TC_TITLE}`, async ({ page }) => {
 
         log.info(`${TC_ID} - ${TC_TITLE}`);
 
@@ -162,16 +162,16 @@ test.describe('Purchase Order Module ', () => {
         await base.click(el.saveOption);
         await stepGroup_HandleSubmitPopups(base, el);
 
-    
+
         // ── Submit PO ─────────────────────────────────────────────────────────
         log.step('Submit Purchase Order');
         await base.waitForLoadState("domcontentloaded");
-await base.pause(1000);
+        await base.pause(1000);
 
-// ── Submit ────────────────────────────────────────────────────────────────
-await base.click(el.actionsButton, { force: true });
-await base.waitForElementIsVisible(el.submitOption);
-await base.click(el.submitOption);
+        // ── Submit ────────────────────────────────────────────────────────────────
+        await base.click(el.actionsButton, { force: true });
+        await base.waitForElementIsVisible(el.submitOption);
+        await base.click(el.submitOption);
         await stepGroup_HandleSubmitPopups(base, el);
         log.pass('Purchase Order submitted');
 
@@ -223,11 +223,11 @@ await base.click(el.submitOption);
         // ── Close Panels ──────────────────────────────────────────────────────
         //  Fixed: replaced 4x copy-paste if blocks with clean loop
         log.step('Close panels');
-        await base.whileVisible(el.closeButton , async () => {
+        await base.whileVisible(el.closeButton, async () => {
             await el.closeButton.click();
-        await base.ifVisible(el.approved1Status, async () => {
+            await base.ifVisible(el.approved1Status, async () => {
+            });
         });
-         });
 
         // ── Verify Final Statuses ─────────────────────────────────────────────
         log.step('Verify final statuses');
