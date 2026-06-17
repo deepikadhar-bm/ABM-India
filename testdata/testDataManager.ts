@@ -1,6 +1,22 @@
 import * as fs   from 'fs';
 import * as path from 'path';
 import * as ExcelJS from 'exceljs';
+import { configManager } from '../src/config/env.index';
+
+interface JsonDataProfile<T> {
+    testDataName: string;
+    data: T[];
+}
+
+interface LoginData {
+    Username: string;
+    Password: string;
+}
+
+interface JsonProfileDataMap {
+    Orange_Login_Data: LoginData;
+    Purchase_Order_Data: LoginData;
+}
 
 export class TestDataManager {
 
@@ -47,6 +63,111 @@ export class TestDataManager {
     // =========================================================================
     // JSON
     // =========================================================================
+
+    private getConfiguredJsonFilePath(fileName: string): string {
+        if (!fileName || !fileName.trim()) {
+            throw new Error('JSON file name is required');
+        }
+
+        if (path.isAbsolute(fileName) || fileName.includes('..')) {
+            throw new Error(
+                `Invalid JSON file name: "${fileName}". ` +
+                'Pass only a file name such as "login.json".'
+            );
+        }
+
+        return path.join(
+            process.cwd(),
+            configManager.getTestDataPath(),
+            fileName
+        );
+    }
+
+    loadJson<T = Record<string, any>>(fileName: string): T {
+        const fullPath = this.getConfiguredJsonFilePath(fileName);
+        const cacheKey = `json_config_${fullPath}`;
+
+        if (this.cache.has(cacheKey)) {
+            return this.cache.get(cacheKey) as T;
+        }
+
+        if (!fs.existsSync(fullPath)) {
+            throw new Error(
+                `JSON file not found: ${fullPath}\n` +
+                `Configured test data path: ${configManager.getTestDataPath()}`
+            );
+        }
+
+        try {
+            const data = JSON.parse(fs.readFileSync(fullPath, 'utf8')) as T;
+            this.cache.set(cacheKey, data);
+            return data;
+        } catch (error: any) {
+            throw new Error(
+                `Failed to parse JSON file: ${fullPath}\n` +
+                `Error: ${error.message}`
+            );
+        }
+    }
+
+    private isJsonFileName(value: string): boolean {
+        return /\.json$/i.test(value.trim());
+    }
+
+    private getJsonProfileRow<T = Record<string, any>>(
+        testDataName: string,
+        fileName: string,
+        rowIndex = 0
+    ): T {
+        const profiles = this.loadJson<JsonDataProfile<T>[]>(fileName);
+
+        if (!Array.isArray(profiles)) {
+            throw new Error(
+                `JSON file "${fileName}" must contain an array of profiles ` +
+                'when reading by testDataName.'
+            );
+        }
+
+        const profile = profiles.find(
+            item => item.testDataName === testDataName
+        );
+
+        if (!profile) {
+            throw new Error(
+                `testDataName "${testDataName}" not found in "${fileName}". ` +
+                `Available: ${profiles.map(item => item.testDataName).join(', ')}`
+            );
+        }
+
+        const row = profile.data?.[rowIndex];
+
+        if (!row) {
+            throw new Error(
+                `Data row ${rowIndex} not found for testDataName "${testDataName}" ` +
+                `in "${fileName}".`
+            );
+        }
+
+        return row;
+    }
+
+    getJsonData<T = Record<string, any>>(fileName: `${string}.json`): T;
+    getJsonData<K extends keyof JsonProfileDataMap>(
+        testDataName: K
+    ): (fileName: string, rowIndex?: number) => JsonProfileDataMap[K];
+    getJsonData<T = Record<string, any>>(
+        testDataName: string
+    ): (fileName: string, rowIndex?: number) => T;
+    getJsonData<T = Record<string, any>>(
+        value: string
+    ): T | ((fileName: string, rowIndex?: number) => T) {
+        if (this.isJsonFileName(value)) {
+            return this.loadJson<T>(value);
+        }
+
+        return (fileName: string, rowIndex = 0): T =>
+            this.getJsonProfileRow<T>(value, fileName, rowIndex);
+    }
 
     loadJSON(filePath: string): any {
         const cacheKey = `json_${filePath}`;
@@ -369,6 +490,61 @@ export class TestDataManager {
 
         return results;
     }
+
+    // ============================================================================
+// JSON PROFILE METHODS
+// ============================================================================
+
+getProfileByName(profileName: string): any {
+
+    const profiles = this.loadJSON('test_data_profiles.json');
+
+    return profiles.find(
+        (p: any) =>
+            p.testDataName === profileName
+    );
+}
+
+getProfileData(profileName: string): Record<string, any>[] {
+
+    const profile =
+        this.getProfileByName(profileName);
+
+    if (!profile) {
+        throw new Error(
+            `Profile not found: ${profileName}`
+        );
+    }
+
+    return profile.data ?? [];
+}
+
+getProfileRow(
+    profileName: string,
+    rowIndex: number
+): Record<string, any> {
+
+    const rows =
+        this.getProfileData(profileName);
+
+    if (rowIndex >= rows.length) {
+        throw new Error(
+            `Row ${rowIndex} not found in profile ${profileName}`
+        );
+    }
+
+    return rows[rowIndex];
+}
+
+getProfileFirstRow(
+    profileName: string
+): Record<string, any> {
+
+    return this.getProfileRow(
+        profileName,
+        0
+    );
+}
 
     // =========================================================================
     // CACHE

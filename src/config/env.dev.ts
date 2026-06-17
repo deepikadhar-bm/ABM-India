@@ -4,6 +4,7 @@ export const devConfig: AppConfig = {
   env: "dev",
   baseURL: "https://www.easemytrip.com/",
   easyURL: "https://www.easemytrip.com/",
+  testDataPath: "testdata/JSON Files",
 
   credentials: {
     username: "testuser",

@@ -31,6 +31,7 @@ class ConfigManager {
     const merged: AppConfig = {
       ...baseConfig,
       baseURL: process.env.BASE_URL || baseConfig.baseURL,
+      testDataPath: process.env.TEST_DATA_PATH || baseConfig.testDataPath,
       credentials: {
         username: process.env.PLAYWRIGHT_USERNAME || baseConfig.credentials.username,
         password: process.env.PLAYWRIGHT_PASSWORD || baseConfig.credentials.password,
@@ -57,6 +58,7 @@ class ConfigManager {
   getBaseURL(): string                { return this.config.baseURL; }
   getEasyURL(): string | undefined    { return this.config.easyURL; }
   getAPIBaseURL(): string | undefined { return this.config.apiBaseURL; }
+  getTestDataPath(): string           { return this.config.testDataPath; }
   getCredentials()                    { return this.config.credentials; }
   getBrowserConfig()                  { return this.config.browser; }
   getLoggingConfig()                  { return this.config.logging; }

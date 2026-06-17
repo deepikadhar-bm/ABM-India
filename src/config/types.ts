@@ -1,6 +1,6 @@
 // src/config/types.ts
 
-export type Environment  = 'dev' | 'qa';   // ✅ removed staging + prod
+export type Environment  = 'dev' | 'qa';   
 export type TimeoutKeys  = 'action' | 'wait' | 'navigation';
 
 export interface CredentialsConfig {
@@ -19,6 +19,7 @@ export interface AppConfig {
   baseURL:     string;
   easyURL?:    string;
   apiBaseURL?: string;
+  testDataPath: string;
   requestOptions?: {
     timeout?: number;
     retries?: number;

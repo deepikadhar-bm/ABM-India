@@ -8,7 +8,7 @@ import { testDataManager }    from '../../testdata/testDataManager';
 const EXCEL_FILE = 'excelDataFiles/Sample_TestData.xlsx';
 const ORANGE_URL = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
 
-// ✅ Match exactly what is in Excel column A
+//  Match exactly what is in Excel column A
 const TC_ID_1    = 'REG_TS_or_TC01';
 const TC_ID_2    = 'REG_TS_or_TC02';
 
@@ -27,7 +27,7 @@ test.describe('Orange HRM - Login Module', () => {
     //  sheet = 'LoginTestData' by name OR 0 for first sheet by index
     // =========================================================================
     test(
-        `@@smoke ${TC_ID_1} - Login using row data`,
+        `@regression @smoke ${TC_ID_1} - Login using row data`,
         async ({ page }) => {
 
         log.info(`${TC_ID_1} - Login using getTestDataByRow`);
@@ -46,7 +46,7 @@ test.describe('Orange HRM - Login Module', () => {
         log.step('Navigate to OrangeHRM');
         await base.navigateTo(ORANGE_URL);
 
-        // ✅ Capital U and P — match Excel column headers exactly
+        // Capital U and P — match Excel column headers exactly
         log.step(`Login as: ${data.Username}`);
         await base.fill(el.username, String(data.Username));
         await base.fill(el.password, String(data.Password));

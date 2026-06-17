@@ -1,24 +1,21 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="11.315361999999965">
-<testsuite name="demoApplication\orange.spec.ts" timestamp="2026-06-16T13:36:58.946Z" hostname="chromium" tests="1" failures="0" skipped="0" time="6.759" errors="0">
-<testcase name="Orange HRM - Login Module › @smoke REG_TS_or_TC02 - Login using TC ID lookup" classname="demoApplication\orange.spec.ts" time="6.759">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="7.8610339999943974">
+<testsuite name="demoApplication\orange-json.spec.ts" timestamp="2026-06-17T06:52:10.807Z" hostname="chromium" tests="1" failures="0" skipped="0" time="5.016" errors="0">
+<testcase name="Orange HRM - JSON Test Data › @smoke Login using JSON test data2" classname="demoApplication\orange-json.spec.ts" time="5.016">
 <system-out>
-<![CDATA[[96m2026-06-16T13:37:01.901Z [INFO]  REG_TS_or_TC02 - Login using getTestDataByTestCaseId[0m
-[1m[97m2026-06-16T13:37:02.080Z [STEP]  ▶ Step 1 | Navigate to OrangeHRM | +1.97s[0m
-[1m[97m2026-06-16T13:37:02.085Z [STEP]  ▶ Step 2 | Navigate To → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login | +0.01s[0m
-[2m[37m2026-06-16T13:37:05.473Z [DEBUG] Wait: loadState → load[0m
-[2m[37m2026-06-16T13:37:05.479Z [DEBUG] LoadState reached (load) in 6ms[0m
-[1m[92m2026-06-16T13:37:05.479Z [PASS]  Navigated → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
-[1m[97m2026-06-16T13:37:05.479Z [STEP]  ▶ Step 3 | Login as: testadmin | +3.39s[0m
-[1m[97m2026-06-16T13:37:05.479Z [STEP]  ▶ Step 4 | Fill → username | "testadmin" | +0.00s[0m
-[1m[92m2026-06-16T13:37:06.572Z [PASS]  Filled → username[0m
-[1m[97m2026-06-16T13:37:06.573Z [STEP]  ▶ Step 5 | Fill → password | "12345" | +1.09s[0m
-[1m[92m2026-06-16T13:37:06.629Z [PASS]  Filled → password[0m
-[1m[97m2026-06-16T13:37:06.629Z [STEP]  ▶ Step 6 | Click → loginButton | +0.06s[0m
-[1m[92m2026-06-16T13:37:07.407Z [PASS]  Clicked → loginButton[0m
-[1m[97m2026-06-16T13:37:07.408Z [STEP]  ▶ Step 7 | Verify login successful | +0.78s[0m
-[1m[97m2026-06-16T13:37:07.408Z [STEP]  ▶ Step 8 | Wait disappear → admin | +0.00s[0m
-[1m[92m2026-06-16T13:37:07.777Z [PASS]  Disappeared → admin[0m
-[1m[92m2026-06-16T13:37:07.777Z [PASS]  REG_TS_or_TC02 - Login successful with TC ID lookup[0m
+<![CDATA[[1m[97m2026-06-17T06:52:12.705Z [STEP]  ▶ Step 1 | Navigate to OrangeHRM | +1.28s[0m
+[1m[97m2026-06-17T06:52:12.706Z [STEP]  ▶ Step 2 | Navigate To → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login | +0.00s[0m
+[2m[37m2026-06-17T06:52:15.399Z [DEBUG] Wait: loadState → load[0m
+[2m[37m2026-06-17T06:52:15.406Z [DEBUG] LoadState reached (load) in 7ms[0m
+[1m[92m2026-06-17T06:52:15.406Z [PASS]  Navigated → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
+[1m[97m2026-06-17T06:52:15.407Z [STEP]  ▶ Step 3 | Login as: Admin | +2.70s[0m
+[1m[97m2026-06-17T06:52:15.408Z [STEP]  ▶ Step 4 | Fill → username | "ABC Vendor" | +0.00s[0m
+[1m[92m2026-06-17T06:52:15.797Z [PASS]  Filled → username[0m
+[1m[97m2026-06-17T06:52:15.797Z [STEP]  ▶ Step 5 | Fill → password | "1000" | +0.39s[0m
+[1m[92m2026-06-17T06:52:15.847Z [PASS]  Filled → password[0m
+[1m[97m2026-06-17T06:52:15.847Z [STEP]  ▶ Step 6 | Click → loginButton | +0.05s[0m
+[1m[92m2026-06-17T06:52:16.800Z [PASS]  Clicked → loginButton[0m
+[1m[97m2026-06-17T06:52:16.801Z [STEP]  ▶ Step 7 | Wait disappear → admin | +0.95s[0m
+[1m[92m2026-06-17T06:52:16.868Z [PASS]  Disappeared → admin[0m
 ]]>
 </system-out>
 </testcase>

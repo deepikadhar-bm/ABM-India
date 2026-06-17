@@ -4,6 +4,7 @@ export const qaConfig: AppConfig = {
   env: "qa",
   baseURL: "https://sandbox5101.projectlane.io/spa#/1/home",
   easyURL : "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+  testDataPath: "testdata/JSON Files",
 
   credentials: {
     username: "user2@gm.com",

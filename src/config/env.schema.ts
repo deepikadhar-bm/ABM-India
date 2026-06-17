@@ -33,6 +33,7 @@ export const AppConfigSchema = z.object({
   baseURL:        z.string().url(),
   easyURL:        z.string().url().optional(),
   apiBaseURL:     z.string().url().optional(),
+  testDataPath:   z.string().min(1),
   credentials:    CredentialsSchema,
   timeouts:       TimeoutSchema,
   browser:        BrowserSchema,
