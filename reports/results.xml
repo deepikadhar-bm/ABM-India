@@ -1,271 +1,492 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="119.18140799999982">
-<testsuite name="growSmart\simpletestcase.spec.ts" timestamp="2026-06-17T10:03:56.344Z" hostname="chromium" tests="1" failures="0" skipped="0" time="115.394" errors="0">
-<testcase name="Purchase Order Module  › @smoke REG_TS_PO_TC01 - Create Purchase Order - Full E2E" classname="growSmart\simpletestcase.spec.ts" time="115.394">
+<testsuites id="" name="" tests="10" failures="0" skipped="0" errors="6" time="52.84891599999927">
+<testsuite name="test\demoApplication\orange-json.spec.ts" timestamp="2026-06-24T10:02:17.555Z" hostname="chromium" tests="8" failures="0" skipped="0" time="26.85" errors="4">
+<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @smoke REG_TS_DS_TC01 - Login using TestData" classname="test\demoApplication\orange-json.spec.ts" time="21.195">
 <system-out>
-<![CDATA[[96m2026-06-17T10:03:58.611Z [INFO]  REG_TS_PO_TC01 - Create Purchase Order - Full E2E[0m
-[1m[97m2026-06-17T10:03:58.612Z [STEP]  ▶ Step 1 | Login to application | +1.08s[0m
-[96m2026-06-17T10:03:58.612Z [INFO]  Opening Base URL: https://sandbox5101.projectlane.io/spa#/1/home[0m
-[2m[37m2026-06-17T10:03:59.380Z [DEBUG] Wait: URL contains → "sandbox5101.projectlane.io"[0m
-[2m[37m2026-06-17T10:03:59.596Z [DEBUG] URL matched "sandbox5101.projectlane.io" in 215ms[0m
-[96m2026-06-17T10:03:59.597Z [INFO]  Logging in as: user2@gm.com[0m
-[2m[37m2026-06-17T10:03:59.674Z [DEBUG] Fill → type="email"]') | user2@gm.com[0m
-[2m[37m2026-06-17T10:04:03.971Z [DEBUG] [AutoHeal] DOM scan: 1 candidates for <input>[0m
-[1m[93m2026-06-17T10:04:03.973Z [WARN]  [AutoHeal] Healing → //input[@type="password4"] | tag: <input>[0m
-[2m[37m2026-06-17T10:04:06.508Z [DEBUG]   [AutoHeal] ✗ xpath              xpath=//input[@type="password4"][0m
-[1m[92m2026-06-17T10:04:06.530Z [PASS]  [AutoHeal] ✅ HEALED via [dom] → xpath=//input[contains(@type,"password")] (+6691ms)
-[AutoHeal] 💡 UPDATE POM → xpath=//input[contains(@type,"password")][0m
-[1m[93m2026-06-17T10:04:06.531Z [WARN]  [AutoHeal] fill healed via [dom] → type="password4"]')[0m
-[2m[37m2026-06-17T10:04:06.531Z [DEBUG] Fill → type="password4"]') | 12345[0m
-[2m[37m2026-06-17T10:04:06.725Z [DEBUG] Click → LOGIN[0m
-[96m2026-06-17T10:04:11.975Z [INFO]  Login successful[0m
-[96m2026-06-17T10:04:11.996Z [INFO]  ProjectBase 2.0 is displayed[0m
-[1m[92m2026-06-17T10:04:11.996Z [PASS]  Login successful[0m
-[1m[97m2026-06-17T10:04:11.996Z [STEP]  ▶ Step 2 | Open Purchase Order form | +13.38s[0m
-[1m[97m2026-06-17T10:04:11.996Z [STEP]  ▶ Step 3 | Click → Type To Search Field | +0.00s[0m
-[1m[92m2026-06-17T10:04:12.245Z [PASS]  Clicked → Type To Search Field[0m
-[1m[97m2026-06-17T10:04:12.247Z [STEP]  ▶ Step 4 | Type → Search Field | "Purchase Order" | +0.25s[0m
-[1m[92m2026-06-17T10:04:12.521Z [PASS]  Typed → Search Field[0m
-[1m[97m2026-06-17T10:04:12.521Z [STEP]  ▶ Step 5 | Click → Purchase Orders Dropdown | +0.27s[0m
-[1m[92m2026-06-17T10:04:12.661Z [PASS]  Clicked → Purchase Orders Dropdown[0m
-[1m[97m2026-06-17T10:04:12.663Z [STEP]  ▶ Step 6 | Click → Create Purchase Order Button | +0.14s[0m
-[1m[92m2026-06-17T10:04:13.238Z [PASS]  Clicked → Create Purchase Order Button[0m
-[1m[92m2026-06-17T10:04:13.238Z [PASS]  Purchase Order form opened[0m
-[1m[97m2026-06-17T10:04:13.239Z [STEP]  ▶ Step 7 | Select Warehouse | +0.58s[0m
-[1m[97m2026-06-17T10:04:13.239Z [STEP]  ▶ Step 8 | Click → For Stock Radio | +0.00s[0m
-[1m[92m2026-06-17T10:04:13.374Z [PASS]  Clicked → For Stock Radio[0m
-[1m[97m2026-06-17T10:04:13.374Z [STEP]  ▶ Step 9 | Click → Warehouse Dropdown | +0.14s[0m
-[1m[92m2026-06-17T10:04:13.560Z [PASS]  Clicked → Warehouse Dropdown[0m
-[1m[97m2026-06-17T10:04:13.560Z [STEP]  ▶ Step 10 | Click → Warehouse Select | +0.19s[0m
-[1m[92m2026-06-17T10:04:13.720Z [PASS]  Clicked → Warehouse Select[0m
-[1m[97m2026-06-17T10:04:13.720Z [STEP]  ▶ Step 11 | Click → Tax Unit | +0.16s[0m
-[1m[92m2026-06-17T10:04:13.891Z [PASS]  Clicked → Tax Unit[0m
-[1m[97m2026-06-17T10:04:13.891Z [STEP]  ▶ Step 12 | Click → Chennai Branch | +0.17s[0m
-[1m[92m2026-06-17T10:04:14.031Z [PASS]  Clicked → Chennai Branch[0m
-[1m[97m2026-06-17T10:04:14.032Z [STEP]  ▶ Step 13 | Click → Done Button | +0.14s[0m
-[1m[92m2026-06-17T10:04:14.481Z [PASS]  Clicked → Done Button[0m
-[1m[92m2026-06-17T10:04:14.481Z [PASS]  Warehouse selected[0m
-[1m[97m2026-06-17T10:04:14.481Z [STEP]  ▶ Step 14 | Select Supplier: Mohamed Supplier | +0.45s[0m
-[1m[97m2026-06-17T10:04:14.482Z [STEP]  ▶ Step 15 | Click → Supplier Dropdown | +0.00s[0m
-[1m[92m2026-06-17T10:04:14.828Z [PASS]  Clicked → Supplier Dropdown[0m
-[1m[97m2026-06-17T10:04:14.829Z [STEP]  ▶ Step 16 | Wait visible → Supplier Dropdown | +0.35s[0m
-[1m[92m2026-06-17T10:04:14.998Z [PASS]  Visible → Supplier Dropdown[0m
-[1m[93m2026-06-17T10:04:14.999Z [WARN]  pause → 300ms[0m
-[1m[97m2026-06-17T10:04:15.343Z [STEP]  ▶ Step 17 | Type → Supplier Dropdown | "Mohamed Supplier" | +0.51s[0m
-[1m[92m2026-06-17T10:04:15.638Z [PASS]  Typed → Supplier Dropdown[0m
-[1m[97m2026-06-17T10:04:15.639Z [STEP]  ▶ Step 18 | Press key → "Enter" | +0.30s[0m
-[1m[92m2026-06-17T10:04:15.691Z [PASS]  Key pressed → "Enter"[0m
-[1m[92m2026-06-17T10:04:15.692Z [PASS]  Supplier: Mohamed Supplier[0m
-[1m[97m2026-06-17T10:04:15.692Z [STEP]  ▶ Step 19 | Select Delivery Address: Chennai | +0.05s[0m
-[1m[97m2026-06-17T10:04:15.692Z [STEP]  ▶ Step 20 | Scroll to → Delivery Address Label | +0.00s[0m
-[1m[92m2026-06-17T10:04:15.830Z [PASS]  Scrolled → Delivery Address Label[0m
-[1m[97m2026-06-17T10:04:15.830Z [STEP]  ▶ Step 21 | Click → Delivery Address Dropdown | +0.14s[0m
-[1m[92m2026-06-17T10:04:16.041Z [PASS]  Clicked → Delivery Address Dropdown[0m
-[1m[93m2026-06-17T10:04:16.041Z [WARN]  pause → 300ms[0m
-[1m[97m2026-06-17T10:04:16.419Z [STEP]  ▶ Step 22 | Type → Delivery Address Dropdown | "Chennai" | +0.59s[0m
-[1m[92m2026-06-17T10:04:16.614Z [PASS]  Typed → Delivery Address Dropdown[0m
-[1m[97m2026-06-17T10:04:16.614Z [STEP]  ▶ Step 23 | Press key → "Enter" | +0.20s[0m
-[1m[92m2026-06-17T10:04:16.678Z [PASS]  Key pressed → "Enter"[0m
-[1m[92m2026-06-17T10:04:16.679Z [PASS]  Delivery Address: Chennai[0m
-[1m[97m2026-06-17T10:04:16.679Z [STEP]  ▶ Step 24 | Select Purchase Executive: Admin | +0.07s[0m
-[1m[97m2026-06-17T10:04:16.679Z [STEP]  ▶ Step 25 | Click → Purchase Executive Dropdown | +0.00s[0m
-[1m[92m2026-06-17T10:04:16.855Z [PASS]  Clicked → Purchase Executive Dropdown[0m
-[1m[93m2026-06-17T10:04:16.856Z [WARN]  pause → 300ms[0m
-[1m[97m2026-06-17T10:04:17.264Z [STEP]  ▶ Step 26 | Type → Purchase Executive Dropdown | "Admin" | +0.58s[0m
-[1m[92m2026-06-17T10:04:17.597Z [PASS]  Typed → Purchase Executive Dropdown[0m
-[1m[97m2026-06-17T10:04:17.598Z [STEP]  ▶ Step 27 | Press key → "Enter" | +0.33s[0m
-[1m[92m2026-06-17T10:04:17.654Z [PASS]  Key pressed → "Enter"[0m
-[1m[92m2026-06-17T10:04:17.654Z [PASS]  Purchase Executive: Admin[0m
-[1m[97m2026-06-17T10:04:17.654Z [STEP]  ▶ Step 28 | Add Item: Item 1 | +0.06s[0m
-[1m[97m2026-06-17T10:04:17.654Z [STEP]  ▶ Step 29 | Click → Add Items Button | +0.00s[0m
-[1m[92m2026-06-17T10:04:18.102Z [PASS]  Clicked → Add Items Button[0m
-[1m[97m2026-06-17T10:04:18.103Z [STEP]  ▶ Step 30 | Wait visible → Item Textbox | +0.45s[0m
-[1m[92m2026-06-17T10:04:18.153Z [PASS]  Visible → Item Textbox[0m
-[1m[97m2026-06-17T10:04:18.153Z [STEP]  ▶ Step 31 | Click → Item Textbox | +0.05s[0m
-[1m[92m2026-06-17T10:04:18.453Z [PASS]  Clicked → Item Textbox[0m
-[1m[93m2026-06-17T10:04:18.453Z [WARN]  pause → 300ms[0m
-[1m[97m2026-06-17T10:04:18.790Z [STEP]  ▶ Step 32 | Type → Item Textbox | "Item 1" | +0.64s[0m
-[1m[92m2026-06-17T10:04:19.268Z [PASS]  Typed → Item Textbox[0m
-[1m[97m2026-06-17T10:04:19.269Z [STEP]  ▶ Step 33 | Click → Item Option (Item 1) | +0.48s[0m
-[1m[92m2026-06-17T10:04:19.931Z [PASS]  Clicked → Item Option (Item 1)[0m
-[1m[92m2026-06-17T10:04:19.931Z [PASS]  Item: Item 1[0m
-[1m[97m2026-06-17T10:04:19.931Z [STEP]  ▶ Step 34 | Enter Quantity: 10 | +0.66s[0m
-[1m[97m2026-06-17T10:04:19.932Z [STEP]  ▶ Step 35 | Click → Quantity Textbox | +0.00s[0m
-[1m[92m2026-06-17T10:04:20.198Z [PASS]  Clicked → Quantity Textbox[0m
-[1m[93m2026-06-17T10:04:20.199Z [WARN]  pause → 200ms[0m
-[1m[97m2026-06-17T10:04:20.458Z [STEP]  ▶ Step 36 | Clear → Quantity Textbox | +0.53s[0m
-[1m[92m2026-06-17T10:04:20.680Z [PASS]  Cleared → Quantity Textbox[0m
-[1m[97m2026-06-17T10:04:20.680Z [STEP]  ▶ Step 37 | Type → Quantity Textbox | "10" | +0.22s[0m
-[1m[92m2026-06-17T10:04:20.867Z [PASS]  Typed → Quantity Textbox[0m
-[1m[97m2026-06-17T10:04:20.867Z [STEP]  ▶ Step 38 | Press key → "Tab" | +0.19s[0m
-[1m[92m2026-06-17T10:04:20.915Z [PASS]  Key pressed → "Tab"[0m
-[1m[92m2026-06-17T10:04:20.915Z [PASS]  Quantity: 10[0m
-[1m[97m2026-06-17T10:04:20.915Z [STEP]  ▶ Step 39 | Enter Rate: 100 | +0.05s[0m
-[1m[97m2026-06-17T10:04:20.916Z [STEP]  ▶ Step 40 | Click → Rate Textbox | +0.00s[0m
-[1m[92m2026-06-17T10:04:21.102Z [PASS]  Clicked → Rate Textbox[0m
-[1m[93m2026-06-17T10:04:21.102Z [WARN]  pause → 200ms[0m
-[1m[97m2026-06-17T10:04:21.367Z [STEP]  ▶ Step 41 | Clear → Rate Textbox | +0.45s[0m
-[1m[92m2026-06-17T10:04:21.510Z [PASS]  Cleared → Rate Textbox[0m
-[1m[97m2026-06-17T10:04:21.510Z [STEP]  ▶ Step 42 | Type → Rate Textbox | "100" | +0.14s[0m
-[1m[92m2026-06-17T10:04:21.845Z [PASS]  Typed → Rate Textbox[0m
-[1m[97m2026-06-17T10:04:21.846Z [STEP]  ▶ Step 43 | Press key → "Tab" | +0.34s[0m
-[1m[92m2026-06-17T10:04:21.878Z [PASS]  Key pressed → "Tab"[0m
-[1m[92m2026-06-17T10:04:21.879Z [PASS]  Rate: 100[0m
-[1m[97m2026-06-17T10:04:21.879Z [STEP]  ▶ Step 44 | Verify Amount: 1000 | +0.03s[0m
-[1m[92m2026-06-17T10:04:22.967Z [PASS]  Amount verified: 1000[0m
-[1m[97m2026-06-17T10:04:22.968Z [STEP]  ▶ Step 45 | Select Order Brand | +1.09s[0m
-[1m[97m2026-06-17T10:04:22.968Z [STEP]  ▶ Step 46 | Click → Order Brand Dropdown | +0.00s[0m
-[1m[92m2026-06-17T10:04:23.284Z [PASS]  Clicked → Order Brand Dropdown[0m
-[1m[93m2026-06-17T10:04:23.284Z [WARN]  pause → 200ms[0m
-[1m[97m2026-06-17T10:04:23.533Z [STEP]  ▶ Step 47 | Click → Order Brand Option | +0.56s[0m
-[1m[92m2026-06-17T10:04:23.849Z [PASS]  Clicked → Order Brand Option[0m
-[1m[97m2026-06-17T10:04:23.849Z [STEP]  ▶ Step 48 | Click → Done Button | +0.32s[0m
-[1m[92m2026-06-17T10:04:24.111Z [PASS]  Clicked → Done Button[0m
-[1m[92m2026-06-17T10:04:24.112Z [PASS]  Order Brand selected[0m
-[1m[97m2026-06-17T10:04:24.112Z [STEP]  ▶ Step 49 | Save Order → verify Draft | +0.26s[0m
-[1m[97m2026-06-17T10:04:24.113Z [STEP]  ▶ Step 50 | Click → Actions Button | +0.00s[0m
-[1m[92m2026-06-17T10:04:24.530Z [PASS]  Clicked → Actions Button[0m
-[1m[97m2026-06-17T10:04:24.531Z [STEP]  ▶ Step 51 | Click → Save Option | +0.42s[0m
-[1m[92m2026-06-17T10:04:24.885Z [PASS]  Clicked → Save Option[0m
-[2m[37m2026-06-17T10:04:24.949Z [DEBUG] IF visible → Interstate Partner Alert : true[0m
-[1m[97m2026-06-17T10:04:24.950Z [STEP]  ▶ Step 52 | Click → No Continue Local GST | +0.42s[0m
-[1m[92m2026-06-17T10:04:25.307Z [PASS]  Clicked → No Continue Local GST[0m
-[2m[37m2026-06-17T10:04:28.424Z [DEBUG] IF visible → Yes Submit Button : false[0m
-[1m[97m2026-06-17T10:04:28.424Z [STEP]  ▶ Step 53 | Submit Purchase Order | +3.47s[0m
-[2m[37m2026-06-17T10:04:28.424Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-17T10:04:28.431Z [DEBUG] LoadState reached → domcontentloaded[0m
-[1m[93m2026-06-17T10:04:28.432Z [WARN]  pause → 1000ms[0m
-[1m[97m2026-06-17T10:04:29.837Z [STEP]  ▶ Step 54 | Click → Actions Button | +1.41s[0m
-[1m[92m2026-06-17T10:04:30.394Z [PASS]  Clicked → Actions Button[0m
-[1m[97m2026-06-17T10:04:30.394Z [STEP]  ▶ Step 55 | Wait visible → Submit Option | +0.56s[0m
-[1m[92m2026-06-17T10:04:30.488Z [PASS]  Visible → Submit Option[0m
-[1m[97m2026-06-17T10:04:30.488Z [STEP]  ▶ Step 56 | Click → Submit Option | +0.09s[0m
-[1m[92m2026-06-17T10:04:30.982Z [PASS]  Clicked → Submit Option[0m
-[2m[37m2026-06-17T10:04:31.033Z [DEBUG] IF visible → Interstate Partner Alert : true[0m
-[1m[97m2026-06-17T10:04:31.034Z [STEP]  ▶ Step 57 | Click → No Continue Local GST | +0.55s[0m
-[1m[92m2026-06-17T10:04:31.703Z [PASS]  Clicked → No Continue Local GST[0m
-[2m[37m2026-06-17T10:04:31.813Z [DEBUG] IF visible → Yes Submit Button : true[0m
-[1m[97m2026-06-17T10:04:31.814Z [STEP]  ▶ Step 58 | Click → Yes Submit Button | +0.78s[0m
-[1m[92m2026-06-17T10:04:32.386Z [PASS]  Clicked → Yes Submit Button[0m
-[1m[92m2026-06-17T10:04:32.387Z [PASS]  Purchase Order submitted[0m
-[1m[97m2026-06-17T10:04:32.387Z [STEP]  ▶ Step 59 | Approve Purchase Order | +0.57s[0m
-[1m[93m2026-06-17T10:04:32.387Z [WARN]  pause → 5000ms[0m
-[1m[97m2026-06-17T10:04:37.549Z [STEP]  ▶ Step 60 | Click → Approve This Document Button | +5.16s[0m
-[1m[92m2026-06-17T10:04:37.872Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-17T10:04:37.970Z [DEBUG] IF visible → Yes Approve Button : true[0m
-[1m[97m2026-06-17T10:04:37.971Z [STEP]  ▶ Step 61 | Click → Yes Approve Button | +0.42s[0m
-[1m[92m2026-06-17T10:04:38.274Z [PASS]  Clicked → Yes Approve Button[0m
-[2m[37m2026-06-17T10:04:38.274Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-17T10:04:38.284Z [DEBUG] LoadState reached → domcontentloaded[0m
-[1m[93m2026-06-17T10:04:38.284Z [WARN]  pause → 3000ms[0m
-[1m[97m2026-06-17T10:04:41.443Z [STEP]  ▶ Step 62 | Click → Approve This Document Button | +3.47s[0m
-[1m[92m2026-06-17T10:04:41.766Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-17T10:04:41.952Z [DEBUG] IF visible → Yes Approve Button : true[0m
-[1m[97m2026-06-17T10:04:41.952Z [STEP]  ▶ Step 63 | Click → Yes Approve Button | +0.51s[0m
-[1m[92m2026-06-17T10:04:42.485Z [PASS]  Clicked → Yes Approve Button[0m
-[2m[37m2026-06-17T10:04:42.486Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-17T10:04:42.498Z [DEBUG] LoadState reached → domcontentloaded[0m
-[1m[93m2026-06-17T10:04:42.499Z [WARN]  pause → 3000ms[0m
-[1m[97m2026-06-17T10:04:45.738Z [STEP]  ▶ Step 64 | Click → Approve This Document Button | +3.79s[0m
-[1m[92m2026-06-17T10:04:46.028Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-17T10:04:46.365Z [DEBUG] IF visible → Yes Approve Button : true[0m
-[1m[97m2026-06-17T10:04:46.365Z [STEP]  ▶ Step 65 | Click → Yes Approve Button | +0.63s[0m
-[1m[92m2026-06-17T10:04:46.796Z [PASS]  Clicked → Yes Approve Button[0m
-[2m[37m2026-06-17T10:04:46.797Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-17T10:04:46.803Z [DEBUG] LoadState reached → domcontentloaded[0m
-[1m[93m2026-06-17T10:04:46.803Z [WARN]  pause → 3000ms[0m
-Approve button not visible - exiting loop
-[1m[92m2026-06-17T10:04:50.046Z [PASS]  Assert visible → Approved Status[0m
-[1m[92m2026-06-17T10:04:50.046Z [PASS]  PO Approved[0m
-[1m[97m2026-06-17T10:04:50.046Z [STEP]  ▶ Step 66 | Create Receipt Note (GRN) | +3.68s[0m
-[1m[97m2026-06-17T10:04:50.046Z [STEP]  ▶ Step 67 | Click → Related Docs | +0.00s[0m
-[1m[92m2026-06-17T10:04:50.432Z [PASS]  Clicked → Related Docs[0m
-[1m[97m2026-06-17T10:04:50.433Z [STEP]  ▶ Step 68 | Click → Receipt Note GRN Button | +0.39s[0m
-[1m[92m2026-06-17T10:04:50.888Z [PASS]  Clicked → Receipt Note GRN Button[0m
-[1m[97m2026-06-17T10:04:50.889Z [STEP]  ▶ Step 69 | Click → Select Items Button GRN | +0.46s[0m
-[1m[92m2026-06-17T10:04:51.942Z [PASS]  Clicked → Select Items Button GRN[0m
-[1m[97m2026-06-17T10:04:51.942Z [STEP]  ▶ Step 70 | Click → PO Number Checkbox | +1.05s[0m
-[1m[92m2026-06-17T10:04:52.437Z [PASS]  Clicked → PO Number Checkbox[0m
-[1m[97m2026-06-17T10:04:52.438Z [STEP]  ▶ Step 71 | Click → Done Button GRN | +0.50s[0m
-[1m[92m2026-06-17T10:04:52.859Z [PASS]  Clicked → Done Button GRN[0m
-[1m[97m2026-06-17T10:04:52.859Z [STEP]  ▶ Step 72 | Click → Actions Button | +0.42s[0m
-[1m[92m2026-06-17T10:04:53.051Z [PASS]  Clicked → Actions Button[0m
-[1m[97m2026-06-17T10:04:53.051Z [STEP]  ▶ Step 73 | Wait visible → Submit Option | +0.19s[0m
-[1m[92m2026-06-17T10:04:53.134Z [PASS]  Visible → Submit Option[0m
-[1m[97m2026-06-17T10:04:53.134Z [STEP]  ▶ Step 74 | Click → Submit Option | +0.08s[0m
-[1m[92m2026-06-17T10:04:53.736Z [PASS]  Clicked → Submit Option[0m
-[2m[37m2026-06-17T10:04:56.814Z [DEBUG] IF visible → Interstate Partner Alert : false[0m
-[2m[37m2026-06-17T10:04:59.857Z [DEBUG] IF visible → Yes Submit Button : false[0m
-[1m[93m2026-06-17T10:04:59.858Z [WARN]  pause → 5000ms[0m
-[1m[97m2026-06-17T10:05:04.944Z [STEP]  ▶ Step 75 | Click → Approve This Document Button | +11.81s[0m
-[1m[92m2026-06-17T10:05:05.194Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-17T10:05:10.324Z [DEBUG] IF visible → Yes Approve Button : false[0m
-[2m[37m2026-06-17T10:05:10.324Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-17T10:05:10.331Z [DEBUG] LoadState reached → domcontentloaded[0m
-[1m[93m2026-06-17T10:05:10.331Z [WARN]  pause → 3000ms[0m
-Approve button not visible - exiting loop
-[1m[92m2026-06-17T10:05:13.613Z [PASS]  GRN created and approved[0m
-[1m[97m2026-06-17T10:05:13.613Z [STEP]  ▶ Step 76 | Create Purchase Invoice | +8.67s[0m
-[1m[97m2026-06-17T10:05:13.643Z [STEP]  ▶ Step 77 | Click → Related Docs (PI) | +0.03s[0m
-[1m[92m2026-06-17T10:05:13.891Z [PASS]  Clicked → Related Docs (PI)[0m
-[1m[97m2026-06-17T10:05:13.891Z [STEP]  ▶ Step 78 | Click → Purchase Invoice Button | +0.25s[0m
-[1m[92m2026-06-17T10:05:14.175Z [PASS]  Clicked → Purchase Invoice Button[0m
-[2m[37m2026-06-17T10:05:14.885Z [DEBUG] IF visible → Supplier Invoice Date : true[0m
-[1m[97m2026-06-17T10:05:14.886Z [STEP]  ▶ Step 79 | Fill datepicker → Supplier Invoice Date | "17/06/2026" | +0.99s[0m
-[1m[92m2026-06-17T10:05:15.859Z [PASS]  Datepicker (calendar) → Supplier Invoice Date : today selected[0m
-[1m[97m2026-06-17T10:05:15.897Z [STEP]  ▶ Step 80 | Fill datepicker → Document Date | "17/06/2026" | +1.01s[0m
-[1m[92m2026-06-17T10:05:16.831Z [PASS]  Datepicker (calendar) → Document Date : today selected[0m
-[1m[97m2026-06-17T10:05:16.885Z [STEP]  ▶ Step 81 | Fill datepicker → Due Date | "17/06/2026" | +0.99s[0m
-[1m[92m2026-06-17T10:05:17.474Z [PASS]  Datepicker (calendar) → Due Date : today selected[0m
-[1m[97m2026-06-17T10:05:17.627Z [STEP]  ▶ Step 82 | Type → Supplier Invoice No | "1129" | +0.74s[0m
-[1m[92m2026-06-17T10:05:17.971Z [PASS]  Typed → Supplier Invoice No[0m
-[1m[97m2026-06-17T10:05:17.971Z [STEP]  ▶ Step 83 | Click → Select Items Button PI | +0.34s[0m
-[1m[92m2026-06-17T10:05:18.209Z [PASS]  Clicked → Select Items Button PI[0m
-[1m[97m2026-06-17T10:05:18.210Z [STEP]  ▶ Step 84 | Click → Receipt No Checkbox | +0.24s[0m
-[1m[92m2026-06-17T10:05:18.707Z [PASS]  Clicked → Receipt No Checkbox[0m
-[1m[97m2026-06-17T10:05:18.707Z [STEP]  ▶ Step 85 | Click → Done Button PI | +0.50s[0m
-[1m[92m2026-06-17T10:05:18.930Z [PASS]  Clicked → Done Button PI[0m
-[1m[97m2026-06-17T10:05:18.931Z [STEP]  ▶ Step 86 | Click → Actions Button | +0.22s[0m
-[1m[92m2026-06-17T10:05:19.126Z [PASS]  Clicked → Actions Button[0m
-[1m[97m2026-06-17T10:05:19.126Z [STEP]  ▶ Step 87 | Wait visible → Submit Option | +0.20s[0m
-[1m[92m2026-06-17T10:05:19.212Z [PASS]  Visible → Submit Option[0m
-[1m[97m2026-06-17T10:05:19.213Z [STEP]  ▶ Step 88 | Click → Submit Option | +0.09s[0m
-[1m[92m2026-06-17T10:05:19.795Z [PASS]  Clicked → Submit Option[0m
-[2m[37m2026-06-17T10:05:19.850Z [DEBUG] IF visible → Interstate Partner Alert : true[0m
-[1m[97m2026-06-17T10:05:19.850Z [STEP]  ▶ Step 89 | Click → No Continue Local GST | +0.64s[0m
-[1m[92m2026-06-17T10:05:20.026Z [PASS]  Clicked → No Continue Local GST[0m
-[2m[37m2026-06-17T10:05:23.118Z [DEBUG] IF visible → Yes Submit Button : false[0m
-[1m[93m2026-06-17T10:05:23.118Z [WARN]  pause → 5000ms[0m
-[1m[97m2026-06-17T10:05:28.244Z [STEP]  ▶ Step 90 | Click → Approve This Document Button | +8.39s[0m
-[1m[92m2026-06-17T10:05:28.815Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-17T10:05:33.973Z [DEBUG] IF visible → Yes Approve Button : false[0m
-[2m[37m2026-06-17T10:05:33.973Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-17T10:05:33.975Z [DEBUG] LoadState reached → domcontentloaded[0m
-[1m[93m2026-06-17T10:05:33.976Z [WARN]  pause → 3000ms[0m
-[1m[97m2026-06-17T10:05:37.139Z [STEP]  ▶ Step 91 | Click → Approve This Document Button | +8.89s[0m
-[1m[92m2026-06-17T10:05:37.515Z [PASS]  Clicked → Approve This Document Button[0m
-[2m[37m2026-06-17T10:05:42.639Z [DEBUG] IF visible → Yes Approve Button : false[0m
-[2m[37m2026-06-17T10:05:42.639Z [DEBUG] Wait loadState → domcontentloaded[0m
-[2m[37m2026-06-17T10:05:42.644Z [DEBUG] LoadState reached → domcontentloaded[0m
-[1m[93m2026-06-17T10:05:42.644Z [WARN]  pause → 3000ms[0m
-[1m[92m2026-06-17T10:05:45.820Z [PASS]  Purchase Invoice created (No: 1129)[0m
-[1m[97m2026-06-17T10:05:45.820Z [STEP]  ▶ Step 92 | Close panels | +8.68s[0m
-[2m[37m2026-06-17T10:05:45.872Z [DEBUG] WHILE visible → Close Button | iteration 1[0m
-[2m[37m2026-06-17T10:05:46.238Z [DEBUG] IF visible → Approved Status (Final) : false[0m
-[2m[37m2026-06-17T10:05:46.653Z [DEBUG] WHILE visible → Close Button | iteration 2[0m
-[2m[37m2026-06-17T10:05:47.031Z [DEBUG] IF visible → Approved Status (Final) : false[0m
-[2m[37m2026-06-17T10:05:47.686Z [DEBUG] WHILE visible → Close Button | iteration 3[0m
-[2m[37m2026-06-17T10:05:49.407Z [DEBUG] IF visible → Approved Status (Final) : false[0m
-[1m[97m2026-06-17T10:05:52.554Z [STEP]  ▶ Step 93 | Verify final statuses | +6.73s[0m
-[1m[92m2026-06-17T10:05:52.751Z [PASS]  Assert visible → Approved Status (Final)[0m
-[96m2026-06-17T10:05:52.751Z [INFO]  Approved ✅[0m
-[1m[92m2026-06-17T10:05:52.849Z [PASS]  Assert visible → Fully Received Status[0m
-[96m2026-06-17T10:05:52.849Z [INFO]  Fully received ✅[0m
-[1m[92m2026-06-17T10:05:52.890Z [PASS]  Assert visible → Fully Invoiced Status[0m
-[96m2026-06-17T10:05:52.891Z [INFO]  Fully invoiced ✅[0m
-[1m[92m2026-06-17T10:05:52.891Z [PASS]  All final statuses verified[0m
-[96m2026-06-17T10:05:52.891Z [INFO]  PASS[0m
+<![CDATA[[96m2026-06-24T15:32:25.916Z [INFO]  Available test data: Orange_Login_Data, Purchase_Order_Data[0m
+[96m2026-06-24T15:32:25.921Z [INFO]  Excel entry: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
+[1m[94m════════════════════════════════════════════════════════════
+   TEST    : @smoke REG_TS_DS_TC01 - Login using TestData
+   FILE    : orange-json.spec.ts
+   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
+   ENV     : QA
+   BROWSER : chromium
+════════════════════════════════════════════════════════════[0m
+[96m2026-06-24T15:32:27.787Z [INFO]  [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
+[96m2026-06-24T15:32:27.788Z [INFO]  Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[96m2026-06-24T15:32:30.274Z [INFO]  Navigated to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[96m2026-06-24T15:32:30.299Z [INFO]  [ACTION] Fill username → Admin[0m
+[96m2026-06-24T15:32:30.300Z [INFO]  Filling: "username" with value: "Admin"[0m
+[96m2026-06-24T15:32:30.817Z [INFO]  Filled: "username"[0m
+[96m2026-06-24T15:32:30.830Z [INFO]  [ACTION] Fill password → admin123[0m
+[96m2026-06-24T15:32:30.834Z [INFO]  Filling: "password" with value: "admin123"[0m
+[96m2026-06-24T15:32:31.012Z [INFO]  Filled: "password"[0m
+[96m2026-06-24T15:32:31.037Z [INFO]  [ACTION] Click loginButton[0m
+[96m2026-06-24T15:32:31.037Z [INFO]  Clicking: "loginButton"[0m
+[96m2026-06-24T15:32:32.059Z [INFO]  Clicked: "loginButton"[0m
+[96m2026-06-24T15:32:32.065Z [INFO]  [ACTION] Wait Visible admin[0m
+[96m2026-06-24T15:32:32.066Z [INFO]  Waiting for "admin" to be visible[0m
+[1m[91m2026-06-24T15:32:47.077Z [ERROR] Wait visible failed | element: "admin" | expected: visible | actual: not found[0m
+[1m[91m2026-06-24T15:32:47.078Z [ERROR] Wait visible failed | element: "admin" | error: Element not visible: "admin"[0m
+[1m[91m2026-06-24T15:32:47.080Z [ERROR] ❌ BasePage.waitForElementIsVisible (admin)
+
+Root Cause:
+Element not visible: "admin"[0m
+[1m[91m2026-06-24T15:32:47.081Z [ERROR] Source: C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:61:5[0m
+[1m[97m[41m2026-06-24T15:32:47.934Z [FAIL]  Screenshot captured → attached to report[0m
+[1m[91m════════════════════════════════════════════════════════════
+   ❌ FAILED — @smoke REG_TS_DS_TC01 - Login using TestData
+   Duration : 20.17s  |  Steps completed : 0
+════════════════════════════════════════════════════════════
+[0m
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\error-context.md]]
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\error-context.md]]
 ]]>
 </system-out>
+<error message="Element not visible: &quot;admin&quot;" type="Error">
+<![CDATA[  [chromium] › test\demoApplication\orange-json.spec.ts:54:7 › Data Sources — TestData | ExcelData | ExcelValidator › @smoke REG_TS_DS_TC01 - Login using TestData › Wait for admin to be visible 
+
+    Error: Element not visible: "admin"
+
+       at src\pages\basePage.ts:636
+
+      634 |           }
+      635 |           logger.error(`Wait visible failed | element: "${name}" | expected: visible | actual: not found`);
+    > 636 |           throw new Error(`Element not visible: "${name}"`);
+          |                 ^
+      637 |         } catch (e: any) {
+      638 |           logger.error(`Wait visible failed | element: "${name}" | error: ${e.message?.split("\n")[0]}`);
+      639 |           throw e;
+        at _errorHandler.ErrorHandler.handle.context (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:636:17)
+        at ErrorHandler.handle (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\utils\errorHandler.ts:13:14)
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:1729:18
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:61:5
+
+    attachment #6: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #8: tc-logs (text/plain) ────────────────────────────────────────────────────────────
+    2026-06-24T15:32:27.787Z [INFO]  [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+    2026-06-24T15:32:27.788Z [INFO]  Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+    2026-06-24T15:32:30.274Z [INFO]  Navigated to: "https://ope...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\error-context.md
+
+    Error Context: test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @smoke REG_TS_DS_TC02 - Verify landing menu from expected" classname="test\demoApplication\orange-json.spec.ts" time="1.95">
+<system-out>
+<![CDATA[[96m2026-06-24T15:32:51.591Z [INFO]  Available test data: Orange_Login_Data, Purchase_Order_Data[0m
+[96m2026-06-24T15:32:51.592Z [INFO]  Excel entry: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
+[1m[94m════════════════════════════════════════════════════════════
+   TEST    : @smoke REG_TS_DS_TC02 - Verify landing menu from expected
+   FILE    : orange-json.spec.ts
+   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
+   ENV     : QA
+   BROWSER : chromium
+════════════════════════════════════════════════════════════[0m
+[96m2026-06-24T15:32:52.155Z [INFO]  [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
+[96m2026-06-24T15:32:52.155Z [INFO]  Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[1m[91m2026-06-24T15:32:53.788Z [ERROR] Navigation failed | url: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" | error: page.goto: Target page, context or browser has been closed[0m
+[1m[91m2026-06-24T15:32:53.789Z [ERROR] ❌ BasePage.navigateTo
+
+Root Cause:
+Navigation failed: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[1m[91m2026-06-24T15:32:53.790Z [ERROR] Source: C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:72:5[0m
+[1m[91m════════════════════════════════════════════════════════════
+   ❌ FAILED — @smoke REG_TS_DS_TC02 - Verify landing menu from expected
+   Duration : 1.66s  |  Steps completed : 0
+════════════════════════════════════════════════════════════
+[0m
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-0c92c--landing-menu-from-expected-chromium\error-context.md]]
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-0c92c--landing-menu-from-expected-chromium\error-context.md]]
+]]>
+</system-out>
+<error message="Navigation failed: &quot;https://opensource-demo.orangehrmlive.com/web/index.php/auth/login&quot;" type="Error">
+<![CDATA[  [chromium] › test\demoApplication\orange-json.spec.ts:68:7 › Data Sources — TestData | ExcelData | ExcelValidator › @smoke REG_TS_DS_TC02 - Verify landing menu from expected › Navigate to https://opensource-demo.orangehrmlive.com/web/index.php/auth/login 
+
+    Error: Navigation failed: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+
+       at src\pages\basePage.ts:164
+
+      162 |         } catch (e: any) {
+      163 |           logger.error(`Navigation failed | url: "${url}" | error: ${e.message?.split("\n")[0]}`);
+    > 164 |           throw new Error(`Navigation failed: "${url}"`);
+          |                 ^
+      165 |         }
+      166 |       }, { context: "BasePage.navigateTo" });
+      167 |     });
+        at _errorHandler.ErrorHandler.handle.context (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:164:17)
+        at ErrorHandler.handle (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\utils\errorHandler.ts:13:14)
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:1729:18
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:72:5
+
+    attachment #2: tc-logs (text/plain) ────────────────────────────────────────────────────────────
+    2026-06-24T15:32:52.155Z [INFO]  [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+    2026-06-24T15:32:52.155Z [INFO]  Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+    2026-06-24T15:32:53.788Z [ERROR] Navigation failed | url: "...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\test-demoApplication-orang-0c92c--landing-menu-from-expected-chromium\error-context.md
+
+    Error Context: test-results\test-demoApplication-orang-0c92c--landing-menu-from-expected-chromium\error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC03 - Verify Username cell from xlsx" classname="test\demoApplication\orange-json.spec.ts" time="0.79">
+<system-out>
+<![CDATA[[96m2026-06-24T15:32:55.750Z [INFO]  Available test data: Orange_Login_Data, Purchase_Order_Data[0m
+[96m2026-06-24T15:32:55.751Z [INFO]  Excel entry: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
+[1m[94m════════════════════════════════════════════════════════════
+   TEST    : @excel REG_TS_DS_TC03 - Verify Username cell from xlsx
+   FILE    : orange-json.spec.ts
+   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
+   ENV     : QA
+   BROWSER : chromium
+════════════════════════════════════════════════════════════[0m
+[96m2026-06-24T15:32:56.498Z [INFO]  Sheet headers: TestCaseID, Username, Password[0m
+[1m[97m[41m2026-06-24T15:32:56.780Z [FAIL]  Screenshot captured → attached to report[0m
+[1m[91m════════════════════════════════════════════════════════════
+   ❌ FAILED — @excel REG_TS_DS_TC03 - Verify Username cell from xlsx
+   Duration : 0.46s  |  Steps completed : 0
+════════════════════════════════════════════════════════════
+[0m
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\error-context.md]]
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\error-context.md]]
+]]>
+</system-out>
+<error message="ExcelData.verifyCell: sheet &quot;LoginTestData&quot;, row 2, column &quot;Username&quot;, expected &quot;Admin&quot;, actual &quot;admin&quot;" type="Error">
+<![CDATA[  [chromium] › test\demoApplication\orange-json.spec.ts:84:7 › Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC03 - Verify Username cell from xlsx 
+
+    Error: ExcelData.verifyCell: sheet "LoginTestData", row 2, column "Username", expected "Admin", actual "admin"
+
+       at testdata\ExcelData.ts:55
+
+      53 |       expect(actual).toEqual(expected);
+      54 |     } catch {
+    > 55 |       throw new Error(
+         |             ^
+      56 |         `ExcelData.verifyCell: sheet "${sheet}", row ${row}, ` +
+      57 |         `column "${columnName}", ` +
+      58 |         `expected ${JSON.stringify(expected)}, actual ${JSON.stringify(actual)}`
+        at ExcelData.verifyCell (C:\Users\Sysla-Sairaj\Documents\ABM-India\testdata\ExcelData.ts:55:13)
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:88:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: tc-logs (text/plain) ────────────────────────────────────────────────────────────
+    2026-06-24T15:32:56.498Z [INFO]  Sheet headers: TestCaseID, Username, Password
+    2026-06-24T15:32:56.780Z [FAIL]  Screenshot captured → attached to report
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\error-context.md
+
+    Error Context: test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC04 - Verify full row from xlsx" classname="test\demoApplication\orange-json.spec.ts" time="0.742">
+<system-out>
+<![CDATA[[96m2026-06-24T15:33:00.017Z [INFO]  Available test data: Orange_Login_Data, Purchase_Order_Data[0m
+[96m2026-06-24T15:33:00.018Z [INFO]  Excel entry: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
+[1m[94m════════════════════════════════════════════════════════════
+   TEST    : @excel REG_TS_DS_TC04 - Verify full row from xlsx
+   FILE    : orange-json.spec.ts
+   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
+   ENV     : QA
+   BROWSER : chromium
+════════════════════════════════════════════════════════════[0m
+[1m[97m[41m2026-06-24T15:33:00.962Z [FAIL]  Screenshot captured → attached to report[0m
+[1m[91m════════════════════════════════════════════════════════════
+   ❌ FAILED — @excel REG_TS_DS_TC04 - Verify full row from xlsx
+   Duration : 0.38s  |  Steps completed : 0
+════════════════════════════════════════════════════════════
+[0m
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\error-context.md]]
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\error-context.md]]
+]]>
+</system-out>
+<error message="ExcelData.verifyCell: sheet &quot;LoginTestData&quot;, row 2, column &quot;Username&quot;, expected &quot;Admin&quot;, actual &quot;admin&quot;" type="Error">
+<![CDATA[  [chromium] › test\demoApplication\orange-json.spec.ts:94:7 › Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC04 - Verify full row from xlsx 
+
+    Error: ExcelData.verifyCell: sheet "LoginTestData", row 2, column "Username", expected "Admin", actual "admin"
+
+       at testdata\ExcelData.ts:55
+
+      53 |       expect(actual).toEqual(expected);
+      54 |     } catch {
+    > 55 |       throw new Error(
+         |             ^
+      56 |         `ExcelData.verifyCell: sheet "${sheet}", row ${row}, ` +
+      57 |         `column "${columnName}", ` +
+      58 |         `expected ${JSON.stringify(expected)}, actual ${JSON.stringify(actual)}`
+        at ExcelData.verifyCell (C:\Users\Sysla-Sairaj\Documents\ABM-India\testdata\ExcelData.ts:55:13)
+        at ExcelData.verifyRow (C:\Users\Sysla-Sairaj\Documents\ABM-India\testdata\ExcelData.ts:73:7)
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:95:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: tc-logs (text/plain) ────────────────────────────────────────────────────────────
+    2026-06-24T15:33:00.962Z [FAIL]  Screenshot captured → attached to report
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\error-context.md
+
+    Error Context: test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC05 - Read raw cell value from xlsx" classname="test\demoApplication\orange-json.spec.ts" time="0.619">
+<system-out>
+<![CDATA[[96m2026-06-24T15:33:03.409Z [INFO]  Available test data: Orange_Login_Data, Purchase_Order_Data[0m
+[96m2026-06-24T15:33:03.410Z [INFO]  Excel entry: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
+[1m[94m════════════════════════════════════════════════════════════
+   TEST    : @excel REG_TS_DS_TC05 - Read raw cell value from xlsx
+   FILE    : orange-json.spec.ts
+   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
+   ENV     : QA
+   BROWSER : chromium
+════════════════════════════════════════════════════════════[0m
+[96m2026-06-24T15:33:04.095Z [INFO]  Raw cell value: admin[0m
+[1m[92m2026-06-24T15:33:04.096Z [PASS]  REG_TS_DS_TC05 - Raw value read: admin[0m
+[1m[92m════════════════════════════════════════════════════════════
+   ✅ PASSED — @excel REG_TS_DS_TC05 - Read raw cell value from xlsx
+   Duration : 0.14s  |  Steps completed : 0
+════════════════════════════════════════════════════════════
+[0m
+]]>
+</system-out>
+</testcase>
+<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC06 - Verify TotalPrice formula" classname="test\demoApplication\orange-json.spec.ts" time="0.555">
+<system-out>
+<![CDATA[[1m[94m════════════════════════════════════════════════════════════
+   TEST    : @excel REG_TS_DS_TC06 - Verify TotalPrice formula
+   FILE    : orange-json.spec.ts
+   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
+   ENV     : QA
+   BROWSER : chromium
+════════════════════════════════════════════════════════════[0m
+[1m[92m2026-06-24T15:33:04.710Z [PASS]  REG_TS_DS_TC06 - Formula verified[0m
+[1m[92m════════════════════════════════════════════════════════════
+   ✅ PASSED — @excel REG_TS_DS_TC06 - Verify TotalPrice formula
+   Duration : 0.04s  |  Steps completed : 0
+════════════════════════════════════════════════════════════
+[0m
+]]>
+</system-out>
+</testcase>
+<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC07 - Full validation of Orange_Login_Data" classname="test\demoApplication\orange-json.spec.ts" time="0.445">
+<system-out>
+<![CDATA[[1m[94m════════════════════════════════════════════════════════════
+   TEST    : @excel REG_TS_DS_TC07 - Full validation of Orange_Login_Data
+   FILE    : orange-json.spec.ts
+   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
+   ENV     : QA
+   BROWSER : chromium
+════════════════════════════════════════════════════════════[0m
+[96m2026-06-24T15:33:05.204Z [INFO]  Validating: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
+[1m[92m2026-06-24T15:33:05.243Z [PASS]  REG_TS_DS_TC07 - All validations passed[0m
+[1m[92m════════════════════════════════════════════════════════════
+   ✅ PASSED — @excel REG_TS_DS_TC07 - Full validation of Orange_Login_Data
+   Duration : 0.05s  |  Steps completed : 0
+════════════════════════════════════════════════════════════
+[0m
+]]>
+</system-out>
+</testcase>
+<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC08 - Verify all entries in excel.json" classname="test\demoApplication\orange-json.spec.ts" time="0.554">
+<system-out>
+<![CDATA[[1m[94m════════════════════════════════════════════════════════════
+   TEST    : @excel REG_TS_DS_TC08 - Verify all entries in excel.json
+   FILE    : orange-json.spec.ts
+   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
+   ENV     : QA
+   BROWSER : chromium
+════════════════════════════════════════════════════════════[0m
+[96m2026-06-24T15:33:05.835Z [INFO]  Entries to validate: Orange_Login_Data, Purchase_Order_Data[0m
+[1m[92m2026-06-24T15:33:05.867Z [PASS]  REG_TS_DS_TC08 - All entries verified[0m
+[1m[92m════════════════════════════════════════════════════════════
+   ✅ PASSED — @excel REG_TS_DS_TC08 - Verify all entries in excel.json
+   Duration : 0.05s  |  Steps completed : 0
+════════════════════════════════════════════════════════════
+[0m
+]]>
+</system-out>
+<system-err>
+<![CDATA[ExcelValidator.verifyEntry: "Soft_Check_Data" — 2 non-mandatory check(s) failed (warnings only):
+  1. [warn][cell] row 3, column "Username", expected "WRONG_ON_PURPOSE", actual "testadmin"
+  2. [warn][formula] row 3, column "TotalPrice", expected 999999, actual 100000
+]]>
+</system-err>
+</testcase>
+</testsuite>
+<testsuite name="test\demoApplication\orange.spec.ts" timestamp="2026-06-24T10:02:17.555Z" hostname="chromium" tests="2" failures="0" skipped="0" time="25.135" errors="2">
+<testcase name="Orange HRM - Login Module › @regression @smoke REG_TS_or_TC01 - Login using row data" classname="test\demoApplication\orange.spec.ts" time="22.112">
+<system-out>
+<![CDATA[[1m[94m════════════════════════════════════════════════════════════
+   TEST    : @regression @smoke REG_TS_or_TC01 - Login using row data
+   FILE    : orange.spec.ts
+   SUITE   : test\demoApplication\orange.spec.ts › Orange HRM - Login Module
+   ENV     : QA
+   BROWSER : chromium
+════════════════════════════════════════════════════════════[0m
+[96m2026-06-24T15:32:22.684Z [INFO]  REG_TS_or_TC01 - Login using getTestDataByRow[0m
+[1m[97m2026-06-24T15:32:23.148Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.47s[0m
+[96m2026-06-24T15:32:23.170Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
+[96m2026-06-24T15:32:23.175Z [INFO]    Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[96m2026-06-24T15:32:26.186Z [INFO]    Navigated to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[1m[97m2026-06-24T15:32:26.192Z [STEP]      [STEP-002][L0] Login as: admin | +3.04s[0m
+[96m2026-06-24T15:32:26.200Z [INFO]      [ACTION] Fill username → admin[0m
+[96m2026-06-24T15:32:26.201Z [INFO]      Filling: "username" with value: "admin"[0m
+[96m2026-06-24T15:32:26.866Z [INFO]      Filled: "username"[0m
+[96m2026-06-24T15:32:26.871Z [INFO]      [ACTION] Fill password → admin123[0m
+[96m2026-06-24T15:32:26.871Z [INFO]      Filling: "password" with value: "admin123"[0m
+[96m2026-06-24T15:32:26.992Z [INFO]      Filled: "password"[0m
+[96m2026-06-24T15:32:27.004Z [INFO]      [ACTION] Click loginButton[0m
+[96m2026-06-24T15:32:27.004Z [INFO]      Clicking: "loginButton"[0m
+[96m2026-06-24T15:32:28.346Z [INFO]      Clicked: "loginButton"[0m
+[1m[97m2026-06-24T15:32:28.353Z [STEP]        [STEP-003][L0] Verify login successful | +2.16s[0m
+[96m2026-06-24T15:32:28.358Z [INFO]        [ACTION] Wait Visible admin[0m
+[96m2026-06-24T15:32:28.359Z [INFO]        Waiting for "admin" to be visible[0m
+[1m[91m2026-06-24T15:32:43.392Z [ERROR]       Wait visible failed | element: "admin" | expected: visible | actual: not found[0m
+[1m[91m2026-06-24T15:32:43.392Z [ERROR]       Wait visible failed | element: "admin" | error: Element not visible: "admin"[0m
+[1m[91m2026-06-24T15:32:43.392Z [ERROR]       ❌ BasePage.waitForElementIsVisible (admin)
+
+Root Cause:
+Element not visible: "admin"[0m
+[1m[91m2026-06-24T15:32:43.392Z [ERROR]       Source: C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:53:5[0m
+[1m[97m[41m2026-06-24T15:32:43.853Z [FAIL]        Screenshot captured → attached to report[0m
+[1m[91m════════════════════════════════════════════════════════════
+   ❌ FAILED — @regression @smoke REG_TS_or_TC01 - Login using row data
+   Duration : 21.18s  |  Steps completed : 3
+════════════════════════════════════════════════════════════
+[0m
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-07dfe-TC01---Login-using-row-data-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-07dfe-TC01---Login-using-row-data-chromium\error-context.md]]
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-07dfe-TC01---Login-using-row-data-chromium\error-context.md]]
+]]>
+</system-out>
+<error message="Element not visible: &quot;admin&quot;" type="Error">
+<![CDATA[  [chromium] › test\demoApplication\orange.spec.ts:35:7 › Orange HRM - Login Module › @regression @smoke REG_TS_or_TC01 - Login using row data › Wait for admin to be visible 
+
+    Error: Element not visible: "admin"
+
+       at src\pages\basePage.ts:636
+
+      634 |           }
+      635 |           logger.error(`Wait visible failed | element: "${name}" | expected: visible | actual: not found`);
+    > 636 |           throw new Error(`Element not visible: "${name}"`);
+          |                 ^
+      637 |         } catch (e: any) {
+      638 |           logger.error(`Wait visible failed | element: "${name}" | error: ${e.message?.split("\n")[0]}`);
+      639 |           throw e;
+        at _errorHandler.ErrorHandler.handle.context (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:636:17)
+        at ErrorHandler.handle (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\utils\errorHandler.ts:13:14)
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:1729:18
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:53:5
+
+    attachment #6: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\test-demoApplication-orang-07dfe-TC01---Login-using-row-data-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #8: tc-logs (text/plain) ────────────────────────────────────────────────────────────
+    2026-06-24T15:32:22.684Z [INFO]  REG_TS_or_TC01 - Login using getTestDataByRow
+    2026-06-24T15:32:23.148Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.47s
+    2026-06-24T15:32:23.170Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+    2026-06-24T15:...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\test-demoApplication-orang-07dfe-TC01---Login-using-row-data-chromium\error-context.md
+
+    Error Context: test-results\test-demoApplication-orang-07dfe-TC01---Login-using-row-data-chromium\error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="Orange HRM - Login Module › @smoke REG_TS_or_TC02 - Login using JSON profile data" classname="test\demoApplication\orange.spec.ts" time="3.023">
+<system-out>
+<![CDATA[[1m[94m════════════════════════════════════════════════════════════
+   TEST    : @smoke REG_TS_or_TC02 - Login using JSON profile data
+   FILE    : orange.spec.ts
+   SUITE   : test\demoApplication\orange.spec.ts › Orange HRM - Login Module
+   ENV     : QA
+   BROWSER : chromium
+════════════════════════════════════════════════════════════[0m
+[96m2026-06-24T15:32:46.320Z [INFO]  REG_TS_or_TC02 - Login using JSON profile data[0m
+[1m[97m2026-06-24T15:32:46.321Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.01s[0m
+[96m2026-06-24T15:32:46.324Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
+[96m2026-06-24T15:32:46.325Z [INFO]    Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[1m[91m2026-06-24T15:32:48.735Z [ERROR]   Navigation failed | url: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" | error: page.goto: Target page, context or browser has been closed[0m
+[1m[91m2026-06-24T15:32:48.737Z [ERROR]   ❌ BasePage.navigateTo
+
+Root Cause:
+Navigation failed: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[1m[91m2026-06-24T15:32:48.737Z [ERROR]   Source: C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:66:5[0m
+[1m[91m════════════════════════════════════════════════════════════
+   ❌ FAILED — @smoke REG_TS_or_TC02 - Login using JSON profile data
+   Duration : 2.45s  |  Steps completed : 1
+════════════════════════════════════════════════════════════
+[0m
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-0118e-gin-using-JSON-profile-data-chromium\error-context.md]]
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-0118e-gin-using-JSON-profile-data-chromium\error-context.md]]
+]]>
+</system-out>
+<error message="Navigation failed: &quot;https://opensource-demo.orangehrmlive.com/web/index.php/auth/login&quot;" type="Error">
+<![CDATA[  [chromium] › test\demoApplication\orange.spec.ts:58:7 › Orange HRM - Login Module › @smoke REG_TS_or_TC02 - Login using JSON profile data › Navigate to https://opensource-demo.orangehrmlive.com/web/index.php/auth/login 
+
+    Error: Navigation failed: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+
+       at src\pages\basePage.ts:164
+
+      162 |         } catch (e: any) {
+      163 |           logger.error(`Navigation failed | url: "${url}" | error: ${e.message?.split("\n")[0]}`);
+    > 164 |           throw new Error(`Navigation failed: "${url}"`);
+          |                 ^
+      165 |         }
+      166 |       }, { context: "BasePage.navigateTo" });
+      167 |     });
+        at _errorHandler.ErrorHandler.handle.context (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:164:17)
+        at ErrorHandler.handle (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\utils\errorHandler.ts:13:14)
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:1729:18
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:66:5
+
+    attachment #2: tc-logs (text/plain) ────────────────────────────────────────────────────────────
+    2026-06-24T15:32:46.320Z [INFO]  REG_TS_or_TC02 - Login using JSON profile data
+    2026-06-24T15:32:46.321Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.01s
+    2026-06-24T15:32:46.324Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+    2026-06-24T15...
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\test-demoApplication-orang-0118e-gin-using-JSON-profile-data-chromium\error-context.md
+
+    Error Context: test-results\test-demoApplication-orang-0118e-gin-using-JSON-profile-data-chromium\error-context.md
+]]>
+</error>
 </testcase>
 </testsuite>
 </testsuites>

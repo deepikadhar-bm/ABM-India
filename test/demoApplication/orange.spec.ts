@@ -1,101 +1,77 @@
-import { test }               from '@playwright/test';
-import { BasePage }           from '@pages/basePage';
-import { logger as log }      from '@helpers/logger';
-import { Orange }             from '@pages/Element/Orange';
-import { testDataManager }    from '../../testdata/testDataManager';
+// test/demoApplication/orange.spec.ts
 
-// ── Constants ─────────────────────────────────────────────────────────────────
-const EXCEL_FILE = 'excelDataFiles/Sample_TestData.xlsx';
-const ORANGE_URL = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
+import { test } from "@fixtures/basefixtures";
+//import { BasePage } from "@pages/basePage";
+import { logger as log } from "@helpers/logger";
+import { Orange } from "@pages/Element/Orange";
+import { configManager } from "@config/env.index";
+import { TestDataManager, testDataManager } from "../../testdata/TestDataManager";
+import { BasePage } from "@pages/basePage";
 
-//  Match exactly what is in Excel column A
-const TC_ID_1    = 'REG_TS_or_TC01';
-const TC_ID_2    = 'REG_TS_or_TC02';
 
-test.describe('Orange HRM - Login Module', () => {
+interface OrangeLoginData {
+  readonly Username: string;
+  readonly Password: string;
+}
 
-    let el:   Orange;
-    let base: BasePage;
+const TC_ID_1 = "REG_TS_or_TC01";
+const TC_ID_2 = "REG_TS_or_TC02";
+const ORANGE_LOGIN_WORKBOOK = "excelDataFiles/Sample_TestData.xlsx";
+const TEST_DATA_FILE = "test-data.json";
 
-    test.beforeEach(async ({ page }) => {
-        el   = new Orange(page);
-        base = new BasePage(page);
-    });
+test.describe("Orange HRM - Login Module", () => {
+  let el: Orange;
+  //let base: BasePage;
 
-    // =========================================================================
-    //  TC01 — Login using getTestDataByRow (by row number)
-    //  sheet = 'LoginTestData' by name OR 0 for first sheet by index
-    // =========================================================================
-    test(
-        `@regression @smoke ${TC_ID_1} - Login using row data`,
-        async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
+    el = new Orange(page);
+    
+  });
 
-        log.info(`${TC_ID_1} - Login using getTestDataByRow`);
+  test.afterAll(() => {
+    TestDataManager.clearCache();
+  });
 
-        // ── Load by row number ────────────────────────────────────────────────
-        // getTestDataByRow(file, rowNumber, sheet?)
-        // sheet by name  → 'LoginTestData'
-        // sheet by index → 0  (first sheet)
-        // no sheet arg   → first sheet automatically
-        const data = await testDataManager.getTestDataByRow(
-            EXCEL_FILE,
-            2,                 // row 2 = first data row (row 1 = headers)
-            'LoginTestData'    // sheet by name
-        );
+  test(`@regression @smoke ${TC_ID_1} - Login using row data`, async ({basePage}) => {
+    log.info(`${TC_ID_1} - Login using getTestDataByRow`);
 
-        log.step('Navigate to OrangeHRM');
-        await base.navigateTo(ORANGE_URL);
+    const data = await testDataManager.getTestDataByRow(
+      ORANGE_LOGIN_WORKBOOK,
+      2,
+      "LoginTestData"
+    );
 
-        // Capital U and P — match Excel column headers exactly
-        log.step(`Login as: ${data.Username}`);
-        await base.fill(el.username, String(data.Username));
-        await base.fill(el.password, String(data.Password));
-        await base.click(el.loginButton);
+    log.step("Navigate to OrangeHRM");
+    await basePage.navigateTo(configManager.getEasyURL() ?? configManager.getBaseURL());
 
-        log.step('Verify login successful');
-        await base.waitForElementIsVisible(el.admin);
-        await base.storeText(el.admin, 'LoggedInUser');
-        log.info(`Logged in as: ${'loggedInUser'}`);
-        log.pass(`${TC_ID_1} - Login successful with row data`);
-    });
+    log.step(`Login as: ${data.Username}`);
+    await basePage.fill(el.username, String(data.Username));
+    await basePage.fill(el.password, String(data.Password));
+    await basePage.click(el.loginButton);
 
-    // =========================================================================
-    //  TC02 — Login using getTestDataByTestCaseId (by TC ID lookup)
-    //  sheet = 'LoginTestData' by name OR 0 for first sheet by index
-    // =========================================================================
-    test(
-        `@smoke ${TC_ID_2} - Login using TC ID lookup`,
-        async ({ page }) => {
+    log.step("Verify login successful");
+    await basePage.waitForElementIsVisible(el.admin);
+    await basePage.storeText(el.admin, "LoggedInUser");
+    log.pass(`${TC_ID_1} - Login successful with row data`);
+  });
 
-        log.info(`${TC_ID_2} - Login using getTestDataByTestCaseId`);
+  test(`@smoke ${TC_ID_2} - Login using JSON profile data`, async ({basePage}) => {
+    log.info(`${TC_ID_2} - Login using JSON profile data`);
 
-        // ── Load by TC ID ─────────────────────────────────────────────────────
-        // getTestDataByTestCaseId(file, testCaseId, sheet?, idColumnName?)
-        // sheet by name  → 'LoginTestData'
-        // sheet by index → 0  (first sheet)
-        // no sheet arg   → first sheet automatically
-        // ✅ idColumnName = 'TestCaseID' — match Excel column A header exactly
-        const data = await testDataManager.getTestDataByTestCaseId(
-            EXCEL_FILE,
-            TC_ID_2,           // matches "TestCaseID" column in Excel
-            'LoginTestData',   // sheet by name
-            'TestCaseID'       // ✅ Excel column header is "TestCaseID" not "TestCaseId"
-        );
+    const data = testDataManager.getJsonData<OrangeLoginData>("Orange_Login_Data")(
+      TEST_DATA_FILE
+    );
 
-        log.step('Navigate to OrangeHRM');
-        await base.navigateTo(ORANGE_URL);
+    log.step("Navigate to OrangeHRM");
+    await basePage.navigateTo(configManager.getEasyURL() ?? configManager.getBaseURL());
 
-        // ✅ Capital U and P — match Excel column headers exactly
-        log.step(`Login as: ${data.Username}`);
-        await base.fill(el.username, String(data.Username));
-        await base.fill(el.password, String(data.Password));
-        await base.click(el.loginButton);
+    log.step(`Login as: ${data.Username}`);
+    await basePage.fill(el.username, data.Username);
+    await basePage.fill(el.password, data.Password);
+    await basePage.click(el.loginButton);
 
-        log.step('Verify login successful');
-        await base.waitForElementToDisappear(el.admin);
-
-        
-
-        log.pass(`${TC_ID_2} - Login successful with TC ID lookup`);
-    });
+    log.step("Verify login completed");
+    await basePage.waitForElementToDisappear(el.admin);
+    log.pass(`${TC_ID_2} - Login completed with JSON profile data`);
+  });
 });

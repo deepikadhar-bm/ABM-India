@@ -13,8 +13,8 @@ export const qaConfig: AppConfig = {
 
   timeouts: {
     action: 15000,
-    wait: 30000,
-    navigation: 5000,
+    wait: 15000,
+    navigation: 10000,
   },
 
   browser: {

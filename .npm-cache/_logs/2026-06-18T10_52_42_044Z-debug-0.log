@@ -1,0 +1,370 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@11.13.0
+2 info using node@v24.16.0
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\Sysla-Sairaj\Documents\ABM-India\.npmrc
+5 silly config load:file:C:\Users\Sysla-Sairaj\.npmrc
+6 silly config load:file:C:\Users\Sysla-Sairaj\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm install
+8 verbose argv "install" "--cache" ".\\.npm-cache"
+9 verbose logfile logs-max:10 dir:C:\Users\Sysla-Sairaj\Documents\ABM-India\.npm-cache\_logs\2026-06-18T10_52_42_044Z-
+10 verbose logfile C:\Users\Sysla-Sairaj\Documents\ABM-India\.npm-cache\_logs\2026-06-18T10_52_42_044Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 silly fetch manifest mathjs@^14.8.1
+15 silly packumentCache full:https://registry.npmjs.org/mathjs cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/npm 732ms
+17 http fetch GET 200 https://registry.npmjs.org/mathjs 1132ms (cache miss)
+18 silly packumentCache full:https://registry.npmjs.org/mathjs set size:undefined disposed:false
+19 silly placeDep ROOT mathjs@14.9.1 OK for: enterprise-playwright-tests@2.0.0 want: ^14.8.1
+20 silly fetch manifest complex.js@^2.2.5
+21 silly packumentCache full:https://registry.npmjs.org/complex.js cache-miss
+22 silly fetch manifest decimal.js@^10.4.3
+23 silly packumentCache full:https://registry.npmjs.org/decimal.js cache-miss
+24 silly fetch manifest seedrandom@^3.0.5
+25 silly packumentCache full:https://registry.npmjs.org/seedrandom cache-miss
+26 silly fetch manifest fraction.js@^5.2.1
+27 silly packumentCache full:https://registry.npmjs.org/fraction.js cache-miss
+28 silly fetch manifest escape-latex@^1.2.0
+29 silly packumentCache full:https://registry.npmjs.org/escape-latex cache-miss
+30 silly fetch manifest tiny-emitter@^2.1.0
+31 silly packumentCache full:https://registry.npmjs.org/tiny-emitter cache-miss
+32 silly fetch manifest @babel/runtime@^7.26.10
+33 silly packumentCache full:https://registry.npmjs.org/@babel%2fruntime cache-miss
+34 silly fetch manifest typed-function@^4.2.1
+35 silly packumentCache full:https://registry.npmjs.org/typed-function cache-miss
+36 silly fetch manifest javascript-natural-sort@^0.7.1
+37 silly packumentCache full:https://registry.npmjs.org/javascript-natural-sort cache-miss
+38 http fetch GET 200 https://registry.npmjs.org/decimal.js 148ms (cache miss)
+39 silly packumentCache full:https://registry.npmjs.org/decimal.js set size:undefined disposed:false
+40 http fetch GET 200 https://registry.npmjs.org/javascript-natural-sort 389ms (cache miss)
+41 silly packumentCache full:https://registry.npmjs.org/javascript-natural-sort set size:undefined disposed:false
+42 http fetch GET 200 https://registry.npmjs.org/tiny-emitter 469ms (cache miss)
+43 silly packumentCache full:https://registry.npmjs.org/tiny-emitter set size:undefined disposed:false
+44 http fetch GET 200 https://registry.npmjs.org/seedrandom 479ms (cache miss)
+45 silly packumentCache full:https://registry.npmjs.org/seedrandom set size:undefined disposed:false
+46 http fetch GET 200 https://registry.npmjs.org/complex.js 486ms (cache miss)
+47 silly packumentCache full:https://registry.npmjs.org/complex.js set size:undefined disposed:false
+48 http fetch GET 200 https://registry.npmjs.org/escape-latex 488ms (cache miss)
+49 silly packumentCache full:https://registry.npmjs.org/escape-latex set size:undefined disposed:false
+50 http fetch GET 200 https://registry.npmjs.org/fraction.js 499ms (cache miss)
+51 silly packumentCache full:https://registry.npmjs.org/fraction.js set size:undefined disposed:false
+52 http fetch GET 200 https://registry.npmjs.org/@babel%2fruntime 634ms (cache miss)
+53 silly packumentCache full:https://registry.npmjs.org/@babel%2fruntime set size:undefined disposed:false
+54 http fetch GET 200 https://registry.npmjs.org/typed-function 691ms (cache miss)
+55 silly packumentCache full:https://registry.npmjs.org/typed-function set size:undefined disposed:false
+56 silly placeDep ROOT @babel/runtime@7.29.7 OK for: mathjs@14.9.1 want: ^7.26.10
+57 silly placeDep ROOT complex.js@2.4.3 OK for: mathjs@14.9.1 want: ^2.2.5
+58 silly placeDep ROOT decimal.js@10.6.0 OK for: mathjs@14.9.1 want: ^10.4.3
+59 silly placeDep ROOT escape-latex@1.2.0 OK for: mathjs@14.9.1 want: ^1.2.0
+60 silly placeDep ROOT fraction.js@5.3.4 OK for: mathjs@14.9.1 want: ^5.2.1
+61 silly placeDep ROOT javascript-natural-sort@0.7.1 OK for: mathjs@14.9.1 want: ^0.7.1
+62 silly placeDep ROOT seedrandom@3.0.5 OK for: mathjs@14.9.1 want: ^3.0.5
+63 silly placeDep ROOT tiny-emitter@2.1.0 OK for: mathjs@14.9.1 want: ^2.1.0
+64 silly placeDep ROOT typed-function@4.2.2 OK for: mathjs@14.9.1 want: ^4.2.1
+65 silly reify moves {}
+66 silly audit bulk request {
+66 silly audit   '@eslint-community/eslint-utils': [ '4.9.1' ],
+66 silly audit   '@eslint-community/regexpp': [ '4.12.2' ],
+66 silly audit   '@eslint/eslintrc': [ '2.1.4' ],
+66 silly audit   'brace-expansion': [ '1.1.15', '2.1.1' ],
+66 silly audit   minimatch: [ '3.1.5', '9.0.9', '5.1.9' ],
+66 silly audit   '@eslint/js': [ '8.57.1' ],
+66 silly audit   '@faker-js/faker': [ '8.4.1' ],
+66 silly audit   '@fast-csv/format': [ '4.3.5' ],
+66 silly audit   '@types/node': [ '14.18.63', '20.19.43' ],
+66 silly audit   '@fast-csv/parse': [ '4.3.6' ],
+66 silly audit   '@humanwhocodes/config-array': [ '0.13.0' ],
+66 silly audit   '@humanwhocodes/module-importer': [ '1.0.1' ],
+66 silly audit   '@humanwhocodes/object-schema': [ '2.0.3' ],
+66 silly audit   '@nodelib/fs.scandir': [ '2.1.5' ],
+66 silly audit   '@nodelib/fs.stat': [ '2.0.5' ],
+66 silly audit   '@nodelib/fs.walk': [ '1.2.8' ],
+66 silly audit   '@playwright/test': [ '1.60.0' ],
+66 silly audit   '@types/fs-extra': [ '11.0.4' ],
+66 silly audit   '@types/jsonfile': [ '6.1.4' ],
+66 silly audit   '@typescript-eslint/eslint-plugin': [ '7.18.0' ],
+66 silly audit   '@typescript-eslint/parser': [ '7.18.0' ],
+66 silly audit   '@typescript-eslint/scope-manager': [ '7.18.0' ],
+66 silly audit   '@typescript-eslint/type-utils': [ '7.18.0' ],
+66 silly audit   '@typescript-eslint/types': [ '7.18.0' ],
+66 silly audit   '@typescript-eslint/typescript-estree': [ '7.18.0' ],
+66 silly audit   '@typescript-eslint/utils': [ '7.18.0' ],
+66 silly audit   '@typescript-eslint/visitor-keys': [ '7.18.0' ],
+66 silly audit   '@ungap/structured-clone': [ '1.3.1' ],
+66 silly audit   acorn: [ '8.16.0' ],
+66 silly audit   'acorn-jsx': [ '5.3.2' ],
+66 silly audit   ajv: [ '6.15.0' ],
+66 silly audit   'allure-js-commons': [ '3.9.0' ],
+66 silly audit   'allure-playwright': [ '3.9.0' ],
+66 silly audit   'ansi-regex': [ '5.0.1' ],
+66 silly audit   'ansi-styles': [ '4.3.0' ],
+66 silly audit   archiver: [ '5.3.2' ],
+66 silly audit   'archiver-utils': [ '2.1.0', '3.0.4' ],
+66 silly audit   'readable-stream': [ '2.3.8', '3.6.2' ],
+66 silly audit   'safe-buffer': [ '5.1.2', '5.2.1' ],
+66 silly audit   string_decoder: [ '1.1.1', '1.3.0' ],
+66 silly audit   argparse: [ '2.0.1' ],
+66 silly audit   'array-union': [ '2.1.0' ],
+66 silly audit   async: [ '3.2.6' ],
+66 silly audit   'balanced-match': [ '1.0.2' ],
+66 silly audit   'base64-js': [ '1.5.1' ],
+66 silly audit   'big-integer': [ '1.6.52' ],
+66 silly audit   binary: [ '0.3.0' ],
+66 silly audit   bl: [ '4.1.0' ],
+66 silly audit   bluebird: [ '3.4.7' ],
+66 silly audit   braces: [ '3.0.3' ],
+66 silly audit   buffer: [ '5.7.1' ],
+66 silly audit   'buffer-crc32': [ '0.2.13' ],
+66 silly audit   'buffer-indexof-polyfill': [ '1.0.2' ],
+66 silly audit   buffers: [ '0.1.1' ],
+66 silly audit   callsites: [ '3.1.0' ],
+66 silly audit   chainsaw: [ '0.1.0' ],
+66 silly audit   chalk: [ '4.1.2' ],
+66 silly audit   charenc: [ '0.0.2' ],
+66 silly audit   'color-convert': [ '2.0.1' ],
+66 silly audit   'color-name': [ '1.1.4' ],
+66 silly audit   'compress-commons': [ '4.1.2' ],
+66 silly audit   'concat-map': [ '0.0.1' ],
+66 silly audit   'core-util-is': [ '1.0.3' ],
+66 silly audit   'crc-32': [ '1.2.2' ],
+66 silly audit   'crc32-stream': [ '4.0.3' ],
+66 silly audit   'cross-env': [ '7.0.3' ],
+66 silly audit   'cross-spawn': [ '7.0.6' ],
+66 silly audit   crypt: [ '0.0.2' ],
+66 silly audit   'csv-parse': [ '6.2.1' ],
+66 silly audit   dayjs: [ '1.11.21' ],
+66 silly audit   debug: [ '4.4.3' ],
+66 silly audit   'deep-is': [ '0.1.4' ],
+66 silly audit   'dir-glob': [ '3.0.1' ],
+66 silly audit   doctrine: [ '3.0.0' ],
+66 silly audit   duplexer2: [ '0.1.4' ],
+66 silly audit   'end-of-stream': [ '1.4.5' ],
+66 silly audit   'escape-string-regexp': [ '4.0.0' ],
+66 silly audit   eslint: [ '8.57.1' ],
+66 silly audit   'eslint-scope': [ '7.2.2' ],
+66 silly audit   'eslint-visitor-keys': [ '3.4.3' ],
+66 silly audit   espree: [ '9.6.1' ],
+66 silly audit   esquery: [ '1.7.0' ],
+66 silly audit   esrecurse: [ '4.3.0' ],
+66 silly audit   estraverse: [ '5.3.0' ],
+66 silly audit   esutils: [ '2.0.3' ],
+66 silly audit   exceljs: [ '4.4.0' ],
+66 silly audit   'fast-csv': [ '4.3.6' ],
+66 silly audit   'fast-deep-equal': [ '3.1.3' ],
+66 silly audit   'fast-glob': [ '3.3.3' ],
+66 silly audit   'glob-parent': [ '5.1.2', '6.0.2' ],
+66 silly audit   'fast-json-stable-stringify': [ '2.1.0' ],
+66 silly audit   'fast-levenshtein': [ '2.0.6' ],
+66 silly audit   fastq: [ '1.20.1' ],
+66 silly audit   'file-entry-cache': [ '6.0.1' ],
+66 silly audit   'fill-range': [ '7.1.1' ],
+66 silly audit   'find-up': [ '5.0.0' ],
+66 silly audit   'flat-cache': [ '3.2.0' ],
+66 silly audit   flatted: [ '3.4.2' ],
+66 silly audit   'fs-constants': [ '1.0.0' ],
+66 silly audit   'fs-extra': [ '11.3.5' ],
+66 silly audit   'fs.realpath': [ '1.0.0' ],
+66 silly audit   fsevents: [ '2.3.2' ],
+66 silly audit   fstream: [ '1.0.12' ],
+66 silly audit   rimraf: [ '2.7.1', '3.0.2' ],
+66 silly audit   glob: [ '7.2.3' ],
+66 silly audit   globals: [ '13.24.0' ],
+66 silly audit   globby: [ '11.1.0' ],
+66 silly audit   'graceful-fs': [ '4.2.11' ],
+66 silly audit   graphemer: [ '1.4.0' ],
+66 silly audit   'has-flag': [ '4.0.0' ],
+66 silly audit   ieee754: [ '1.2.1' ],
+66 silly audit   ignore: [ '5.3.2' ],
+66 silly audit   immediate: [ '3.0.6' ],
+66 silly audit   'import-fresh': [ '3.3.1' ],
+66 silly audit   imurmurhash: [ '0.1.4' ],
+66 silly audit   inflight: [ '1.0.6' ],
+66 silly audit   inherits: [ '2.0.4' ],
+66 silly audit   'is-buffer': [ '1.1.6' ],
+66 silly audit   'is-extglob': [ '2.1.1' ],
+66 silly audit   'is-glob': [ '4.0.3' ],
+66 silly audit   'is-number': [ '7.0.0' ],
+66 silly audit   'is-path-inside': [ '3.0.3' ],
+66 silly audit   isarray: [ '1.0.0' ],
+66 silly audit   isexe: [ '2.0.0' ],
+66 silly audit   'js-yaml': [ '4.2.0' ],
+66 silly audit   'json-buffer': [ '3.0.1' ],
+66 silly audit   'json-schema-traverse': [ '0.4.1' ],
+66 silly audit   'json-stable-stringify-without-jsonify': [ '1.0.1' ],
+66 silly audit   json5: [ '2.2.3' ],
+66 silly audit   jsonfile: [ '6.2.1' ],
+66 silly audit   jszip: [ '3.10.1' ],
+66 silly audit   keyv: [ '4.5.4' ],
+66 silly audit   lazystream: [ '1.0.1' ],
+66 silly audit   levn: [ '0.4.1' ],
+66 silly audit   lie: [ '3.3.0' ],
+66 silly audit   listenercount: [ '1.0.1' ],
+66 silly audit   'locate-path': [ '6.0.0' ],
+66 silly audit   'lodash.defaults': [ '4.2.0' ],
+66 silly audit   'lodash.difference': [ '4.5.0' ],
+66 silly audit   'lodash.escaperegexp': [ '4.1.2' ],
+66 silly audit   'lodash.flatten': [ '4.4.0' ],
+66 silly audit   'lodash.groupby': [ '4.6.0' ],
+66 silly audit   'lodash.isboolean': [ '3.0.3' ],
+66 silly audit   'lodash.isequal': [ '4.5.0' ],
+66 silly audit   'lodash.isfunction': [ '3.0.9' ],
+66 silly audit   'lodash.isnil': [ '4.0.0' ],
+66 silly audit   'lodash.isplainobject': [ '4.0.6' ],
+66 silly audit   'lodash.isundefined': [ '3.0.1' ],
+66 silly audit   'lodash.merge': [ '4.6.2' ],
+66 silly audit   'lodash.union': [ '4.6.0' ],
+66 silly audit   'lodash.uniq': [ '4.5.0' ],
+66 silly audit   md5: [ '2.3.0' ],
+66 silly audit   merge2: [ '1.4.1' ],
+66 silly audit   micromatch: [ '4.0.8' ],
+66 silly audit   minimist: [ '1.2.8' ],
+66 silly audit   mkdirp: [ '0.5.6' ],
+66 silly audit   ms: [ '2.1.3' ],
+66 silly audit   'natural-compare': [ '1.4.0' ],
+66 silly audit   'node-ensure': [ '0.0.0' ],
+66 silly audit   'normalize-path': [ '3.0.0' ],
+66 silly audit   once: [ '1.4.0' ],
+66 silly audit   optionator: [ '0.9.4' ],
+66 silly audit   'p-limit': [ '3.1.0' ],
+66 silly audit   'p-locate': [ '5.0.0' ],
+66 silly audit   pako: [ '1.0.11' ],
+66 silly audit   'parent-module': [ '1.0.1' ],
+66 silly audit   'path-exists': [ '4.0.0' ],
+66 silly audit   'path-is-absolute': [ '1.0.1' ],
+66 silly audit   'path-key': [ '3.1.1' ],
+66 silly audit   'path-type': [ '4.0.0' ],
+66 silly audit   'pdf-parse': [ '1.1.4' ],
+66 silly audit   picomatch: [ '2.3.2' ],
+66 silly audit   playwright: [ '1.60.0' ],
+66 silly audit   'playwright-core': [ '1.60.0' ],
+66 silly audit   'prelude-ls': [ '1.2.1' ],
+66 silly audit   'process-nextick-args': [ '2.0.1' ],
+66 silly audit   punycode: [ '2.3.1' ],
+66 silly audit   'queue-microtask': [ '1.2.3' ],
+66 silly audit   'readdir-glob': [ '1.1.3' ],
+66 silly audit   'resolve-from': [ '4.0.0' ],
+66 silly audit   reusify: [ '1.1.0' ],
+66 silly audit   'run-parallel': [ '1.2.0' ],
+66 silly audit   saxes: [ '5.0.1' ],
+66 silly audit   semver: [ '7.8.4' ],
+66 silly audit   setimmediate: [ '1.0.5' ],
+66 silly audit   'shebang-command': [ '2.0.0' ],
+66 silly audit   'shebang-regex': [ '3.0.0' ],
+66 silly audit   slash: [ '3.0.0' ],
+66 silly audit   'strip-ansi': [ '6.0.1' ],
+66 silly audit   'strip-bom': [ '3.0.0' ],
+66 silly audit   'strip-json-comments': [ '3.1.1' ],
+66 silly audit   'supports-color': [ '7.2.0' ],
+66 silly audit   'tar-stream': [ '2.2.0' ],
+66 silly audit   'text-table': [ '0.2.0' ],
+66 silly audit   tmp: [ '0.2.7' ],
+66 silly audit   'to-regex-range': [ '5.0.1' ],
+66 silly audit   traverse: [ '0.3.9' ],
+66 silly audit   'ts-api-utils': [ '1.4.3' ],
+66 silly audit   'tsconfig-paths': [ '4.2.0' ],
+66 silly audit   'type-check': [ '0.4.0' ],
+66 silly audit   'type-fest': [ '0.20.2' ],
+66 silly audit   typescript: [ '6.0.3' ],
+66 silly audit   'undici-types': [ '6.21.0' ],
+66 silly audit   universalify: [ '2.0.1' ],
+66 silly audit   unzipper: [ '0.10.14' ],
+66 silly audit   'uri-js': [ '4.4.1' ],
+66 silly audit   'util-deprecate': [ '1.0.2' ],
+66 silly audit   uuid: [ '11.1.1' ],
+66 silly audit   which: [ '2.0.2' ],
+66 silly audit   'word-wrap': [ '1.2.5' ],
+66 silly audit   wrappy: [ '1.0.2' ],
+66 silly audit   xmlchars: [ '2.2.0' ],
+66 silly audit   'yocto-queue': [ '0.1.0' ],
+66 silly audit   'zip-stream': [ '4.1.1' ],
+66 silly audit   zod: [ '4.4.3' ],
+66 silly audit   mathjs: [ '14.9.1' ],
+66 silly audit   '@babel/runtime': [ '7.29.7' ],
+66 silly audit   'complex.js': [ '2.4.3' ],
+66 silly audit   'decimal.js': [ '10.6.0' ],
+66 silly audit   'escape-latex': [ '1.2.0' ],
+66 silly audit   'fraction.js': [ '5.3.4' ],
+66 silly audit   'javascript-natural-sort': [ '0.7.1' ],
+66 silly audit   seedrandom: [ '3.0.5' ],
+66 silly audit   'tiny-emitter': [ '2.1.0' ],
+66 silly audit   'typed-function': [ '4.2.2' ]
+66 silly audit }
+67 http cache tiny-emitter@https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz 1ms (cache hit)
+68 http cache typed-function@https://registry.npmjs.org/typed-function/-/typed-function-4.2.2.tgz 0ms (cache hit)
+69 http cache seedrandom@https://registry.npmjs.org/seedrandom/-/seedrandom-3.0.5.tgz 0ms (cache hit)
+70 http cache fraction.js@https://registry.npmjs.org/fraction.js/-/fraction.js-5.3.4.tgz 0ms (cache hit)
+71 http cache javascript-natural-sort@https://registry.npmjs.org/javascript-natural-sort/-/javascript-natural-sort-0.7.1.tgz 0ms (cache hit)
+72 http cache decimal.js@https://registry.npmjs.org/decimal.js/-/decimal.js-10.6.0.tgz 0ms (cache hit)
+73 http cache escape-latex@https://registry.npmjs.org/escape-latex/-/escape-latex-1.2.0.tgz 0ms (cache hit)
+74 http cache @babel/runtime@https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz 0ms (cache hit)
+75 silly tarball no local data for tiny-emitter@https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz. Extracting by manifest.
+76 http cache complex.js@https://registry.npmjs.org/complex.js/-/complex.js-2.4.3.tgz 0ms (cache hit)
+77 silly tarball no local data for typed-function@https://registry.npmjs.org/typed-function/-/typed-function-4.2.2.tgz. Extracting by manifest.
+78 http cache mathjs@https://registry.npmjs.org/mathjs/-/mathjs-14.9.1.tgz 0ms (cache hit)
+79 silly tarball no local data for seedrandom@https://registry.npmjs.org/seedrandom/-/seedrandom-3.0.5.tgz. Extracting by manifest.
+80 silly tarball no local data for fraction.js@https://registry.npmjs.org/fraction.js/-/fraction.js-5.3.4.tgz. Extracting by manifest.
+81 silly tarball no local data for javascript-natural-sort@https://registry.npmjs.org/javascript-natural-sort/-/javascript-natural-sort-0.7.1.tgz. Extracting by manifest.
+82 silly tarball no local data for decimal.js@https://registry.npmjs.org/decimal.js/-/decimal.js-10.6.0.tgz. Extracting by manifest.
+83 silly tarball no local data for escape-latex@https://registry.npmjs.org/escape-latex/-/escape-latex-1.2.0.tgz. Extracting by manifest.
+84 silly tarball no local data for @babel/runtime@https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz. Extracting by manifest.
+85 silly tarball no local data for complex.js@https://registry.npmjs.org/complex.js/-/complex.js-2.4.3.tgz. Extracting by manifest.
+86 silly tarball no local data for mathjs@https://registry.npmjs.org/mathjs/-/mathjs-14.9.1.tgz. Extracting by manifest.
+87 http fetch GET 200 https://registry.npmjs.org/javascript-natural-sort/-/javascript-natural-sort-0.7.1.tgz 246ms (cache miss)
+88 http fetch GET 200 https://registry.npmjs.org/escape-latex/-/escape-latex-1.2.0.tgz 268ms (cache miss)
+89 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 382ms
+90 silly audit report {
+90 silly audit report   mathjs: [
+90 silly audit report     {
+90 silly audit report       id: 1117167,
+90 silly audit report       url: 'https://github.com/advisories/GHSA-29qv-4j9f-fjw5',
+90 silly audit report       title: 'Unsafe object property setter in mathjs',
+90 silly audit report       severity: 'high',
+90 silly audit report       vulnerable_versions: '>=13.1.1 <15.2.0',
+90 silly audit report       cwe: [Array],
+90 silly audit report       cvss: [Object]
+90 silly audit report     },
+90 silly audit report     {
+90 silly audit report       id: 1117889,
+90 silly audit report       url: 'https://github.com/advisories/GHSA-jvff-x2qm-6286',
+90 silly audit report       title: 'mathjs Allows Improperly Controlled Modification of Dynamically-Determined Object Attributes',
+90 silly audit report       severity: 'high',
+90 silly audit report       vulnerable_versions: '>=13.1.0 <15.2.0',
+90 silly audit report       cwe: [Array],
+90 silly audit report       cvss: [Object]
+90 silly audit report     }
+90 silly audit report   ]
+90 silly audit report }
+91 silly packumentCache corgi:https://registry.npmjs.org/mathjs cache-miss
+92 http fetch GET 200 https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz 529ms (cache miss)
+93 http fetch GET 200 https://registry.npmjs.org/decimal.js/-/decimal.js-10.6.0.tgz 595ms (cache miss)
+94 http fetch GET 200 https://registry.npmjs.org/typed-function/-/typed-function-4.2.2.tgz 712ms (cache miss)
+95 http fetch GET 200 https://registry.npmjs.org/complex.js/-/complex.js-2.4.3.tgz 731ms (cache miss)
+96 http fetch GET 200 https://registry.npmjs.org/mathjs 418ms (cache miss)
+97 silly packumentCache corgi:https://registry.npmjs.org/mathjs set size:undefined disposed:false
+98 http fetch GET 200 https://registry.npmjs.org/fraction.js/-/fraction.js-5.3.4.tgz 792ms (cache miss)
+99 http fetch GET 200 https://registry.npmjs.org/seedrandom/-/seedrandom-3.0.5.tgz 1054ms (cache miss)
+100 http fetch GET 200 https://registry.npmjs.org/@babel/runtime/-/runtime-7.29.7.tgz 2279ms (cache miss)
+101 http fetch GET 200 https://registry.npmjs.org/mathjs/-/mathjs-14.9.1.tgz 24742ms (cache miss)
+102 silly ADD node_modules/typed-function
+103 silly ADD node_modules/tiny-emitter
+104 silly ADD node_modules/seedrandom
+105 silly ADD node_modules/javascript-natural-sort
+106 silly ADD node_modules/fraction.js
+107 silly ADD node_modules/escape-latex
+108 silly ADD node_modules/decimal.js
+109 silly ADD node_modules/complex.js
+110 silly ADD node_modules/@babel/runtime
+111 silly ADD node_modules/mathjs
+112 verbose cwd C:\Users\Sysla-Sairaj\Documents\ABM-India
+113 verbose os Windows_NT 10.0.26200
+114 verbose node v24.16.0
+115 verbose npm  v11.13.0
+116 notice
+116 notice New minor version of npm available! 11.13.0 -> 11.17.0
+116 notice Changelog: https://github.com/npm/cli/releases/tag/v11.17.0
+116 notice To update run: npm install -g npm@11.17.0
+116 notice  { force: true, Symbol(proc-log.meta): true }
+117 verbose exit 0
+118 info ok

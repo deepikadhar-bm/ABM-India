@@ -338,3 +338,6 @@ async function getApiToken(apiUrl: string): Promise<string | null> {
 }
 
 export default globalSetup;
+
+// ── REMOVED the incorrect export line ───────────────────────────────────────
+// export { test, expect } from './fixtures';   // <-- THIS WAS THE ERROR

@@ -1,7 +1,9 @@
 // src/config/env.index.ts
 
-import { devConfig } from "./env.dev";
-import { qaConfig }  from "./env.qa";
+import * as fs   from "fs";
+import * as path from "path";
+import { devConfig }       from "./env.dev";
+import { qaConfig }        from "./env.qa";
 import { AppConfigSchema } from "./env.schema";
 import type { AppConfig, Environment, TimeoutKeys } from "./types";
 
@@ -15,17 +17,14 @@ class ConfigManager {
   private config: AppConfig;
 
   constructor() {
-    // ✅ Fix: trim + lowercase + fallback to "qa"
     const rawEnv = (
       process.env.ENVIRONMENT ||
       process.env.NODE_ENV    ||
       "qa"
     ).trim().toLowerCase();
 
-    
     this.env = rawEnv === "dev" ? "dev" : "qa";
 
-    // ✅ Fix: direct lookup — configs always has dev + qa so this never fails
     const baseConfig = configs[this.env];
 
     const merged: AppConfig = {
@@ -54,6 +53,8 @@ class ConfigManager {
     console.log(`\n▶ Running on ENV: ${this.env.toUpperCase()} | BASE URL: ${this.config.baseURL}\n`);
   }
 
+  // ── Existing methods — untouched ───────────────────────────────────────────
+
   getEnvironment(): Environment       { return this.env; }
   getBaseURL(): string                { return this.config.baseURL; }
   getEasyURL(): string | undefined    { return this.config.easyURL; }
@@ -67,6 +68,63 @@ class ConfigManager {
 
   getTimeout(type: TimeoutKeys): number {
     return this.config.timeouts[type];
+  }
+
+  // ── New path methods — single source of truth for all file paths ───────────
+  //
+  // testDataPath = "testdata/JSON Files"
+  // so JSON files resolve directly under testDataPath
+  // xlsx files are one level up: "testdata/excelDataFiles/..."
+
+  // → testdata/JSON Files/test-data.json
+  getTestDataJsonPath(): string {
+    return path.join(
+      process.cwd(),
+      this.config.testDataPath,
+      "test-data.json"
+    );
+  }
+
+  // → testdata/JSON Files/excel.json
+  getExcelJsonPath(): string {
+    return path.join(
+      process.cwd(),
+      this.config.testDataPath,
+      "excel.json"
+    );
+  }
+
+  // filePath is relative to testdata/ root
+  // e.g. "excelDataFiles/Sample_TestData.xlsx"
+  // → testdata/excelDataFiles/Sample_TestData.xlsx
+  getExcelFilePath(filePath: string): string {
+    if (!filePath || filePath.trim() === "") {
+      throw new Error(
+        `ConfigManager.getExcelFilePath: filePath is required`
+      );
+    }
+
+    // testDataPath = "testdata/JSON Files"
+    // go one level up to get testdata/ root
+    const testdataRoot = path.join(
+      process.cwd(),
+      this.config.testDataPath,
+      ".."
+    );
+
+    const fullPath = path.normalize(
+      path.join(testdataRoot, filePath)
+    );
+
+    if (!fs.existsSync(fullPath)) {
+      throw new Error(
+        `ConfigManager.getExcelFilePath: file not found at "${fullPath}"\n` +
+        `Received filePath: "${filePath}"\n` +
+        `Resolved testdata root: "${testdataRoot}"`
+      );
+    }
+
+    return fullPath;
   }
 }
 

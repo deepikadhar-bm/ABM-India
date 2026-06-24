@@ -1,6 +1,5 @@
-import { Page, Locator, expect } from '@playwright/test';
+import { Page, Locator, expect, test as baseTest, TestInfo } from '@playwright/test';
 import { BasePage } from '../pages/basePage';
-import { ElementUtils } from '../utils/elementUtils';
 import { WaitUtils } from '../utils/waitUtils';
 import { ErrorHandler } from '../utils/errorHandler';
 import { logger } from '../helpers/logger';
@@ -13,8 +12,8 @@ export class LoginPage extends BasePage {
   private loginButton: Locator;
   private projectBaseHeader: Locator;
 
-  constructor(page: Page) {
-    super(page);
+  constructor(page: Page, test: typeof baseTest, testInfo: TestInfo) {
+    super(page, test, testInfo);
 
     this.usernameInput      = page.locator('//input[@type="email"]');
     this.passwordInput      = page.locator('//input[@type="password4"]');
@@ -23,7 +22,7 @@ export class LoginPage extends BasePage {
   }
 
   async navigateTo(): Promise<this> {
-    return ErrorHandler.handle(async () => {
+    return this._wrapWithStep('Navigate to login page', async () => {
       const url = configManager.getBaseURL();
 
       logger.info(`Opening Base URL: ${url}`);
@@ -46,29 +45,17 @@ export class LoginPage extends BasePage {
   }
 
   async login(): Promise<this> {
-    return ErrorHandler.handle(async () => {
+    return this._wrapWithStep('Login to application', async () => {
       const { username, password } = configManager.getCredentials();
 
       logger.info(`Logging in as: ${username}`);
 
-      await ElementUtils.fill(
-        this.usernameInput,
-        username,
-        { timeout: Global_Timeout.action }
-      );
+      // Use BasePage's methods for auto-step and logs
+      await this.fill(this.usernameInput, username, { label: 'Username' });
+      await this.fill(this.passwordInput, password, { label: 'Password' });
+      await this.click(this.loginButton, { label: 'Login Button' });
 
-      await ElementUtils.fill(
-        this.passwordInput,
-        password,
-        { timeout: Global_Timeout.action }
-      );
-
-      await ElementUtils.click(
-        this.loginButton,
-        { timeout: Global_Timeout.action }
-      );
-
-      //  If projectBaseHeader not visible after login → reload and retry once
+      // If projectBaseHeader not visible after login → reload and retry once
       const isVisible = await this.projectBaseHeader
         .waitFor({ state: 'visible', timeout: Global_Timeout.wait })
         .then(() => true)
@@ -79,7 +66,7 @@ export class LoginPage extends BasePage {
 
         await this.page.reload({ waitUntil: 'domcontentloaded' });
 
-        await WaitUtils.waitForElementIsVisible(
+        await this.waitForElementIsVisible(
           this.projectBaseHeader,
           Global_Timeout.wait
         );
@@ -92,18 +79,19 @@ export class LoginPage extends BasePage {
   }
 
   async validateUI(): Promise<this> {
-    await expect(this.usernameInput).toBeVisible();
-    await expect(this.passwordInput).toBeVisible();
-    await expect(this.loginButton).toBeEnabled();
-
-    return this;
+    return this._wrapWithStep('Validate login UI', async () => {
+      await expect(this.usernameInput).toBeVisible();
+      await expect(this.passwordInput).toBeVisible();
+      await expect(this.loginButton).toBeEnabled();
+      return this;
+    });
   }
 
   async verifyLoginSuccessful(): Promise<this> {
-    await expect(this.projectBaseHeader).toBeVisible();
-
-    logger.info('ProjectBase 2.0 is displayed');
-
-    return this;
+    return this._wrapWithStep('Verify login successful', async () => {
+      await expect(this.projectBaseHeader).toBeVisible();
+      logger.info('ProjectBase 2.0 is displayed');
+      return this;
+    });
   }
 }

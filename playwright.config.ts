@@ -29,10 +29,9 @@ console.log(`\n▶ Running on ENV: ${env.toUpperCase()} | CI: ${isCI} | HEADLESS
 // ============================================================================
 export default defineConfig({
 
-  // ✅ Fixed: points to ./test folder where spec files actually live
-  testDir: "./test",
+  testDir: ".",
 
-  testMatch: "**/*.spec.ts",
+  testMatch: ["test/**/*.spec.ts", "tests/**/*.spec.ts"],
 
   globalSetup: "./src/fixtures/globalSetup.ts",
 
@@ -60,8 +59,11 @@ export default defineConfig({
     navigationTimeout: navTimeout,
 
     screenshot: "only-on-failure",
-    video:      "retain-on-failure",
-    trace:      "retain-on-failure",
+
+    // ── Local: off — reduces internal step noise in HTML report ─────────────
+    // ── CI:    retain — keeps evidence for debugging failed runs ─────────────
+    video: isCI ? "retain-on-failure" : "off",
+    trace: isCI ? "retain-on-failure" : "off",
 
     locale:     "en-US",
     timezoneId: "Asia/Kolkata",
@@ -85,17 +87,19 @@ export default defineConfig({
 
   outputDir: "./test-results",
 
-  reporter: isCI
-    ? [
-        ["list"],
-        ["junit",             { outputFile: "reports/results.xml"               }],
-        ["html",              { outputFolder: "playwright-report", open: "never" }],
-        ["allure-playwright", { outputFolder: "allure-results"                  }],
-      ]
-    : [
-        ["list"],
-        ["html",              { outputFolder: "playwright-report", open: "never" }],
-        ["junit",             { outputFile: "reports/results.xml"               }],
-        ["allure-playwright", { outputFolder: "allure-results"                  }],
-      ],
+ reporter: isCI
+  ? [
+      ["list"],
+      ["./reports/enterprise-reporter.js", { outputFolder: "enterprise-report" }],
+      ["junit",             { outputFile: "reports/results.xml"               }],
+      ["html",              { outputFolder: "playwright-report", open: "never" }],
+      ["allure-playwright", { outputFolder: "allure-results"                  }],
+    ]
+  : [
+      ["list"],
+      ["./reports/enterprise-reporter.js", { outputFolder: "enterprise-report" }],
+      ["html",              { outputFolder: "playwright-report", open: "never" }],
+      ["junit",             { outputFile: "reports/results.xml"               }],
+      ["allure-playwright", { outputFolder: "allure-results"                  }],
+    ],
 });

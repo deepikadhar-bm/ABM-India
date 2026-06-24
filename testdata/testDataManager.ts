@@ -3,6 +3,8 @@ import * as path from 'path';
 import * as ExcelJS from 'exceljs';
 import { configManager } from '../src/config/env.index';
 
+type ExcelFormulaResult = string | number | boolean | null;
+
 interface JsonDataProfile<T> {
     testDataName: string;
     data: T[];
@@ -20,11 +22,19 @@ interface JsonProfileDataMap {
 
 export class TestDataManager {
 
+    private static instances: Set<TestDataManager> = new Set();
     private dataPath: string;
     private cache: Map<string, any> = new Map();
 
     constructor() {
         this.dataPath = path.join(process.cwd(), 'testdata');
+        TestDataManager.instances.add(this);
+    }
+
+    static clearCache(): void {
+        for (const instance of TestDataManager.instances) {
+            instance.clearCache();
+        }
     }
 
     // =========================================================================
@@ -263,6 +273,60 @@ export class TestDataManager {
         const workbook = await this.loadExcel(filePath);
         const ws       = await this.resolveSheet(workbook, sheet);
         return ws.getRow(row).getCell(column).value;
+    }
+
+    async getFormulaResult(
+        filePath: string,
+        row: number,
+        column: number | string,
+        sheet?: string | number
+    ): Promise<ExcelFormulaResult> {
+        const workbook    = await this.loadExcel(filePath);
+        const ws          = await this.resolveSheet(workbook, sheet);
+        const columnIndex = typeof column === 'number'
+            ? column
+            : this.resolveColumnByName(ws, column);
+        const value = ws.getRow(row).getCell(columnIndex).value;
+
+        if (value === null || value === undefined) {
+            return null;
+        }
+
+        if (
+            typeof value === 'string' ||
+            typeof value === 'number' ||
+            typeof value === 'boolean'
+        ) {
+            return value;
+        }
+
+        if (typeof value === 'object' && 'result' in value) {
+            const result = value.result;
+            if (
+                result === null ||
+                result === undefined ||
+                typeof result === 'string' ||
+                typeof result === 'number' ||
+                typeof result === 'boolean'
+            ) {
+                return result ?? null;
+            }
+        }
+
+        return String(value);
+    }
+
+    private resolveColumnByName(ws: ExcelJS.Worksheet, columnName: string): number {
+        const headerRow = ws.getRow(1).values as ExcelJS.CellValue[];
+        const columnIndex = headerRow.findIndex(
+            header => String(header ?? '').trim() === columnName
+        );
+
+        if (columnIndex <= 0) {
+            throw new Error(`Column "${columnName}" not found in sheet "${ws.name}"`);
+        }
+
+        return columnIndex;
     }
 
     // =========================================================================

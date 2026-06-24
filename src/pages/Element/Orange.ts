@@ -13,25 +13,25 @@ export class Orange {
         (locator as any).__name = name;
         return locator;
     }
-      
+
     get loginButton(): Locator {
         return this.named("loginButton",
             this.page.locator("//*[@type='submit']"));
-}
-     get username(): Locator {
+    }
+    get username(): Locator {
         return this.named("username",
             this.page.locator("//*[@placeholder='Username']"));
-        }
+    }
 
-      get password(): Locator {
+    get password(): Locator {
         return this.named("password",
             this.page.locator("//*[@placeholder='Password']"));
-        }
+    }
 
- get admin(): Locator {
+    get admin(): Locator {
         return this.named("admin",
-            this.page.locator("//*[text()='Admin']"));
-        }
+            this.page.locator("//*[text()='admin']"));
+    }
 
 
 

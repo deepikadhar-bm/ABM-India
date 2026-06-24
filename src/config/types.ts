@@ -1,6 +1,6 @@
 // src/config/types.ts
 
-export type Environment  = 'dev' | 'qa';   
+export type Environment  = 'dev' | 'qa';
 export type TimeoutKeys  = 'action' | 'wait' | 'navigation';
 
 export interface CredentialsConfig {
@@ -14,12 +14,18 @@ export interface BrowserConfig {
   timeout:  number;
 }
 
+// Defines which fields are mandatory in every test-data.json expected block
+// Add new required fields here — TestData.validate() enforces them automatically
+export interface ExpectedFieldsConfig {
+  required: string[];   // e.g. ["landingMenu"] — must exist in every expected{}
+}
+
 export interface AppConfig {
   env:         Environment;
   baseURL:     string;
   easyURL?:    string;
   apiBaseURL?: string;
-  testDataPath: string;
+  readonly testDataPath: string;
   requestOptions?: {
     timeout?: number;
     retries?: number;

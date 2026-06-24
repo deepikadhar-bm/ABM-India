@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "baseUrl": "./",
+    "types": ["node", "@playwright/test"],
+    "ignoreDeprecations": "6.0"
+  }
+}

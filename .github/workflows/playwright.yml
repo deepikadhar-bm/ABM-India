@@ -147,13 +147,11 @@ jobs:
           echo "  Actor       : ${{ github.actor }}"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-      # ── Fix 1: Clean old reports before every run ─────────────────────────
-      # Ensures previous run results never bleed into this run
+      # ── Clean old reports ───────────────────────────────────────────────────
       - name: Clean old reports
-        run: rm -rf reports/ playwright-report/ test-results/ allure-results/ logs/
+        run: rm -rf reports/ playwright-report/ test-results/ allure-results/ logs/ enterprise-report/
 
-      # ── Fix 2: PLAYWRIGHT_JUNIT_OUTPUT_NAME forces correct XML path ───────
-      # Fix 3: --pass-with-no-tests prevents exit code 1 on no match
+      # ── Run tests (without --reporter, let playwright.config.ts handle it) ─
 
       - name: Run TestCase
         id: run_testcase
@@ -163,7 +161,6 @@ jobs:
             --grep "$RUN_TARGET" \
             --workers=$RUN_WORKERS \
             --retries=$RUN_RETRIES \
-            --reporter=list,html,junit \
             --pass-with-no-tests
         env:
           CI:                           true
@@ -180,7 +177,6 @@ jobs:
           npx playwright test "$RUN_TARGET" \
             --workers=$RUN_WORKERS \
             --retries=$RUN_RETRIES \
-            --reporter=list,html,junit \
             --pass-with-no-tests
         env:
           CI:                           true
@@ -197,7 +193,6 @@ jobs:
           npx playwright test "test/$RUN_TARGET" \
             --workers=$RUN_WORKERS \
             --retries=$RUN_RETRIES \
-            --reporter=list,html,junit \
             --pass-with-no-tests
         env:
           CI:                           true
@@ -215,7 +210,6 @@ jobs:
             --grep "$RUN_TARGET" \
             --workers=$RUN_WORKERS \
             --retries=$RUN_RETRIES \
-            --reporter=list,html,junit \
             --pass-with-no-tests
         env:
           CI:                           true
@@ -254,6 +248,7 @@ jobs:
           echo "TC_FAILED=$FAILED"   >> $GITHUB_ENV
           echo "TC_SKIPPED=$SKIPPED" >> $GITHUB_ENV
 
+      # ── Upload Reports (including enterprise-report) ──────────────────────
       - name: Upload Reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -265,6 +260,7 @@ jobs:
             allure-results/
             reports/
             logs/
+            enterprise-report/          # <-- Added enterprise report folder
           retention-days: 30
 
       - name: Write job summary

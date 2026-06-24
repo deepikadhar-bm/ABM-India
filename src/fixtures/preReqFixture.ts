@@ -16,7 +16,7 @@
 //    );
 // ============================================================================
 
-import { test as baseTest, expect } from "./basefixtures";  // ← extends baseFixture
+import { test as baseTest, expect } from "./basefixtures";  
 import { TestInfo }                  from "@playwright/test";
 import { PreReqRegistry }            from "./PreReqRegistry";
 
