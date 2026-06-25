@@ -1,7 +1,7 @@
 /**
  * Test Fixtures - Custom Playwright fixtures
  */
-import { test as base, expect } from '@playwright/test';
+import { test as base, expect, TestInfo } from '@playwright/test';
 import { BasePage } from '../pages/basePage';
 
 type TestFixtures = {
@@ -9,8 +9,9 @@ type TestFixtures = {
 };
 
 export const test = base.extend<TestFixtures>({
-  basePage: async ({ page }, use) => {
-    const basePage = new BasePage(page);
+  basePage: async ({ page }, use, testInfo: TestInfo) => {
+    // Pass testInfo if your BasePage needs it
+    const basePage = new BasePage(page, test ,testInfo);
     await use(basePage);
   },
 });
