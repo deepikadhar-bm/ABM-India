@@ -7,6 +7,7 @@
 //  ── Per-step log capture & attachment (JSON metadata for reporter)
 //  ── Plain delay() instead of page.waitForTimeout()
 //  ── Clean console logs (no emojis)
+//  ── AutoHeal now toggle-controlled via ConfigManager.getFrameworkSettings().autoHeal
 // ============================================================================
 
 import { Page, Locator, FrameLocator, test as baseTest, TestInfo } from "@playwright/test";
@@ -45,7 +46,22 @@ export class BasePage {
   }
 
   // ==========================================================================
-  //  CORE: resolveLocator — auto-wait + auto-heal
+  //  CORE: resolveLocator — auto-wait + auto-heal (feature-toggle aware)
+  // ==========================================================================
+  //
+  // AutoHeal execution is gated centrally here — ONLY here — by reading
+  // configManager.getFrameworkSettings().autoHeal.
+  //
+  //   autoHeal = true  → Execute auto healing (original behavior, unchanged)
+  //   autoHeal = false → Existing locator logic: skip healing entirely,
+  //                       rely purely on normal Playwright wait/visibility.
+  //                       If the element truly isn't visible, this throws
+  //                       the same "Element not found" error as before, so
+  //                       callers up the chain (ErrorHandler, _wrapWithStep,
+  //                       etc.) behave identically either way.
+  //
+  // To flip this feature, edit ONLY src/config/env.index.ts. This method,
+  // and every public BasePage method that calls it, never needs to change.
   // ==========================================================================
 
   private async resolveLocator(selector: string | Locator, name: string): Promise<Locator> {
@@ -59,18 +75,25 @@ export class BasePage {
 
     if (visible) return locator.first();
 
-    logger.debug(`[AutoHeal] "${name}" not visible — attempting heal | locator: ${locatorStr}`);
-    const { locator: healed, healed: wasHealed, strategy } =
-      await autoHeal(locator, undefined, timeout);
+    if (configManager.getFrameworkSettings().autoHeal) {
+      // Execute auto healing
+      logger.debug(`[AutoHeal] "${name}" not visible — attempting heal | locator: ${locatorStr}`);
+      const { locator: healed, healed: wasHealed, strategy } =
+        await autoHeal(locator, undefined, timeout);
 
-    if (!wasHealed) {
-      logger.error(`[AutoHeal] Failed → element: "${name}" | locator: ${locatorStr}`);
+      if (!wasHealed) {
+        logger.error(`[AutoHeal] Failed → element: "${name}" | locator: ${locatorStr}`);
+        throw new Error(`Element not found: "${name}"`);
+      }
+
+      logger.info(`[AutoHeal] Healed via [${strategy}] → element: "${name}"`);
+      logger.debug(`[AutoHeal] healed locator: ${locatorStr}`);
+      return healed.first();
+    } else {
+      // Existing locator logic — AutoHeal disabled, no recovery attempted
+      logger.error(`Element not found | element: "${name}" | locator: ${locatorStr} (autoHeal disabled)`);
       throw new Error(`Element not found: "${name}"`);
     }
-
-    logger.info(`[AutoHeal] Healed via [${strategy}] → element: "${name}"`);
-    logger.debug(`[AutoHeal] healed locator: ${locatorStr}`);
-    return healed.first();
   }
 
   // ==========================================================================

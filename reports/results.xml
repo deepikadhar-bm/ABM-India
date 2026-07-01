@@ -1,348 +1,6 @@
-<testsuites id="" name="" tests="10" failures="0" skipped="0" errors="6" time="52.84891599999927">
-<testsuite name="test\demoApplication\orange-json.spec.ts" timestamp="2026-06-24T10:02:17.555Z" hostname="chromium" tests="8" failures="0" skipped="0" time="26.85" errors="4">
-<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @smoke REG_TS_DS_TC01 - Login using TestData" classname="test\demoApplication\orange-json.spec.ts" time="21.195">
-<system-out>
-<![CDATA[[96m2026-06-24T15:32:25.916Z [INFO]  Available test data: Orange_Login_Data, Purchase_Order_Data[0m
-[96m2026-06-24T15:32:25.921Z [INFO]  Excel entry: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
-[1m[94m════════════════════════════════════════════════════════════
-   TEST    : @smoke REG_TS_DS_TC01 - Login using TestData
-   FILE    : orange-json.spec.ts
-   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
-   ENV     : QA
-   BROWSER : chromium
-════════════════════════════════════════════════════════════[0m
-[96m2026-06-24T15:32:27.787Z [INFO]  [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
-[96m2026-06-24T15:32:27.788Z [INFO]  Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
-[96m2026-06-24T15:32:30.274Z [INFO]  Navigated to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
-[96m2026-06-24T15:32:30.299Z [INFO]  [ACTION] Fill username → Admin[0m
-[96m2026-06-24T15:32:30.300Z [INFO]  Filling: "username" with value: "Admin"[0m
-[96m2026-06-24T15:32:30.817Z [INFO]  Filled: "username"[0m
-[96m2026-06-24T15:32:30.830Z [INFO]  [ACTION] Fill password → admin123[0m
-[96m2026-06-24T15:32:30.834Z [INFO]  Filling: "password" with value: "admin123"[0m
-[96m2026-06-24T15:32:31.012Z [INFO]  Filled: "password"[0m
-[96m2026-06-24T15:32:31.037Z [INFO]  [ACTION] Click loginButton[0m
-[96m2026-06-24T15:32:31.037Z [INFO]  Clicking: "loginButton"[0m
-[96m2026-06-24T15:32:32.059Z [INFO]  Clicked: "loginButton"[0m
-[96m2026-06-24T15:32:32.065Z [INFO]  [ACTION] Wait Visible admin[0m
-[96m2026-06-24T15:32:32.066Z [INFO]  Waiting for "admin" to be visible[0m
-[1m[91m2026-06-24T15:32:47.077Z [ERROR] Wait visible failed | element: "admin" | expected: visible | actual: not found[0m
-[1m[91m2026-06-24T15:32:47.078Z [ERROR] Wait visible failed | element: "admin" | error: Element not visible: "admin"[0m
-[1m[91m2026-06-24T15:32:47.080Z [ERROR] ❌ BasePage.waitForElementIsVisible (admin)
-
-Root Cause:
-Element not visible: "admin"[0m
-[1m[91m2026-06-24T15:32:47.081Z [ERROR] Source: C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:61:5[0m
-[1m[97m[41m2026-06-24T15:32:47.934Z [FAIL]  Screenshot captured → attached to report[0m
-[1m[91m════════════════════════════════════════════════════════════
-   ❌ FAILED — @smoke REG_TS_DS_TC01 - Login using TestData
-   Duration : 20.17s  |  Steps completed : 0
-════════════════════════════════════════════════════════════
-[0m
-
-[[ATTACHMENT|..\test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|..\test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\error-context.md]]
-
-[[ATTACHMENT|..\test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\error-context.md]]
-]]>
-</system-out>
-<error message="Element not visible: &quot;admin&quot;" type="Error">
-<![CDATA[  [chromium] › test\demoApplication\orange-json.spec.ts:54:7 › Data Sources — TestData | ExcelData | ExcelValidator › @smoke REG_TS_DS_TC01 - Login using TestData › Wait for admin to be visible 
-
-    Error: Element not visible: "admin"
-
-       at src\pages\basePage.ts:636
-
-      634 |           }
-      635 |           logger.error(`Wait visible failed | element: "${name}" | expected: visible | actual: not found`);
-    > 636 |           throw new Error(`Element not visible: "${name}"`);
-          |                 ^
-      637 |         } catch (e: any) {
-      638 |           logger.error(`Wait visible failed | element: "${name}" | error: ${e.message?.split("\n")[0]}`);
-      639 |           throw e;
-        at _errorHandler.ErrorHandler.handle.context (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:636:17)
-        at ErrorHandler.handle (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\utils\errorHandler.ts:13:14)
-        at C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:1729:18
-        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:61:5
-
-    attachment #6: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #8: tc-logs (text/plain) ────────────────────────────────────────────────────────────
-    2026-06-24T15:32:27.787Z [INFO]  [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
-    2026-06-24T15:32:27.788Z [INFO]  Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-    2026-06-24T15:32:30.274Z [INFO]  Navigated to: "https://ope...
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\error-context.md
-
-    Error Context: test-results\test-demoApplication-orang-605d3-TC01---Login-using-TestData-chromium\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @smoke REG_TS_DS_TC02 - Verify landing menu from expected" classname="test\demoApplication\orange-json.spec.ts" time="1.95">
-<system-out>
-<![CDATA[[96m2026-06-24T15:32:51.591Z [INFO]  Available test data: Orange_Login_Data, Purchase_Order_Data[0m
-[96m2026-06-24T15:32:51.592Z [INFO]  Excel entry: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
-[1m[94m════════════════════════════════════════════════════════════
-   TEST    : @smoke REG_TS_DS_TC02 - Verify landing menu from expected
-   FILE    : orange-json.spec.ts
-   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
-   ENV     : QA
-   BROWSER : chromium
-════════════════════════════════════════════════════════════[0m
-[96m2026-06-24T15:32:52.155Z [INFO]  [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
-[96m2026-06-24T15:32:52.155Z [INFO]  Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
-[1m[91m2026-06-24T15:32:53.788Z [ERROR] Navigation failed | url: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" | error: page.goto: Target page, context or browser has been closed[0m
-[1m[91m2026-06-24T15:32:53.789Z [ERROR] ❌ BasePage.navigateTo
-
-Root Cause:
-Navigation failed: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
-[1m[91m2026-06-24T15:32:53.790Z [ERROR] Source: C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:72:5[0m
-[1m[91m════════════════════════════════════════════════════════════
-   ❌ FAILED — @smoke REG_TS_DS_TC02 - Verify landing menu from expected
-   Duration : 1.66s  |  Steps completed : 0
-════════════════════════════════════════════════════════════
-[0m
-
-[[ATTACHMENT|..\test-results\test-demoApplication-orang-0c92c--landing-menu-from-expected-chromium\error-context.md]]
-
-[[ATTACHMENT|..\test-results\test-demoApplication-orang-0c92c--landing-menu-from-expected-chromium\error-context.md]]
-]]>
-</system-out>
-<error message="Navigation failed: &quot;https://opensource-demo.orangehrmlive.com/web/index.php/auth/login&quot;" type="Error">
-<![CDATA[  [chromium] › test\demoApplication\orange-json.spec.ts:68:7 › Data Sources — TestData | ExcelData | ExcelValidator › @smoke REG_TS_DS_TC02 - Verify landing menu from expected › Navigate to https://opensource-demo.orangehrmlive.com/web/index.php/auth/login 
-
-    Error: Navigation failed: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-
-       at src\pages\basePage.ts:164
-
-      162 |         } catch (e: any) {
-      163 |           logger.error(`Navigation failed | url: "${url}" | error: ${e.message?.split("\n")[0]}`);
-    > 164 |           throw new Error(`Navigation failed: "${url}"`);
-          |                 ^
-      165 |         }
-      166 |       }, { context: "BasePage.navigateTo" });
-      167 |     });
-        at _errorHandler.ErrorHandler.handle.context (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:164:17)
-        at ErrorHandler.handle (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\utils\errorHandler.ts:13:14)
-        at C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:1729:18
-        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:72:5
-
-    attachment #2: tc-logs (text/plain) ────────────────────────────────────────────────────────────
-    2026-06-24T15:32:52.155Z [INFO]  [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
-    2026-06-24T15:32:52.155Z [INFO]  Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-    2026-06-24T15:32:53.788Z [ERROR] Navigation failed | url: "...
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results\test-demoApplication-orang-0c92c--landing-menu-from-expected-chromium\error-context.md
-
-    Error Context: test-results\test-demoApplication-orang-0c92c--landing-menu-from-expected-chromium\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC03 - Verify Username cell from xlsx" classname="test\demoApplication\orange-json.spec.ts" time="0.79">
-<system-out>
-<![CDATA[[96m2026-06-24T15:32:55.750Z [INFO]  Available test data: Orange_Login_Data, Purchase_Order_Data[0m
-[96m2026-06-24T15:32:55.751Z [INFO]  Excel entry: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
-[1m[94m════════════════════════════════════════════════════════════
-   TEST    : @excel REG_TS_DS_TC03 - Verify Username cell from xlsx
-   FILE    : orange-json.spec.ts
-   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
-   ENV     : QA
-   BROWSER : chromium
-════════════════════════════════════════════════════════════[0m
-[96m2026-06-24T15:32:56.498Z [INFO]  Sheet headers: TestCaseID, Username, Password[0m
-[1m[97m[41m2026-06-24T15:32:56.780Z [FAIL]  Screenshot captured → attached to report[0m
-[1m[91m════════════════════════════════════════════════════════════
-   ❌ FAILED — @excel REG_TS_DS_TC03 - Verify Username cell from xlsx
-   Duration : 0.46s  |  Steps completed : 0
-════════════════════════════════════════════════════════════
-[0m
-
-[[ATTACHMENT|..\test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|..\test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\error-context.md]]
-
-[[ATTACHMENT|..\test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\error-context.md]]
-]]>
-</system-out>
-<error message="ExcelData.verifyCell: sheet &quot;LoginTestData&quot;, row 2, column &quot;Username&quot;, expected &quot;Admin&quot;, actual &quot;admin&quot;" type="Error">
-<![CDATA[  [chromium] › test\demoApplication\orange-json.spec.ts:84:7 › Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC03 - Verify Username cell from xlsx 
-
-    Error: ExcelData.verifyCell: sheet "LoginTestData", row 2, column "Username", expected "Admin", actual "admin"
-
-       at testdata\ExcelData.ts:55
-
-      53 |       expect(actual).toEqual(expected);
-      54 |     } catch {
-    > 55 |       throw new Error(
-         |             ^
-      56 |         `ExcelData.verifyCell: sheet "${sheet}", row ${row}, ` +
-      57 |         `column "${columnName}", ` +
-      58 |         `expected ${JSON.stringify(expected)}, actual ${JSON.stringify(actual)}`
-        at ExcelData.verifyCell (C:\Users\Sysla-Sairaj\Documents\ABM-India\testdata\ExcelData.ts:55:13)
-        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:88:5
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #3: tc-logs (text/plain) ────────────────────────────────────────────────────────────
-    2026-06-24T15:32:56.498Z [INFO]  Sheet headers: TestCaseID, Username, Password
-    2026-06-24T15:32:56.780Z [FAIL]  Screenshot captured → attached to report
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\error-context.md
-
-    Error Context: test-results\test-demoApplication-orang-38b33-ify-Username-cell-from-xlsx-chromium\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC04 - Verify full row from xlsx" classname="test\demoApplication\orange-json.spec.ts" time="0.742">
-<system-out>
-<![CDATA[[96m2026-06-24T15:33:00.017Z [INFO]  Available test data: Orange_Login_Data, Purchase_Order_Data[0m
-[96m2026-06-24T15:33:00.018Z [INFO]  Excel entry: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
-[1m[94m════════════════════════════════════════════════════════════
-   TEST    : @excel REG_TS_DS_TC04 - Verify full row from xlsx
-   FILE    : orange-json.spec.ts
-   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
-   ENV     : QA
-   BROWSER : chromium
-════════════════════════════════════════════════════════════[0m
-[1m[97m[41m2026-06-24T15:33:00.962Z [FAIL]  Screenshot captured → attached to report[0m
-[1m[91m════════════════════════════════════════════════════════════
-   ❌ FAILED — @excel REG_TS_DS_TC04 - Verify full row from xlsx
-   Duration : 0.38s  |  Steps completed : 0
-════════════════════════════════════════════════════════════
-[0m
-
-[[ATTACHMENT|..\test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\test-failed-1.png]]
-
-[[ATTACHMENT|..\test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\error-context.md]]
-
-[[ATTACHMENT|..\test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\error-context.md]]
-]]>
-</system-out>
-<error message="ExcelData.verifyCell: sheet &quot;LoginTestData&quot;, row 2, column &quot;Username&quot;, expected &quot;Admin&quot;, actual &quot;admin&quot;" type="Error">
-<![CDATA[  [chromium] › test\demoApplication\orange-json.spec.ts:94:7 › Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC04 - Verify full row from xlsx 
-
-    Error: ExcelData.verifyCell: sheet "LoginTestData", row 2, column "Username", expected "Admin", actual "admin"
-
-       at testdata\ExcelData.ts:55
-
-      53 |       expect(actual).toEqual(expected);
-      54 |     } catch {
-    > 55 |       throw new Error(
-         |             ^
-      56 |         `ExcelData.verifyCell: sheet "${sheet}", row ${row}, ` +
-      57 |         `column "${columnName}", ` +
-      58 |         `expected ${JSON.stringify(expected)}, actual ${JSON.stringify(actual)}`
-        at ExcelData.verifyCell (C:\Users\Sysla-Sairaj\Documents\ABM-India\testdata\ExcelData.ts:55:13)
-        at ExcelData.verifyRow (C:\Users\Sysla-Sairaj\Documents\ABM-India\testdata\ExcelData.ts:73:7)
-        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange-json.spec.ts:95:5
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #3: tc-logs (text/plain) ────────────────────────────────────────────────────────────
-    2026-06-24T15:33:00.962Z [FAIL]  Screenshot captured → attached to report
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\error-context.md
-
-    Error Context: test-results\test-demoApplication-orang-decf8---Verify-full-row-from-xlsx-chromium\error-context.md
-]]>
-</error>
-</testcase>
-<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC05 - Read raw cell value from xlsx" classname="test\demoApplication\orange-json.spec.ts" time="0.619">
-<system-out>
-<![CDATA[[96m2026-06-24T15:33:03.409Z [INFO]  Available test data: Orange_Login_Data, Purchase_Order_Data[0m
-[96m2026-06-24T15:33:03.410Z [INFO]  Excel entry: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
-[1m[94m════════════════════════════════════════════════════════════
-   TEST    : @excel REG_TS_DS_TC05 - Read raw cell value from xlsx
-   FILE    : orange-json.spec.ts
-   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
-   ENV     : QA
-   BROWSER : chromium
-════════════════════════════════════════════════════════════[0m
-[96m2026-06-24T15:33:04.095Z [INFO]  Raw cell value: admin[0m
-[1m[92m2026-06-24T15:33:04.096Z [PASS]  REG_TS_DS_TC05 - Raw value read: admin[0m
-[1m[92m════════════════════════════════════════════════════════════
-   ✅ PASSED — @excel REG_TS_DS_TC05 - Read raw cell value from xlsx
-   Duration : 0.14s  |  Steps completed : 0
-════════════════════════════════════════════════════════════
-[0m
-]]>
-</system-out>
-</testcase>
-<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC06 - Verify TotalPrice formula" classname="test\demoApplication\orange-json.spec.ts" time="0.555">
-<system-out>
-<![CDATA[[1m[94m════════════════════════════════════════════════════════════
-   TEST    : @excel REG_TS_DS_TC06 - Verify TotalPrice formula
-   FILE    : orange-json.spec.ts
-   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
-   ENV     : QA
-   BROWSER : chromium
-════════════════════════════════════════════════════════════[0m
-[1m[92m2026-06-24T15:33:04.710Z [PASS]  REG_TS_DS_TC06 - Formula verified[0m
-[1m[92m════════════════════════════════════════════════════════════
-   ✅ PASSED — @excel REG_TS_DS_TC06 - Verify TotalPrice formula
-   Duration : 0.04s  |  Steps completed : 0
-════════════════════════════════════════════════════════════
-[0m
-]]>
-</system-out>
-</testcase>
-<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC07 - Full validation of Orange_Login_Data" classname="test\demoApplication\orange-json.spec.ts" time="0.445">
-<system-out>
-<![CDATA[[1m[94m════════════════════════════════════════════════════════════
-   TEST    : @excel REG_TS_DS_TC07 - Full validation of Orange_Login_Data
-   FILE    : orange-json.spec.ts
-   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
-   ENV     : QA
-   BROWSER : chromium
-════════════════════════════════════════════════════════════[0m
-[96m2026-06-24T15:33:05.204Z [INFO]  Validating: Login sheet validation for OrangeHRM — sheet: LoginTestData[0m
-[1m[92m2026-06-24T15:33:05.243Z [PASS]  REG_TS_DS_TC07 - All validations passed[0m
-[1m[92m════════════════════════════════════════════════════════════
-   ✅ PASSED — @excel REG_TS_DS_TC07 - Full validation of Orange_Login_Data
-   Duration : 0.05s  |  Steps completed : 0
-════════════════════════════════════════════════════════════
-[0m
-]]>
-</system-out>
-</testcase>
-<testcase name="Data Sources — TestData | ExcelData | ExcelValidator › @excel REG_TS_DS_TC08 - Verify all entries in excel.json" classname="test\demoApplication\orange-json.spec.ts" time="0.554">
-<system-out>
-<![CDATA[[1m[94m════════════════════════════════════════════════════════════
-   TEST    : @excel REG_TS_DS_TC08 - Verify all entries in excel.json
-   FILE    : orange-json.spec.ts
-   SUITE   : test\demoApplication\orange-json.spec.ts › Data Sources — TestData | ExcelData | ExcelValidator
-   ENV     : QA
-   BROWSER : chromium
-════════════════════════════════════════════════════════════[0m
-[96m2026-06-24T15:33:05.835Z [INFO]  Entries to validate: Orange_Login_Data, Purchase_Order_Data[0m
-[1m[92m2026-06-24T15:33:05.867Z [PASS]  REG_TS_DS_TC08 - All entries verified[0m
-[1m[92m════════════════════════════════════════════════════════════
-   ✅ PASSED — @excel REG_TS_DS_TC08 - Verify all entries in excel.json
-   Duration : 0.05s  |  Steps completed : 0
-════════════════════════════════════════════════════════════
-[0m
-]]>
-</system-out>
-<system-err>
-<![CDATA[ExcelValidator.verifyEntry: "Soft_Check_Data" — 2 non-mandatory check(s) failed (warnings only):
-  1. [warn][cell] row 3, column "Username", expected "WRONG_ON_PURPOSE", actual "testadmin"
-  2. [warn][formula] row 3, column "TotalPrice", expected 999999, actual 100000
-]]>
-</system-err>
-</testcase>
-</testsuite>
-<testsuite name="test\demoApplication\orange.spec.ts" timestamp="2026-06-24T10:02:17.555Z" hostname="chromium" tests="2" failures="0" skipped="0" time="25.135" errors="2">
-<testcase name="Orange HRM - Login Module › @regression @smoke REG_TS_or_TC01 - Login using row data" classname="test\demoApplication\orange.spec.ts" time="22.112">
+<testsuites id="" name="" tests="2" failures="0" skipped="0" errors="2" time="44.092200999999996">
+<testsuite name="test\demoApplication\orange.spec.ts" timestamp="2026-07-01T10:54:15.968Z" hostname="chromium" tests="2" failures="0" skipped="0" time="40.629" errors="2">
+<testcase name="Orange HRM - Login Module › @regression @smoke REG_TS_or_TC01 - Login using row data" classname="test\demoApplication\orange.spec.ts" time="19.688">
 <system-out>
 <![CDATA[[1m[94m════════════════════════════════════════════════════════════
    TEST    : @regression @smoke REG_TS_or_TC01 - Login using row data
@@ -351,35 +9,25 @@ Navigation failed: "https://opensource-demo.orangehrmlive.com/web/index.php/auth
    ENV     : QA
    BROWSER : chromium
 ════════════════════════════════════════════════════════════[0m
-[96m2026-06-24T15:32:22.684Z [INFO]  REG_TS_or_TC01 - Login using getTestDataByRow[0m
-[1m[97m2026-06-24T15:32:23.148Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.47s[0m
-[96m2026-06-24T15:32:23.170Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
-[96m2026-06-24T15:32:23.175Z [INFO]    Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
-[96m2026-06-24T15:32:26.186Z [INFO]    Navigated to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
-[1m[97m2026-06-24T15:32:26.192Z [STEP]      [STEP-002][L0] Login as: admin | +3.04s[0m
-[96m2026-06-24T15:32:26.200Z [INFO]      [ACTION] Fill username → admin[0m
-[96m2026-06-24T15:32:26.201Z [INFO]      Filling: "username" with value: "admin"[0m
-[96m2026-06-24T15:32:26.866Z [INFO]      Filled: "username"[0m
-[96m2026-06-24T15:32:26.871Z [INFO]      [ACTION] Fill password → admin123[0m
-[96m2026-06-24T15:32:26.871Z [INFO]      Filling: "password" with value: "admin123"[0m
-[96m2026-06-24T15:32:26.992Z [INFO]      Filled: "password"[0m
-[96m2026-06-24T15:32:27.004Z [INFO]      [ACTION] Click loginButton[0m
-[96m2026-06-24T15:32:27.004Z [INFO]      Clicking: "loginButton"[0m
-[96m2026-06-24T15:32:28.346Z [INFO]      Clicked: "loginButton"[0m
-[1m[97m2026-06-24T15:32:28.353Z [STEP]        [STEP-003][L0] Verify login successful | +2.16s[0m
-[96m2026-06-24T15:32:28.358Z [INFO]        [ACTION] Wait Visible admin[0m
-[96m2026-06-24T15:32:28.359Z [INFO]        Waiting for "admin" to be visible[0m
-[1m[91m2026-06-24T15:32:43.392Z [ERROR]       Wait visible failed | element: "admin" | expected: visible | actual: not found[0m
-[1m[91m2026-06-24T15:32:43.392Z [ERROR]       Wait visible failed | element: "admin" | error: Element not visible: "admin"[0m
-[1m[91m2026-06-24T15:32:43.392Z [ERROR]       ❌ BasePage.waitForElementIsVisible (admin)
+[96m2026-07-01T16:24:17.236Z [INFO]  REG_TS_or_TC01 - Login using getTestDataByRow[0m
+[1m[97m2026-07-01T16:24:17.387Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.16s[0m
+[96m2026-07-01T16:24:17.389Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
+[96m2026-07-01T16:24:17.389Z [INFO]    Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[96m2026-07-01T16:24:21.329Z [INFO]    Navigated to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[1m[97m2026-07-01T16:24:21.349Z [STEP]      [STEP-002][L0] Login as: admin | +3.96s[0m
+[96m2026-07-01T16:24:21.352Z [INFO]      [ACTION] Fill username → admin[0m
+[96m2026-07-01T16:24:21.352Z [INFO]      Filling: "username" with value: "admin"[0m
+[1m[91m2026-07-01T16:24:36.384Z [ERROR]     Element not found | element: "username" | locator: locator('//*[@placeholder=\'\']') (autoHeal disabled)[0m
+[1m[91m2026-07-01T16:24:36.384Z [ERROR]     Fill failed | element: "username" | value: "admin" | locator: locator('//*[@placeholder=\'\']') | error: Element not found: "username"[0m
+[1m[91m2026-07-01T16:24:36.384Z [ERROR]     ❌ BasePage.fill (username)
 
 Root Cause:
-Element not visible: "admin"[0m
-[1m[91m2026-06-24T15:32:43.392Z [ERROR]       Source: C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:53:5[0m
-[1m[97m[41m2026-06-24T15:32:43.853Z [FAIL]        Screenshot captured → attached to report[0m
+Fill failed: "username" | value: "admin"[0m
+[1m[91m2026-07-01T16:24:36.384Z [ERROR]     Source: C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:48:5[0m
+[1m[97m[41m2026-07-01T16:24:36.587Z [FAIL]      Screenshot captured → attached to report[0m
 [1m[91m════════════════════════════════════════════════════════════
    ❌ FAILED — @regression @smoke REG_TS_or_TC01 - Login using row data
-   Duration : 21.18s  |  Steps completed : 3
+   Duration : 19.36s  |  Steps completed : 2
 ════════════════════════════════════════════════════════════
 [0m
 
@@ -390,34 +38,34 @@ Element not visible: "admin"[0m
 [[ATTACHMENT|..\test-results\test-demoApplication-orang-07dfe-TC01---Login-using-row-data-chromium\error-context.md]]
 ]]>
 </system-out>
-<error message="Element not visible: &quot;admin&quot;" type="Error">
-<![CDATA[  [chromium] › test\demoApplication\orange.spec.ts:35:7 › Orange HRM - Login Module › @regression @smoke REG_TS_or_TC01 - Login using row data › Wait for admin to be visible 
+<error message="Fill failed: &quot;username&quot; | value: &quot;admin&quot;" type="Error">
+<![CDATA[  [chromium] › test\demoApplication\orange.spec.ts:35:7 › Orange HRM - Login Module › @regression @smoke REG_TS_or_TC01 - Login using row data › Fill username → admin 
 
-    Error: Element not visible: "admin"
+    Error: Fill failed: "username" | value: "admin"
 
-       at src\pages\basePage.ts:636
+       at src\pages\basePage.ts:313
 
-      634 |           }
-      635 |           logger.error(`Wait visible failed | element: "${name}" | expected: visible | actual: not found`);
-    > 636 |           throw new Error(`Element not visible: "${name}"`);
+      311 |         } catch (e: any) {
+      312 |           logger.error(`Fill failed | element: "${name}" | value: "${text}" | locator: ${locatorStr} | error: ${e.message?.split("\n")[0]}`);
+    > 313 |           throw new Error(`Fill failed: "${name}" | value: "${text}"`);
           |                 ^
-      637 |         } catch (e: any) {
-      638 |           logger.error(`Wait visible failed | element: "${name}" | error: ${e.message?.split("\n")[0]}`);
-      639 |           throw e;
-        at _errorHandler.ErrorHandler.handle.context (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:636:17)
+      314 |         }
+      315 |       }, { context:`BasePage.fill (${name})` });
+      316 |     });
+        at _errorHandler.ErrorHandler.handle.context (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:313:17)
         at ErrorHandler.handle (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\utils\errorHandler.ts:13:14)
-        at C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:1729:18
-        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:53:5
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:1752:18
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:48:5
 
-    attachment #6: screenshot (image/png) ──────────────────────────────────────────────────────────
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
     test-results\test-demoApplication-orang-07dfe-TC01---Login-using-row-data-chromium\test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    attachment #8: tc-logs (text/plain) ────────────────────────────────────────────────────────────
-    2026-06-24T15:32:22.684Z [INFO]  REG_TS_or_TC01 - Login using getTestDataByRow
-    2026-06-24T15:32:23.148Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.47s
-    2026-06-24T15:32:23.170Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
-    2026-06-24T15:...
+    attachment #5: tc-logs (text/plain) ────────────────────────────────────────────────────────────
+    2026-07-01T16:24:17.236Z [INFO]  REG_TS_or_TC01 - Login using getTestDataByRow
+    2026-07-01T16:24:17.387Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.16s
+    2026-07-01T16:24:17.389Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+    2026-07-01T16:...
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     Error Context: test-results\test-demoApplication-orang-07dfe-TC01---Login-using-row-data-chromium\error-context.md
@@ -426,7 +74,7 @@ Element not visible: "admin"[0m
 ]]>
 </error>
 </testcase>
-<testcase name="Orange HRM - Login Module › @smoke REG_TS_or_TC02 - Login using JSON profile data" classname="test\demoApplication\orange.spec.ts" time="3.023">
+<testcase name="Orange HRM - Login Module › @smoke REG_TS_or_TC02 - Login using JSON profile data" classname="test\demoApplication\orange.spec.ts" time="20.941">
 <system-out>
 <![CDATA[[1m[94m════════════════════════════════════════════════════════════
    TEST    : @smoke REG_TS_or_TC02 - Login using JSON profile data
@@ -435,51 +83,63 @@ Element not visible: "admin"[0m
    ENV     : QA
    BROWSER : chromium
 ════════════════════════════════════════════════════════════[0m
-[96m2026-06-24T15:32:46.320Z [INFO]  REG_TS_or_TC02 - Login using JSON profile data[0m
-[1m[97m2026-06-24T15:32:46.321Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.01s[0m
-[96m2026-06-24T15:32:46.324Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
-[96m2026-06-24T15:32:46.325Z [INFO]    Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
-[1m[91m2026-06-24T15:32:48.735Z [ERROR]   Navigation failed | url: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login" | error: page.goto: Target page, context or browser has been closed[0m
-[1m[91m2026-06-24T15:32:48.737Z [ERROR]   ❌ BasePage.navigateTo
+[96m2026-07-01T16:24:38.676Z [INFO]  REG_TS_or_TC02 - Login using JSON profile data[0m
+[1m[97m2026-07-01T16:24:38.681Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.01s[0m
+[96m2026-07-01T16:24:38.683Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login[0m
+[96m2026-07-01T16:24:38.684Z [INFO]    Navigating to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[96m2026-07-01T16:24:43.174Z [INFO]    Navigated to: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
+[1m[97m2026-07-01T16:24:43.178Z [STEP]      [STEP-002][L0] Login as: Admin | +4.50s[0m
+[96m2026-07-01T16:24:43.182Z [INFO]      [ACTION] Fill username → Admin[0m
+[96m2026-07-01T16:24:43.183Z [INFO]      Filling: "username" with value: "Admin"[0m
+[1m[91m2026-07-01T16:24:58.197Z [ERROR]     Element not found | element: "username" | locator: locator('//*[@placeholder=\'\']') (autoHeal disabled)[0m
+[1m[91m2026-07-01T16:24:58.198Z [ERROR]     Fill failed | element: "username" | value: "Admin" | locator: locator('//*[@placeholder=\'\']') | error: Element not found: "username"[0m
+[1m[91m2026-07-01T16:24:58.198Z [ERROR]     ❌ BasePage.fill (username)
 
 Root Cause:
-Navigation failed: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"[0m
-[1m[91m2026-06-24T15:32:48.737Z [ERROR]   Source: C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:66:5[0m
+Fill failed: "username" | value: "Admin"[0m
+[1m[91m2026-07-01T16:24:58.198Z [ERROR]     Source: C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:69:5[0m
+[1m[97m[41m2026-07-01T16:24:59.248Z [FAIL]      Screenshot captured → attached to report[0m
 [1m[91m════════════════════════════════════════════════════════════
    ❌ FAILED — @smoke REG_TS_or_TC02 - Login using JSON profile data
-   Duration : 2.45s  |  Steps completed : 1
+   Duration : 20.58s  |  Steps completed : 2
 ════════════════════════════════════════════════════════════
 [0m
+
+[[ATTACHMENT|..\test-results\test-demoApplication-orang-0118e-gin-using-JSON-profile-data-chromium\test-failed-1.png]]
 
 [[ATTACHMENT|..\test-results\test-demoApplication-orang-0118e-gin-using-JSON-profile-data-chromium\error-context.md]]
 
 [[ATTACHMENT|..\test-results\test-demoApplication-orang-0118e-gin-using-JSON-profile-data-chromium\error-context.md]]
 ]]>
 </system-out>
-<error message="Navigation failed: &quot;https://opensource-demo.orangehrmlive.com/web/index.php/auth/login&quot;" type="Error">
-<![CDATA[  [chromium] › test\demoApplication\orange.spec.ts:58:7 › Orange HRM - Login Module › @smoke REG_TS_or_TC02 - Login using JSON profile data › Navigate to https://opensource-demo.orangehrmlive.com/web/index.php/auth/login 
+<error message="Fill failed: &quot;username&quot; | value: &quot;Admin&quot;" type="Error">
+<![CDATA[  [chromium] › test\demoApplication\orange.spec.ts:58:7 › Orange HRM - Login Module › @smoke REG_TS_or_TC02 - Login using JSON profile data › Fill username → Admin 
 
-    Error: Navigation failed: "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
+    Error: Fill failed: "username" | value: "Admin"
 
-       at src\pages\basePage.ts:164
+       at src\pages\basePage.ts:313
 
-      162 |         } catch (e: any) {
-      163 |           logger.error(`Navigation failed | url: "${url}" | error: ${e.message?.split("\n")[0]}`);
-    > 164 |           throw new Error(`Navigation failed: "${url}"`);
+      311 |         } catch (e: any) {
+      312 |           logger.error(`Fill failed | element: "${name}" | value: "${text}" | locator: ${locatorStr} | error: ${e.message?.split("\n")[0]}`);
+    > 313 |           throw new Error(`Fill failed: "${name}" | value: "${text}"`);
           |                 ^
-      165 |         }
-      166 |       }, { context: "BasePage.navigateTo" });
-      167 |     });
-        at _errorHandler.ErrorHandler.handle.context (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:164:17)
+      314 |         }
+      315 |       }, { context:`BasePage.fill (${name})` });
+      316 |     });
+        at _errorHandler.ErrorHandler.handle.context (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:313:17)
         at ErrorHandler.handle (C:\Users\Sysla-Sairaj\Documents\ABM-India\src\utils\errorHandler.ts:13:14)
-        at C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:1729:18
-        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:66:5
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\src\pages\basePage.ts:1752:18
+        at C:\Users\Sysla-Sairaj\Documents\ABM-India\test\demoApplication\orange.spec.ts:69:5
 
-    attachment #2: tc-logs (text/plain) ────────────────────────────────────────────────────────────
-    2026-06-24T15:32:46.320Z [INFO]  REG_TS_or_TC02 - Login using JSON profile data
-    2026-06-24T15:32:46.321Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.01s
-    2026-06-24T15:32:46.324Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
-    2026-06-24T15...
+    attachment #3: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\test-demoApplication-orang-0118e-gin-using-JSON-profile-data-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: tc-logs (text/plain) ────────────────────────────────────────────────────────────
+    2026-07-01T16:24:38.676Z [INFO]  REG_TS_or_TC02 - Login using JSON profile data
+    2026-07-01T16:24:38.681Z [STEP]    [STEP-001][L0] Navigate to OrangeHRM | +0.01s
+    2026-07-01T16:24:38.683Z [INFO]    [ACTION] Navigate URL → https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
+    2026-07-01T16...
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     Error Context: test-results\test-demoApplication-orang-0118e-gin-using-JSON-profile-data-chromium\error-context.md

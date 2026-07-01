@@ -5,7 +5,7 @@ import * as path from "path";
 import { devConfig }       from "./env.dev";
 import { qaConfig }        from "./env.qa";
 import { AppConfigSchema } from "./env.schema";
-import type { AppConfig, Environment, TimeoutKeys } from "./types";
+import type { AppConfig, Environment, TimeoutKeys, FrameworkSettings } from "./types";
 
 const configs: Record<Environment, AppConfig> = {
   dev: devConfig,
@@ -15,6 +15,27 @@ const configs: Record<Environment, AppConfig> = {
 class ConfigManager {
   private env:    Environment;
   private config: AppConfig;
+
+  // ── Framework Settings — single place to enable/disable framework features ─
+  //
+  // Rules:
+  // - This is the ONLY place these flags are defined/mutated.
+  // - No other class (BasePage, ElementUtils, AutoHeal, etc.) should ever
+  //   need to change to add, remove, or flip a feature.
+  // - Consumers read via configManager.getFrameworkSettings().<flag>.
+  // - To add a new flag: add one line below. That's it.
+  private frameworkSettings: FrameworkSettings = {
+    autoHeal: false,
+    // aiLocator: true,
+    // smartWait: true,
+    // retryFailedAction: true,
+    // screenshotOnFailure: true,
+    // trace: true,
+    // video: false,
+    // visualTesting: false,
+    // accessibility: false,
+    // networkCapture: true,
+  };
 
   constructor() {
     const rawEnv = (
@@ -125,6 +146,25 @@ class ConfigManager {
     }
 
     return fullPath;
+  }
+
+  // ── Framework Settings getter ───────────────────────────────────────────────
+  //
+  // Returns the full feature-flag map. Consumers pick the flag they care
+  // about, e.g.:
+  //
+  //   if (configManager.getFrameworkSettings().autoHeal) {
+  //       // Execute auto healing
+  //   } else {
+  //       // Existing locator logic
+  //   }
+  //
+  // Returning the live object (not a clone) keeps this cheap and read-mostly;
+  // ConfigManager remains the only writer by convention/design — no setter
+  // is exposed, so external code can only read flags, never mutate them
+  // through this API.
+  getFrameworkSettings(): Readonly<FrameworkSettings> {
+    return this.frameworkSettings;
   }
 }
 

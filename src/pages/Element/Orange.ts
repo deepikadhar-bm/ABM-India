@@ -20,7 +20,7 @@ export class Orange {
     }
     get username(): Locator {
         return this.named("username",
-            this.page.locator("//*[@placeholder='Username']"));
+            this.page.locator("//*[@placeholder='']"));
     }
 
     get password(): Locator {

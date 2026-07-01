@@ -20,6 +20,37 @@ export interface ExpectedFieldsConfig {
   required: string[];   // e.g. ["landingMenu"] — must exist in every expected{}
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Framework Settings — single source of truth for all feature toggles.
+//
+// SOLID rationale:
+// - Open/Closed: consumers (BasePage, ElementUtils, AutoHeal, etc.) never
+//   change when a new flag is added; they only read from this interface.
+// - Single Responsibility: this interface's only job is to describe which
+//   framework features exist and their on/off state.
+// - Interface Segregation: consumers depend only on the flags they use via
+//   getFrameworkSettings(), not on the whole AppConfig.
+//
+// To add a new feature flag:
+//   1. Add the key here (typed boolean).
+//   2. Add its default value in ConfigManager.frameworkSettings.
+//   No other file needs to change.
+// ─────────────────────────────────────────────────────────────────────────────
+export interface FrameworkSettings {
+  autoHeal: boolean;
+  // Future flags (already supported by architecture, add when needed):
+  // aiLocator?: boolean;
+  // smartWait?: boolean;
+  // retryFailedAction?: boolean;
+  // screenshotOnFailure?: boolean;
+  // trace?: boolean;
+  // video?: boolean;
+  // visualTesting?: boolean;
+  // accessibility?: boolean;
+  // networkCapture?: boolean;
+  [key: string]: boolean; // index signature keeps this open for extension
+}
+
 export interface AppConfig {
   env:         Environment;
   baseURL:     string;
